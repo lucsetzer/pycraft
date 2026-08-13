@@ -1,9 +1,23 @@
 const NAV_LINKS = [
-    { href: '/pycraft/index.html',     label: 'Home',      icon: '🏠' },
-    { href: '/pycraft/practice.html',  label: 'Practice',  icon: '💻' },
-    { href: '/pycraft/chapter-1.html', label: 'Ch 1',      icon: '🐍' },
-    { href: '/pycraft/chapter-2.html', label: 'Ch 2',      icon: '📋' },
-    { href: '/pycraft/chapter-3.html', label: 'Ch 3',      icon: '⚙️' },
+    { href: '/pycraft/index.html', label: 'Home', icon: '🏠' },
+    { href: '/pycraft/practice.html', label: 'Practice Hub', icon: '📚' },
+    // Add a special "Chapters" dropdown
+    { type: 'dropdown', label: 'Chapters', icon: '📖', items: [
+        { href: '/pycraft/chapter-1.html', label: 'Ch 1: Python Basics' },
+        { href: '/pycraft/chapter-2.html', label: 'Ch 2: Python Lists' },
+        { href: '/pycraft/chapter-3.html', label: 'Ch 3: Functions' },
+        { href: '/pycraft/chapter-4.html', label: 'Ch 4: NumPy' },
+        { href: '/pycraft/chapter-5.html', label: 'Ch 5: Matplotlib' },
+        { href: '/pycraft/chapter-5.html', label: 'Ch 6: Dictionaries' },
+        { href: '/pycraft/chapter-5.html', label: 'Ch 7: Comparrison Operators' },
+        { href: '/pycraft/chapter-5.html', label: 'Ch 8: While Loop' },
+        { href: '/pycraft/chapter-5.html', label: 'Ch 9: Random Numbers' },
+        { href: '/pycraft/chapter-5.html', label: 'Ch 10: Introducing DataFrames' },
+        { href: '/pycraft/chapter-5.html', label: 'Ch 11: Summary Statistics' },
+        { href: '/pycraft/chapter-5.html', label: 'Ch 12: Explicit Indexes' },
+        { href: '/pycraft/chapter-5.html', label: 'Ch 13: Visualizing Your Data' },
+        { href: '/pycraft/chapter-5.html', label: 'Ch 14: Introducing Arrays - NumPy' },
+    ]},
 ];
 
 // Build the navigation bar
