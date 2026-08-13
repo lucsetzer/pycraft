@@ -11,54 +11,184 @@
     <div class="container" style="padding-top: 100px; max-width: 900px; margin: 0 auto;">
         
         <!-- Chapter Header -->
-        <div style="margin-bottom: 40px; border-bottom: 2px solid #2dce89; padding-bottom: 20px;">
-            <h1 style="font-size: 2rem;">Chapter 1: Python Basics</h1>
+        <div style="margin-bottom: 30px; border-bottom: 2px solid #2dce89; padding-bottom: 20px;">
+            <h1 style="font-size: 2rem;">🐍 Chapter 1: Python Basics</h1>
             <p style="color: #a0b4c8; font-size: 1.1rem;">Variables, data types, and basic operations.</p>
-            <div style="display: flex; gap: 10px; margin-top: 12px; flex-wrap: wrap;">
+            <div style="display: flex; gap: 15px; margin-top: 12px; flex-wrap: wrap; align-items: center;">
                 <span style="background: #1a2433; padding: 4px 14px; border-radius: 20px; font-size: 0.85rem;">📚 DataCamp Chapter 1</span>
-                <span style="background: #1a2433; padding: 4px 14px; border-radius: 20px; font-size: 0.85rem;">✅ 3 exercises</span>
-            </div>
-        </div>
-
-        <!-- Exercise 1 -->
-        <div style="background: #111b28; border-radius: 12px; padding: 25px; margin-bottom: 30px; border: 1px solid #1a2433;">
-            <h3 style="color: #2dce89;">Exercise 1: Create a Variable</h3>
-            <p style="color: #a0b4c8; margin-bottom: 20px;">Create a variable called <code>name</code> and assign it your name as a string.</p>
-            
-            <div data-datacamp-exercise data-lang="python" data-height="350">
-                <code data-type="pre-exercise-code">
-                    # Nothing needed here
-                </code>
-                <code data-type="sample-code">
-                    # Create a variable called 'name' and assign it your name
-                    
-                    # Print a greeting
-                    print("Hello, " + name + "!")
-                </code>
-                <code data-type="solution">
-                    # Create a variable called 'name' and assign it your name
-                    name = "Luc"
-                    
-                    # Print a greeting
-                    print("Hello, " + name + "!")
-                </code>
-                <code data-type="sct">
-                    test_object("name")
-                    test_function("print")
-                    success_msg("Great job! You created a variable and used it!")
-                </code>
-                <div data-type="hint">
-                    Use <code>=</code> to assign a value: <code>name = "YourName"</code>
+                <span style="background: #1a2433; padding: 4px 14px; border-radius: 20px; font-size: 0.85rem;" id="exerciseCounter">✅ Exercise 1 of 3</span>
+                <!-- Navigation buttons -->
+                <div style="display: flex; gap: 8px; margin-left: auto;">
+                    <button onclick="prevExercise()" id="prevBtn" style="background: #1a2433; color: #a0b4c8; border: 1px solid #2d3748; padding: 6px 16px; border-radius: 6px; cursor: pointer; font-size: 0.85rem;">
+                        ← Previous
+                    </button>
+                    <button onclick="nextExercise()" id="nextBtn" style="background: #2dce89; color: #0a0e17; border: none; padding: 6px 16px; border-radius: 6px; cursor: pointer; font-size: 0.85rem; font-weight: 600;">
+                        Next →
+                    </button>
                 </div>
             </div>
         </div>
 
-        <!-- Navigation -->
-        <div style="display: flex; justify-content: space-between; margin-top: 40px; padding-top: 20px; border-top: 1px solid #1a2433;">
+        <!-- Exercise Container -->
+        <div id="exerciseContainer">
+            
+            <!-- EXERCISE 1 -->
+            <div class="exercise" data-exercise="1" style="display: block; background: #111b28; border-radius: 12px; padding: 25px; border: 1px solid #1a2433; margin-bottom: 20px;">
+                <h3 style="color: #2dce89; margin-bottom: 10px;">Exercise 1: Create a Variable</h3>
+                <p style="color: #a0b4c8; margin-bottom: 20px;">Create a variable called <code>name</code> and assign it your name as a string.</p>
+                
+                <div data-datacamp-exercise data-lang="python" data-height="350">
+                    <code data-type="pre-exercise-code"># Nothing needed here</code>
+                    <code data-type="sample-code">
+                        # Create a variable called 'name' and assign it your name
+                        
+                        # Print a greeting
+                        print("Hello, " + name + "!")
+                    </code>
+                    <code data-type="solution">
+                        # Create a variable called 'name' and assign it your name
+                        name = "Alex"
+                        
+                        # Print a greeting
+                        print("Hello, " + name + "!")
+                    </code>
+                    <code data-type="sct">
+                        test_object("name")
+                        test_function("print")
+                        success_msg("Great job! You created a variable and used it!")
+                    </code>
+                    <div data-type="hint">Use <code>=</code> to assign a value: <code>name = "YourName"</code></div>
+                </div>
+            </div>
+            
+            <!-- EXERCISE 2 -->
+            <div class="exercise" data-exercise="2" style="display: none; background: #111b28; border-radius: 12px; padding: 25px; border: 1px solid #1a2433; margin-bottom: 20px;">
+                <h3 style="color: #2dce89; margin-bottom: 10px;">Exercise 2: Basic Math</h3>
+                <p style="color: #a0b4c8; margin-bottom: 20px;">Calculate the area of a rectangle with <code>width = 5</code> and <code>height = 8</code>.</p>
+                
+                <div data-datacamp-exercise data-lang="python" data-height="350">
+                    <code data-type="pre-exercise-code"># Nothing needed here</code>
+                    <code data-type="sample-code">
+                        # Define width and height
+                        width = 5
+                        height = 8
+                        
+                        # Calculate the area
+                        
+                        # Print the result
+                    </code>
+                    <code data-type="solution">
+                        # Define width and height
+                        width = 5
+                        height = 8
+                        
+                        # Calculate the area
+                        area = width * height
+                        
+                        # Print the result
+                        print("Area:", area)
+                    </code>
+                    <code data-type="sct">
+                        test_object("area")
+                        test_function("print")
+                        success_msg("Perfect! Area = width × height")
+                    </code>
+                    <div data-type="hint">Multiplication uses the <code>*</code> operator.</div>
+                </div>
+            </div>
+            
+            <!-- EXERCISE 3 -->
+            <div class="exercise" data-exercise="3" style="display: none; background: #111b28; border-radius: 12px; padding: 25px; border: 1px solid #1a2433; margin-bottom: 20px;">
+                <h3 style="color: #2dce89; margin-bottom: 10px;">Exercise 3: String Concatenation</h3>
+                <p style="color: #a0b4c8; margin-bottom: 20px;">Create two variables, <code>first_name</code> and <code>last_name</code>, and combine them into a full name.</p>
+                
+                <div data-datacamp-exercise data-lang="python" data-height="350">
+                    <code data-type="pre-exercise-code"># Nothing needed here</code>
+                    <code data-type="sample-code">
+                        # Create first_name and last_name variables
+                        
+                        # Combine them into full_name
+                        
+                        # Print full_name
+                    </code>
+                    <code data-type="solution">
+                        # Create first_name and last_name variables
+                        first_name = "John"
+                        last_name = "Doe"
+                        
+                        # Combine them into full_name
+                        full_name = first_name + " " + last_name
+                        
+                        # Print full_name
+                        print(full_name)
+                    </code>
+                    <code data-type="sct">
+                        test_object("full_name")
+                        test_function("print")
+                        success_msg("Excellent! You combined strings!")
+                    </code>
+                    <div data-type="hint">Use the <code>+</code> operator to concatenate strings.</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Navigation Back -->
+        <div style="display: flex; justify-content: space-between; margin-top: 20px; padding-top: 20px; border-top: 1px solid #1a2433;">
             <a href="/pycraft/practice.html" style="color: #2dce89;">← Back to Practice</a>
             <a href="/pycraft/chapter-2.html" style="color: #2dce89;">Next Chapter →</a>
         </div>
     </div>
+
+    <!-- JavaScript for Exercise Navigation -->
+    <script>
+        let currentExercise = 1;
+        const totalExercises = 3;
+
+        function showExercise(num) {
+            // Hide all exercises
+            const exercises = document.querySelectorAll('.exercise');
+            exercises.forEach((ex, index) => {
+                ex.style.display = 'none';
+            });
+            
+            // Show the selected exercise
+            const target = document.querySelector(`.exercise[data-exercise="${num}"]`);
+            if (target) {
+                target.style.display = 'block';
+            }
+            
+            // Update counter
+            document.getElementById('exerciseCounter').textContent = `✅ Exercise ${num} of ${totalExercises}`;
+            
+            // Update button states
+            document.getElementById('prevBtn').style.opacity = num === 1 ? '0.4' : '1';
+            document.getElementById('prevBtn').style.cursor = num === 1 ? 'default' : 'pointer';
+            document.getElementById('nextBtn').style.opacity = num === totalExercises ? '0.4' : '1';
+            document.getElementById('nextBtn').style.cursor = num === totalExercises ? 'default' : 'pointer';
+            
+            currentExercise = num;
+            
+            // Scroll to top of exercise
+            document.querySelector('.container').scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+
+        function nextExercise() {
+            if (currentExercise < totalExercises) {
+                showExercise(currentExercise + 1);
+            }
+        }
+
+        function prevExercise() {
+            if (currentExercise > 1) {
+                showExercise(currentExercise - 1);
+            }
+        }
+
+        // Initialize on page load
+        document.addEventListener('DOMContentLoaded', function() {
+            showExercise(1);
+        });
+    </script>
 
     <script src="/pycraft/js/nav.js"></script>
 </body>
