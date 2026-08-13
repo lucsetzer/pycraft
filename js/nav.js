@@ -1,7 +1,7 @@
 const NAV_LINKS = [
     { href: '/pycraft/index.html', label: 'Home', icon: '🏠' },
     { href: '/pycraft/practice.html', label: 'Practice Hub', icon: '📚' },
-    // Add a special "Chapters" dropdown
+    { href: '/pycraft/chapters.html', label: 'Chapters', icon: '📖' },
     { type: 'dropdown', label: 'Chapters', icon: '📖', items: [
         { href: '/pycraft/chapter-1.html', label: 'Ch 1: Python Basics' },
         { href: '/pycraft/chapter-2.html', label: 'Ch 2: Python Lists' },
