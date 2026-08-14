@@ -32,32 +32,49 @@
         <!-- Exercise Container -->
         <div id="exerciseContainer">
             
-            <!-- EXERCISE 1 -->
+            <!-- EXERCISE 1: Printing and Comments -->
             <div class="exercise" data-exercise="1" style="display: block; background: #111b28; border-radius: 12px; padding: 25px; border: 1px solid #1a2433; margin-bottom: 20px;">
-                <h3 style="color: #2dce89; margin-bottom: 10px;">Exercise 1: Create a Variable</h3>
-                <p style="color: #a0b4c8; margin-bottom: 20px;">Create a variable called <code>name</code> and assign it your name as a string.</p>
+                <h3 style="color: #2dce89; margin-bottom: 10px;">Exercise 1: Printing and Comments</h3>
+                <p style="color: #a0b4c8; margin-bottom: 20px;">
+                    Write a comment that says <code>"My first Python program!"</code> and use <code>print()</code> to display your name.
+                </p>
                 
                 <div data-datacamp-exercise data-lang="python" data-height="350">
                     <code data-type="pre-exercise-code"># Nothing needed here</code>
+                    
                     <code data-type="sample-code">
-                        # Create a variable called 'name' and assign it your name
+                        # Write your comment here
                         
-                        # Print a greeting
-                        print("Hello, " + name + "!")
+                        # Write your print statement here
                     </code>
+                    
                     <code data-type="solution">
-                        # Create a variable called 'name' and assign it your name
-                        name = " "
-                        
-                        # Print a greeting
-                        print("Hello, " + name + "!")
+                        # My first Python program!
+                        print("Your Name")
                     </code>
+                    
                     <code data-type="sct">
-                        test_object("name")
-                        test_function("print")
-                        success_msg("Great job! You created a variable and used it!")
+                        # Check if they wrote a comment (we can't directly test comments in SCT)
+                        # But we can check if they used print() and printed something
+                        
+                        # Check if print() was used
+                        test_function("print", 
+                            incorrect_msg="You need to use print() to display your name.")
+                        
+                        # Check if they printed something (not empty)
+                        # Note: This checks the output, not the code
+                        test_output_contains("Your Name", 
+                            incorrect_msg="Make sure you're printing your name. For example: print('Your Name')")
+                        
+                        # Success message
+                        success_msg("🎉 Great job! You wrote a comment and printed your name!")
                     </code>
-                    <div data-type="hint">Use <code>=</code> to assign a value: <code>name = "YourName"</code></div>
+                    
+                    <div data-type="hint">
+                        <strong>Stuck? Try this:</strong><br>
+                        1. A comment starts with <code>#</code><br>
+                        2. To print something, use <code>print("your text here")</code>
+                    </div>
                 </div>
             </div>
             
