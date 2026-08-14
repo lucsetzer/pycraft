@@ -1,1 +1,575 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Chapter 11: Summary Statistics – PyCraft</title>
+    <link rel="stylesheet" href="/pycraft/css/style.css"/>
+    <script type="text/javascript" src="//cdn.datacamp.com/dcl-react.js.gz"></script>
+</head>
+<body>
+    <div class="container" style="padding-top: 100px; max-width: 900px; margin: 0 auto;">
+        
+        <!-- Chapter Header -->
+        <div style="margin-bottom: 30px; border-bottom: 2px solid #2dce89; padding-bottom: 20px;">
+            <h1 style="font-size: 2rem;">Chapter 11: Summary Statistics</h1>
+            <p style="color: #a0b4c8; font-size: 1.1rem;">Variables, data types, and basic operations.</p>
+            <div style="display: flex; gap: 15px; margin-top: 12px; flex-wrap: wrap; align-items: center;">
+                <span style="background: #1a2433; padding: 4px 14px; border-radius: 20px; font-size: 0.85rem;">📚 DataCamp Chapter 1</span>
+                <span style="background: #1a2433; padding: 4px 14px; border-radius: 20px; font-size: 0.85rem;" id="exerciseCounter">✅ Exercise 1 of 3</span>
+                <!-- Navigation buttons -->
+                <div style="display: flex; gap: 8px; margin-left: auto;">
+                    <button onclick="prevExercise()" id="prevBtn" style="background: #1a2433; color: #a0b4c8; border: 1px solid #2d3748; padding: 6px 16px; border-radius: 6px; cursor: pointer; font-size: 0.85rem;">
+                        ← Previous
+                    </button>
+                    <button onclick="nextExercise()" id="nextBtn" style="background: #2dce89; color: #0a0e17; border: none; padding: 6px 16px; border-radius: 6px; cursor: pointer; font-size: 0.85rem; font-weight: 600;">
+                        Next →
+                    </button>
+                </div>
+            </div>
+        </div>
 
+        <!-- Exercise Container -->
+        <div id="exerciseContainer">
+            
+            <!-- EXERCISE 1: Basic Summary Statistics -->
+            <div class="exercise" data-exercise="1" style="display: block; background: #111b28; border-radius: 12px; padding: 25px; border: 1px solid #1a2433; margin-bottom: 20px;">
+                <h3 style="color: #2dce89; margin-bottom: 10px;">Exercise 1: Basic Summary Statistics</h3>
+                <p style="color: #a0b4c8; margin-bottom: 20px;">
+                    Create a DataFrame with columns <code>"Item"</code>, <code>"Cost"</code>, and <code>"Quantity"</code>.<br>
+                    Calculate and print the sum of <code>"Cost"</code> and the mean of <code>"Quantity"</code>.
+                </p>
+                
+                <div data-datacamp-exercise data-lang="python" data-height="450">
+                    <code data-type="pre-exercise-code">
+                        # This code runs before the student's code to set up the environment
+                        import pandas as pd
+                    </code>
+                    
+                    <code data-type="sample-code">
+                        # Import pandas as pd
+                        
+                        # Create a DataFrame with columns: Item, Cost, Quantity
+                        
+                        # Calculate and print the sum of Cost
+                        
+                        # Calculate and print the mean of Quantity
+                    </code>
+                    
+                    <code data-type="solution">
+                        # Import pandas as pd
+                        import pandas as pd
+                        
+                        # Create a DataFrame with columns: Item, Cost, Quantity
+                        data = {
+                            "Item": ["Laptop", "Mouse", "Keyboard", "Monitor", "Desk"],
+                            "Cost": [1200, 25, 75, 300, 450],
+                            "Quantity": [5, 30, 15, 8, 2]
+                        }
+                        df = pd.DataFrame(data)
+                        
+                        # Calculate and print the sum of Cost
+                        print("Sum of Cost:", df["Cost"].sum())
+                        
+                        # Calculate and print the mean of Quantity
+                        print("Mean of Quantity:", df["Quantity"].mean())
+                    </code>
+                    
+                    <code data-type="sct">
+                        # Check if pandas was imported
+                        test_import("pandas", 
+                            incorrect_msg="You need to import pandas as pd.")
+                        
+                        # Check if a DataFrame exists
+                        test_object("df", 
+                            incorrect_msg="Create a DataFrame called 'df' using pd.DataFrame().")
+                        
+                        # Check if 'Item' column exists
+                        test_object("df", 
+                            incorrect_msg="Your DataFrame should have an 'Item' column.")
+                        
+                        # Check if 'Cost' column exists
+                        test_object("df", 
+                            incorrect_msg="Your DataFrame should have a 'Cost' column.")
+                        
+                        # Check if 'Quantity' column exists
+                        test_object("df", 
+                            incorrect_msg="Your DataFrame should have a 'Quantity' column.")
+                        
+                        # Check if sum of Cost was calculated
+                        test_function("print", 
+                            incorrect_msg="Calculate the sum of Cost using df['Cost'].sum() and print it.")
+                        
+                        # Check if mean of Quantity was calculated
+                        test_function("print", 
+                            incorrect_msg="Calculate the mean of Quantity using df['Quantity'].mean() and print it.")
+                        
+                        # Success message
+                        success_msg("🎉 Excellent! You calculated summary statistics on your DataFrame!")
+                    </code>
+                    
+                    <div data-type="hint">
+                        <strong>Stuck? Try this:</strong><br>
+                        1. Create DataFrame:<br>
+                        <code>import pandas as pd</code><br>
+                        <code>data = {</code><br>
+                        <code>&nbsp;&nbsp;&nbsp;&nbsp;"Item": ["Laptop", "Mouse", "Keyboard", "Monitor", "Desk"],</code><br>
+                        <code>&nbsp;&nbsp;&nbsp;&nbsp;"Cost": [1200, 25, 75, 300, 450],</code><br>
+                        <code>&nbsp;&nbsp;&nbsp;&nbsp;"Quantity": [5, 30, 15, 8, 2]</code><br>
+                        <code>}</code><br>
+                        <code>df = pd.DataFrame(data)</code><br>
+                        2. Sum of Cost: <code>print(df["Cost"].sum())</code><br>
+                        3. Mean of Quantity: <code>print(df["Quantity"].mean())</code>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- EXERCISE 2: Descriptive Statistics -->
+            <div class="exercise" data-exercise="2" style="display: none; background: #111b28; border-radius: 12px; padding: 25px; border: 1px solid #1a2433; margin-bottom: 20px;">
+                <h3 style="color: #2dce89; margin-bottom: 10px;">Exercise 2: Descriptive Statistics</h3>
+                <p style="color: #a0b4c8; margin-bottom: 20px;">
+                    Create a DataFrame with columns <code>"Salary"</code> and <code>"Bonus"</code> for 5 employees.<br>
+                    Use <code>describe()</code> to display the summary statistics for the DataFrame.
+                </p>
+                
+                <div data-datacamp-exercise data-lang="python" data-height="500">
+                    <code data-type="pre-exercise-code">
+                        # This code runs before the student's code to set up the environment
+                        import pandas as pd
+                    </code>
+                    
+                    <code data-type="sample-code">
+                        # Import pandas as pd
+                        
+                        # Create a DataFrame with columns: Salary and Bonus for 5 employees
+                        
+                        # Use describe() to display summary statistics
+                    </code>
+                    
+                    <code data-type="solution">
+                        # Import pandas as pd
+                        import pandas as pd
+                        
+                        # Create a DataFrame with columns: Salary and Bonus for 5 employees
+                        data = {
+                            "Salary": [50000, 60000, 75000, 82000, 95000],
+                            "Bonus": [5000, 6000, 7500, 8000, 10000]
+                        }
+                        df = pd.DataFrame(data)
+                        
+                        # Use describe() to display summary statistics
+                        print(df.describe())
+                    </code>
+                    
+                    <code data-type="sct">
+                        # Check if pandas was imported
+                        test_import("pandas", 
+                            incorrect_msg="You need to import pandas as pd.")
+                        
+                        # Check if a DataFrame exists
+                        test_object("df", 
+                            incorrect_msg="Create a DataFrame called 'df' using pd.DataFrame().")
+                        
+                        # Check if 'Salary' column exists
+                        test_object("df", 
+                            incorrect_msg="Your DataFrame should have a 'Salary' column.")
+                        
+                        # Check if 'Bonus' column exists
+                        test_object("df", 
+                            incorrect_msg="Your DataFrame should have a 'Bonus' column.")
+                        
+                        # Check if DataFrame has 5 rows
+                        test_object("df", 
+                            incorrect_msg="Your DataFrame should contain data for 5 employees.")
+                        
+                        # Check if describe() was used
+                        test_function("print", 
+                            incorrect_msg="Use df.describe() to display summary statistics.")
+                        
+                        # Check if output contains key statistics
+                        test_output_contains("count", 
+                            incorrect_msg="describe() should show 'count' for each column.")
+                        test_output_contains("mean", 
+                            incorrect_msg="describe() should show 'mean' for each column.")
+                        test_output_contains("std", 
+                            incorrect_msg="describe() should show 'std' (standard deviation).")
+                        test_output_contains("min", 
+                            incorrect_msg="describe() should show 'min' for each column.")
+                        test_output_contains("25%", 
+                            incorrect_msg="describe() should show the 25th percentile.")
+                        test_output_contains("50%", 
+                            incorrect_msg="describe() should show the 50th percentile (median).")
+                        test_output_contains("75%", 
+                            incorrect_msg="describe() should show the 75th percentile.")
+                        test_output_contains("max", 
+                            incorrect_msg="describe() should show 'max' for each column.")
+                        
+                        # Success message
+                        success_msg("🎉 Excellent! You generated descriptive statistics using describe()!")
+                    </code>
+                    
+                    <div data-type="hint">
+                        <strong>Stuck? Try this:</strong><br>
+                        1. Import pandas: <code>import pandas as pd</code><br>
+                        2. Create DataFrame:<br>
+                        <code>data = {</code><br>
+                        <code>&nbsp;&nbsp;&nbsp;&nbsp;"Salary": [50000, 60000, 75000, 82000, 95000],</code><br>
+                        <code>&nbsp;&nbsp;&nbsp;&nbsp;"Bonus": [5000, 6000, 7500, 8000, 10000]</code><br>
+                        <code>}</code><br>
+                        <code>df = pd.DataFrame(data)</code><br>
+                        3. Describe: <code>print(df.describe())</code>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- EXERCISE 3: Calculating Specific Statistics -->
+            <div class="exercise" data-exercise="3" style="display: none; background: #111b28; border-radius: 12px; padding: 25px; border: 1px solid #1a2433; margin-bottom: 20px;">
+                <h3 style="color: #2dce89; margin-bottom: 10px;">Exercise 3: Calculating Specific Statistics</h3>
+                <p style="color: #a0b4c8; margin-bottom: 20px;">
+                    Create a DataFrame with a column <code>"Temperature"</code> containing 6 temperature readings.<br>
+                    Calculate and print the median, standard deviation, minimum, and maximum temperature.
+                </p>
+                
+                <div data-datacamp-exercise data-lang="python" data-height="450">
+                    <code data-type="pre-exercise-code">
+                        # This code runs before the student's code to set up the environment
+                        import pandas as pd
+                    </code>
+                    
+                    <code data-type="sample-code">
+                        # Import pandas as pd
+                        
+                        # Create a DataFrame with a "Temperature" column (6 readings)
+                        
+                        # Calculate and print the median temperature
+                        
+                        # Calculate and print the standard deviation of temperature
+                        
+                        # Calculate and print the minimum temperature
+                        
+                        # Calculate and print the maximum temperature
+                    </code>
+                    
+                    <code data-type="solution">
+                        # Import pandas as pd
+                        import pandas as pd
+                        
+                        # Create a DataFrame with a "Temperature" column (6 readings)
+                        data = {
+                            "Temperature": [72, 68, 75, 80, 70, 78]
+                        }
+                        df = pd.DataFrame(data)
+                        
+                        # Calculate and print the median temperature
+                        print("Median:", df["Temperature"].median())
+                        
+                        # Calculate and print the standard deviation of temperature
+                        print("Standard Deviation:", df["Temperature"].std())
+                        
+                        # Calculate and print the minimum temperature
+                        print("Minimum:", df["Temperature"].min())
+                        
+                        # Calculate and print the maximum temperature
+                        print("Maximum:", df["Temperature"].max())
+                    </code>
+                    
+                    <code data-type="sct">
+                        # Check if pandas was imported
+                        test_import("pandas", 
+                            incorrect_msg="You need to import pandas as pd.")
+                        
+                        # Check if a DataFrame exists
+                        test_object("df", 
+                            incorrect_msg="Create a DataFrame called 'df' using pd.DataFrame().")
+                        
+                        # Check if 'Temperature' column exists
+                        test_object("df", 
+                            incorrect_msg="Your DataFrame should have a 'Temperature' column.")
+                        
+                        # Check if DataFrame has 6 rows
+                        test_object("df", 
+                            incorrect_msg="Your DataFrame should contain 6 temperature readings.")
+                        
+                        # Check if median was calculated
+                        test_function("print", 
+                            incorrect_msg="Calculate the median using df['Temperature'].median() and print it.")
+                        
+                        # Check if standard deviation was calculated
+                        test_function("print", 
+                            incorrect_msg="Calculate the standard deviation using df['Temperature'].std() and print it.")
+                        
+                        # Check if minimum was calculated
+                        test_function("print", 
+                            incorrect_msg="Calculate the minimum using df['Temperature'].min() and print it.")
+                        
+                        # Check if maximum was calculated
+                        test_function("print", 
+                            incorrect_msg="Calculate the maximum using df['Temperature'].max() and print it.")
+                        
+                        # Success message
+                        success_msg("🎉 Excellent! You calculated specific statistics on the temperature data!")
+                    </code>
+                    
+                    <div data-type="hint">
+                        <strong>Stuck? Try this:</strong><br>
+                        1. Create DataFrame:<br>
+                        <code>import pandas as pd</code><br>
+                        <code>data = {"Temperature": [72, 68, 75, 80, 70, 78]}</code><br>
+                        <code>df = pd.DataFrame(data)</code><br>
+                        2. Median: <code>print(df["Temperature"].median())</code><br>
+                        3. Std deviation: <code>print(df["Temperature"].std())</code><br>
+                        4. Minimum: <code>print(df["Temperature"].min())</code><br>
+                        5. Maximum: <code>print(df["Temperature"].max())</code>
+                    </div>
+                </div>
+            </div>
+
+            <!-- EXERCISE 4: Grouping Data -->
+            <div class="exercise" data-exercise="4" style="display: none; background: #111b28; border-radius: 12px; padding: 25px; border: 1px solid #1a2433; margin-bottom: 20px;">
+                <h3 style="color: #2dce89; margin-bottom: 10px;">Exercise 4: Grouping Data</h3>
+                <p style="color: #a0b4c8; margin-bottom: 20px;">
+                    Create a DataFrame with columns <code>"Category"</code> and <code>"Sales"</code> for 6 products (3 categories).<br>
+                    Use <code>groupby()</code> to calculate the total sales for each category.
+                </p>
+                
+                <div data-datacamp-exercise data-lang="python" data-height="450">
+                    <code data-type="pre-exercise-code">
+                        # This code runs before the student's code to set up the environment
+                        import pandas as pd
+                    </code>
+                    
+                    <code data-type="sample-code">
+                        # Import pandas as pd
+                        
+                        # Create a DataFrame with columns: Category and Sales (6 products, 3 categories)
+                        
+                        # Use groupby() to calculate total sales for each category
+                    </code>
+                    
+                    <code data-type="solution">
+                        # Import pandas as pd
+                        import pandas as pd
+                        
+                        # Create a DataFrame with columns: Category and Sales (6 products, 3 categories)
+                        data = {
+                            "Category": ["Electronics", "Electronics", "Clothing", "Clothing", "Books", "Books"],
+                            "Sales": [1200, 800, 500, 600, 300, 450]
+                        }
+                        df = pd.DataFrame(data)
+                        
+                        # Use groupby() to calculate total sales for each category
+                        category_totals = df.groupby("Category")["Sales"].sum()
+                        print(category_totals)
+                    </code>
+                    
+                    <code data-type="sct">
+                        # Check if pandas was imported
+                        test_import("pandas", 
+                            incorrect_msg="You need to import pandas as pd.")
+                        
+                        # Check if a DataFrame exists
+                        test_object("df", 
+                            incorrect_msg="Create a DataFrame called 'df' using pd.DataFrame().")
+                        
+                        # Check if 'Category' column exists
+                        test_object("df", 
+                            incorrect_msg="Your DataFrame should have a 'Category' column.")
+                        
+                        # Check if 'Sales' column exists
+                        test_object("df", 
+                            incorrect_msg="Your DataFrame should have a 'Sales' column.")
+                        
+                        # Check if DataFrame has 6 rows
+                        test_object("df", 
+                            incorrect_msg="Your DataFrame should contain 6 products.")
+                        
+                        # Check if grouped DataFrame exists
+                        test_object("category_totals", 
+                            incorrect_msg="Store the grouped result in a variable called 'category_totals'.")
+                        
+                        # Check if groupby() was used
+                        test_object("category_totals", 
+                            incorrect_msg="Use df.groupby('Category')['Sales'].sum() to group and sum.")
+                        
+                        # Check if print was used
+                        test_function("print", 
+                            incorrect_msg="Use print() to display the grouped results.")
+                        
+                        # Check if output contains the categories
+                        test_output_contains("Electronics", 
+                            incorrect_msg="Your grouped results should show 'Electronics'.")
+                        test_output_contains("Clothing", 
+                            incorrect_msg="Your grouped results should show 'Clothing'.")
+                        test_output_contains("Books", 
+                            incorrect_msg="Your grouped results should show 'Books'.")
+                        
+                        # Success message
+                        success_msg("🎉 Excellent! You grouped data and calculated totals by category!")
+                    </code>
+                    
+                    <div data-type="hint">
+                        <strong>Stuck? Try this:</strong><br>
+                        1. Create DataFrame:<br>
+                        <code>import pandas as pd</code><br>
+                        <code>data = {</code><br>
+                        <code>&nbsp;&nbsp;&nbsp;&nbsp;"Category": ["Electronics", "Electronics", "Clothing", "Clothing", "Books", "Books"],</code><br>
+                        <code>&nbsp;&nbsp;&nbsp;&nbsp;"Sales": [1200, 800, 500, 600, 300, 450]</code><br>
+                        <code>}</code><br>
+                        <code>df = pd.DataFrame(data)</code><br>
+                        2. Group and sum: <code>category_totals = df.groupby("Category")["Sales"].sum()</code><br>
+                        3. Print: <code>print(category_totals)</code>
+                    </div>
+                </div>
+            </div>
+
+            <!-- EXERCISE 5: Missing Data Handling -->
+            <div class="exercise" data-exercise="5" style="display: none; background: #111b28; border-radius: 12px; padding: 25px; border: 1px solid #1a2433; margin-bottom: 20px;">
+                <h3 style="color: #2dce89; margin-bottom: 10px;">Exercise 5: Missing Data Handling</h3>
+                <p style="color: #a0b4c8; margin-bottom: 20px;">
+                    Create a DataFrame with a column <code>"Value"</code> that has at least 2 missing values.<br>
+                    Replace the missing values with the mean of the column.
+                </p>
+                
+                <div data-datacamp-exercise data-lang="python" data-height="450">
+                    <code data-type="pre-exercise-code">
+                        # This code runs before the student's code to set up the environment
+                        import pandas as pd
+                        import numpy as np
+                    </code>
+                    
+                    <code data-type="sample-code">
+                        # Import pandas as pd and numpy as np
+                        
+                        # Create a DataFrame with a "Value" column that has at least 2 missing values
+                        
+                        # Replace missing values with the mean of the column
+                        
+                        # Print the updated DataFrame
+                    </code>
+                    
+                    <code data-type="solution">
+                        # Import pandas as pd and numpy as np
+                        import pandas as pd
+                        import numpy as np
+                        
+                        # Create a DataFrame with a "Value" column that has at least 2 missing values
+                        data = {
+                            "Value": [10, 20, np.nan, 40, 50, np.nan, 70]
+                        }
+                        df = pd.DataFrame(data)
+                        
+                        # Replace missing values with the mean of the column
+                        mean_value = df["Value"].mean()
+                        df["Value"] = df["Value"].fillna(mean_value)
+                        
+                        # Print the updated DataFrame
+                        print(df)
+                    </code>
+                    
+                    <code data-type="sct">
+                        # Check if pandas was imported
+                        test_import("pandas", 
+                            incorrect_msg="You need to import pandas as pd.")
+                        
+                        # Check if numpy was imported
+                        test_import("numpy", 
+                            incorrect_msg="You need to import numpy as np to create NaN values.")
+                        
+                        # Check if a DataFrame exists
+                        test_object("df", 
+                            incorrect_msg="Create a DataFrame called 'df' using pd.DataFrame().")
+                        
+                        # Check if 'Value' column exists
+                        test_object("df", 
+                            incorrect_msg="Your DataFrame should have a 'Value' column.")
+                        
+                        # Check if there are at least 2 missing values
+                        test_object("df", 
+                            incorrect_msg="Your DataFrame should have at least 2 missing values (np.nan).")
+                        
+                        # Check if missing values were replaced
+                        test_object("df", 
+                            incorrect_msg="Replace missing values using df['Value'].fillna(mean_value).")
+                        
+                        # Check if print was used
+                        test_function("print", 
+                            incorrect_msg="Use print() to display the updated DataFrame.")
+                        
+                        # Success message
+                        success_msg("🎉 Excellent! You handled missing values by filling with the mean!")
+                    </code>
+                    
+                    <div data-type="hint">
+                        <strong>Stuck? Try this:</strong><br>
+                        1. Import libraries: <code>import pandas as pd</code> and <code>import numpy as np</code><br>
+                        2. Create DataFrame with missing values:<br>
+                        <code>data = {"Value": [10, 20, np.nan, 40, 50, np.nan, 70]}</code><br>
+                        <code>df = pd.DataFrame(data)</code><br>
+                        3. Calculate mean: <code>mean_value = df["Value"].mean()</code><br>
+                        4. Fill missing values: <code>df["Value"] = df["Value"].fillna(mean_value)</code><br>
+                        5. Print: <code>print(df)</code>
+                    </div>
+                </div>
+            </div>
+                          
+        <!-- Navigation Back -->
+        <div style="display: flex; justify-content: space-between; margin-top: 20px; padding-top: 20px; border-top: 1px solid #1a2433;">
+            <a href="/pycraft/practice.html" style="color: #2dce89;">← Back to Practice</a>
+            <a href="/pycraft/chapter-2.html" style="color: #2dce89;">Next Chapter →</a>
+        </div>
+    </div>
+
+    <!-- JavaScript for Exercise Navigation -->
+    <script>
+        let currentExercise = 1;
+        const totalExercises = 3;
+
+        function showExercise(num) {
+            // Hide all exercises
+            const exercises = document.querySelectorAll('.exercise');
+            exercises.forEach((ex, index) => {
+                ex.style.display = 'none';
+            });
+            
+            // Show the selected exercise
+            const target = document.querySelector(`.exercise[data-exercise="${num}"]`);
+            if (target) {
+                target.style.display = 'block';
+            }
+            
+            // Update counter
+            document.getElementById('exerciseCounter').textContent = `✅ Exercise ${num} of ${totalExercises}`;
+            
+            // Update button states
+            document.getElementById('prevBtn').style.opacity = num === 1 ? '0.4' : '1';
+            document.getElementById('prevBtn').style.cursor = num === 1 ? 'default' : 'pointer';
+            document.getElementById('nextBtn').style.opacity = num === totalExercises ? '0.4' : '1';
+            document.getElementById('nextBtn').style.cursor = num === totalExercises ? 'default' : 'pointer';
+            
+            currentExercise = num;
+            
+            // Scroll to top of exercise
+            document.querySelector('.container').scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+
+        function nextExercise() {
+            if (currentExercise < totalExercises) {
+                showExercise(currentExercise + 1);
+            }
+        }
+
+        function prevExercise() {
+            if (currentExercise > 1) {
+                showExercise(currentExercise - 1);
+            }
+        }
+
+        // Initialize on page load
+        document.addEventListener('DOMContentLoaded', function() {
+            showExercise(1);
+        });
+    </script>
+
+    <script src="/pycraft/js/nav.js"></script>
+</body>
+</html>
