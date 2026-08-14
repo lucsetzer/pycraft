@@ -1,1 +1,555 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Chapter 5: Matplotlib – PyCraft</title>
+    <link rel="stylesheet" href="/pycraft/css/style.css"/>
+    <script type="text/javascript" src="//cdn.datacamp.com/dcl-react.js.gz"></script>
+</head>
+<body>
+    <div class="container" style="padding-top: 100px; max-width: 900px; margin: 0 auto;">
+        
+        <!-- Chapter Header -->
+        <div style="margin-bottom: 30px; border-bottom: 2px solid #2dce89; padding-bottom: 20px;">
+            <h1 style="font-size: 2rem;">Chapter 5: Matplotlib</h1>
+            <p style="color: #a0b4c8; font-size: 1.1rem;">Variables, data types, and basic operations.</p>
+            <div style="display: flex; gap: 15px; margin-top: 12px; flex-wrap: wrap; align-items: center;">
+                <span style="background: #1a2433; padding: 4px 14px; border-radius: 20px; font-size: 0.85rem;">📚 DataCamp Chapter 1</span>
+                <span style="background: #1a2433; padding: 4px 14px; border-radius: 20px; font-size: 0.85rem;" id="exerciseCounter">✅ Exercise 1 of 3</span>
+                <!-- Navigation buttons -->
+                <div style="display: flex; gap: 8px; margin-left: auto;">
+                    <button onclick="prevExercise()" id="prevBtn" style="background: #1a2433; color: #a0b4c8; border: 1px solid #2d3748; padding: 6px 16px; border-radius: 6px; cursor: pointer; font-size: 0.85rem;">
+                        ← Previous
+                    </button>
+                    <button onclick="nextExercise()" id="nextBtn" style="background: #2dce89; color: #0a0e17; border: none; padding: 6px 16px; border-radius: 6px; cursor: pointer; font-size: 0.85rem; font-weight: 600;">
+                        Next →
+                    </button>
+                </div>
+            </div>
+        </div>
 
+        <!-- Exercise Container -->
+        <div id="exerciseContainer">
+            
+            <!-- EXERCISE 1: Introduction to Matplotlib -->
+            <div class="exercise" data-exercise="1" style="display: block; background: #111b28; border-radius: 12px; padding: 25px; border: 1px solid #1a2433; margin-bottom: 20px;">
+                <h3 style="color: #2dce89; margin-bottom: 10px;">Exercise 1: Introduction to Matplotlib</h3>
+                <p style="color: #a0b4c8; margin-bottom: 20px;">
+                    Import <code>matplotlib.pyplot</code> as <code>plt</code>.<br>
+                    Create a line plot with x-values <code>[1, 2, 3, 4]</code> and y-values <code>[2, 4, 6, 8]</code>.<br>
+                    Add a title and label the axes.
+                </p>
+                
+                <div data-datacamp-exercise data-lang="python" data-height="500">
+                    <code data-type="pre-exercise-code">
+                        # This code runs before the student's code to set up the environment
+                        # It ensures matplotlib displays properly in the browser
+                    </code>
+                    
+                    <code data-type="sample-code">
+                        # Import matplotlib.pyplot as plt
+                        
+                        # Create x and y data
+                        
+                        # Create a line plot
+                        
+                        # Add title and axis labels
+                        
+                        # Display the plot
+                    </code>
+                    
+                    <code data-type="solution">
+                        # Import matplotlib.pyplot as plt
+                        import matplotlib.pyplot as plt
+                        
+                        # Create x and y data
+                        x = [1, 2, 3, 4]
+                        y = [2, 4, 6, 8]
+                        
+                        # Create a line plot
+                        plt.plot(x, y)
+                        
+                        # Add title and axis labels
+                        plt.title("My Line Plot")
+                        plt.xlabel("X Values")
+                        plt.ylabel("Y Values")
+                        
+                        # Display the plot
+                        plt.show()
+                    </code>
+                    
+                    <code data-type="sct">
+                        # Check if matplotlib.pyplot was imported
+                        test_import("matplotlib.pyplot", 
+                            incorrect_msg="You need to import matplotlib.pyplot as plt.")
+                        
+                        # Check if plt.plot() was used
+                        test_function("plt.plot", 
+                            incorrect_msg="Use plt.plot() to create a line plot.")
+                        
+                        # Check if plt.title() was used
+                        test_function("plt.title", 
+                            incorrect_msg="Add a title to your plot using plt.title().")
+                        
+                        # Check if plt.xlabel() was used
+                        test_function("plt.xlabel", 
+                            incorrect_msg="Label the x-axis using plt.xlabel().")
+                        
+                        # Check if plt.ylabel() was used
+                        test_function("plt.ylabel", 
+                            incorrect_msg="Label the y-axis using plt.ylabel().")
+                        
+                        # Check if plt.show() was used
+                        test_function("plt.show", 
+                            incorrect_msg="Display your plot using plt.show().")
+                        
+                        # Success message
+                        success_msg("🎉 Excellent! You created your first line plot with Matplotlib!")
+                    </code>
+                    
+                    <div data-type="hint">
+                        <strong>Stuck? Try this:</strong><br>
+                        1. Import: <code>import matplotlib.pyplot as plt</code><br>
+                        2. Data: <code>x = [1, 2, 3, 4]</code> and <code>y = [2, 4, 6, 8]</code><br>
+                        3. Plot: <code>plt.plot(x, y)</code><br>
+                        4. Title: <code>plt.title("My Line Plot")</code><br>
+                        5. Labels: <code>plt.xlabel("X Values")</code> and <code>plt.ylabel("Y Values")</code><br>
+                        6. Show: <code>plt.show()</code>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- EXERCISE 2: Customizing Line Plots -->
+            <div class="exercise" data-exercise="2" style="display: none; background: #111b28; border-radius: 12px; padding: 25px; border: 1px solid #1a2433; margin-bottom: 20px;">
+                <h3 style="color: #2dce89; margin-bottom: 10px;">Exercise 2: Customizing Line Plots</h3>
+                <p style="color: #a0b4c8; margin-bottom: 20px;">
+                    Create a line plot with x-values <code>[1, 2, 3, 4, 5]</code> and y-values <code>[5, 10, 15, 20, 25]</code>.<br>
+                    Customize the plot to use a <strong>blue dashed line</strong> and add <strong>circular markers</strong>.<br>
+                    Enable the <strong>grid</strong> and add labels for the axes.
+                </p>
+                
+                <div data-datacamp-exercise data-lang="python" data-height="500">
+                    <code data-type="pre-exercise-code">
+                        # This code runs before the student's code to set up the environment
+                        # It ensures matplotlib displays properly in the browser
+                    </code>
+                    
+                    <code data-type="sample-code">
+                        # Import matplotlib.pyplot as plt
+                        
+                        # Create x and y data
+                        
+                        # Create a line plot with blue dashed line and circular markers
+                        
+                        # Add grid
+                        
+                        # Add axis labels
+                        
+                        # Display the plot
+                    </code>
+                    
+                    <code data-type="solution">
+                        # Import matplotlib.pyplot as plt
+                        import matplotlib.pyplot as plt
+                        
+                        # Create x and y data
+                        x = [1, 2, 3, 4, 5]
+                        y = [5, 10, 15, 20, 25]
+                        
+                        # Create a line plot with blue dashed line and circular markers
+                        plt.plot(x, y, 'b--o')
+                        
+                        # Add grid
+                        plt.grid(True)
+                        
+                        # Add axis labels
+                        plt.xlabel("X Values")
+                        plt.ylabel("Y Values")
+                        
+                        # Display the plot
+                        plt.show()
+                    </code>
+                    
+                    <code data-type="sct">
+                        # Check if matplotlib.pyplot was imported
+                        test_import("matplotlib.pyplot", 
+                            incorrect_msg="You need to import matplotlib.pyplot as plt.")
+                        
+                        # Check if plt.plot() was used with the right format
+                        test_function("plt.plot", 
+                            incorrect_msg="Use plt.plot(x, y, 'b--o') for blue dashed line with circular markers.")
+                        
+                        # Check if grid was added
+                        test_function("plt.grid", 
+                            incorrect_msg="Enable the grid using plt.grid(True).")
+                        
+                        # Check if plt.xlabel() was used
+                        test_function("plt.xlabel", 
+                            incorrect_msg="Label the x-axis using plt.xlabel().")
+                        
+                        # Check if plt.ylabel() was used
+                        test_function("plt.ylabel", 
+                            incorrect_msg="Label the y-axis using plt.ylabel().")
+                        
+                        # Check if plt.show() was used
+                        test_function("plt.show", 
+                            incorrect_msg="Display your plot using plt.show().")
+                        
+                        # Success message
+                        success_msg("🎉 Excellent! You customized your line plot with colors, markers, and grid!")
+                    </code>
+                    
+                    <div data-type="hint">
+                        <strong>Stuck? Try this:</strong><br>
+                        1. Import: <code>import matplotlib.pyplot as plt</code><br>
+                        2. Data: <code>x = [1, 2, 3, 4, 5]</code> and <code>y = [5, 10, 15, 20, 25]</code><br>
+                        3. Plot with blue dashed line & circular markers: <code>plt.plot(x, y, 'b--o')</code><br>
+                        4. Grid: <code>plt.grid(True)</code><br>
+                        5. Labels: <code>plt.xlabel("X Values")</code> and <code>plt.ylabel("Y Values")</code><br>
+                        6. Show: <code>plt.show()</code>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- EXERCISE 3: Creating Bar Charts -->
+            <div class="exercise" data-exercise="3" style="display: none; background: #111b28; border-radius: 12px; padding: 25px; border: 1px solid #1a2433; margin-bottom: 20px;">
+                <h3 style="color: #2dce89; margin-bottom: 10px;">Exercise 3: Creating Bar Charts</h3>
+                <p style="color: #a0b4c8; margin-bottom: 20px;">
+                    Create a bar chart with categories <code>["Math", "Science", "English"]</code> and values <code>[90, 85, 88]</code>.<br>
+                    Customize the bars to use a green color.<br>
+                    Add a title and labels for the axes.
+                </p>
+                
+                <div data-datacamp-exercise data-lang="python" data-height="500">
+                    <code data-type="pre-exercise-code">
+                        # This code runs before the student's code to set up the environment
+                        # It ensures matplotlib displays properly in the browser
+                    </code>
+                    
+                    <code data-type="sample-code">
+                        # Import matplotlib.pyplot as plt
+                        
+                        # Create categories and values
+                        
+                        # Create a bar chart with green bars
+                        
+                        # Add title and axis labels
+                        
+                        # Display the chart
+                    </code>
+                    
+                    <code data-type="solution">
+                        # Import matplotlib.pyplot as plt
+                        import matplotlib.pyplot as plt
+                        
+                        # Create categories and values
+                        categories = ["Math", "Science", "English"]
+                        values = [90, 85, 88]
+                        
+                        # Create a bar chart with green bars
+                        plt.bar(categories, values, color='green')
+                        
+                        # Add title and axis labels
+                        plt.title("Student Grades")
+                        plt.xlabel("Subjects")
+                        plt.ylabel("Scores")
+                        
+                        # Display the chart
+                        plt.show()
+                    </code>
+                    
+                    <code data-type="sct">
+                        # Check if matplotlib.pyplot was imported
+                        test_import("matplotlib.pyplot", 
+                            incorrect_msg="You need to import matplotlib.pyplot as plt.")
+                        
+                        # Check if plt.bar() was used
+                        test_function("plt.bar", 
+                            incorrect_msg="Use plt.bar() to create a bar chart.")
+                        
+                        # Check if color='green' was used
+                        test_function("plt.bar", 
+                            incorrect_msg="Use color='green' to make the bars green.")
+                        
+                        # Check if plt.title() was used
+                        test_function("plt.title", 
+                            incorrect_msg="Add a title using plt.title().")
+                        
+                        # Check if plt.xlabel() was used
+                        test_function("plt.xlabel", 
+                            incorrect_msg="Label the x-axis using plt.xlabel().")
+                        
+                        # Check if plt.ylabel() was used
+                        test_function("plt.ylabel", 
+                            incorrect_msg="Label the y-axis using plt.ylabel().")
+                        
+                        # Check if plt.show() was used
+                        test_function("plt.show", 
+                            incorrect_msg="Display your chart using plt.show().")
+                        
+                        # Success message
+                        success_msg("🎉 Excellent! You created a bar chart with customized colors!")
+                    </code>
+                    
+                    <div data-type="hint">
+                        <strong>Stuck? Try this:</strong><br>
+                        1. Import: <code>import matplotlib.pyplot as plt</code><br>
+                        2. Data: <code>categories = ["Math", "Science", "English"]</code><br>
+                        3. Data: <code>values = [90, 85, 88]</code><br>
+                        4. Bar chart: <code>plt.bar(categories, values, color='green')</code><br>
+                        5. Title: <code>plt.title("Student Grades")</code><br>
+                        6. Labels: <code>plt.xlabel("Subjects")</code> and <code>plt.ylabel("Scores")</code><br>
+                        7. Show: <code>plt.show()</code>
+                    </div>
+                </div>
+            </div>
+
+            <!-- EXERCISE 4: Creating Scatter Plots -->
+        <div class="exercise" data-exercise="4" style="display: none; background: #111b28; border-radius: 12px; padding: 25px; border: 1px solid #1a2433; margin-bottom: 20px;">
+            <h3 style="color: #2dce89; margin-bottom: 10px;">Exercise 4: Creating Scatter Plots</h3>
+            <p style="color: #a0b4c8; margin-bottom: 20px;">
+                Create a scatter plot with x-values <code>[10, 20, 30, 40, 50]</code> and y-values <code>[15, 25, 35, 45, 55]</code>.<br>
+                Customize the points to use a red color.<br>
+                Add a title and labels for the axes.
+            </p>
+            
+            <div data-datacamp-exercise data-lang="python" data-height="500">
+                <code data-type="pre-exercise-code">
+                    # This code runs before the student's code to set up the environment
+                    # It ensures matplotlib displays properly in the browser
+                </code>
+                
+                <code data-type="sample-code">
+                    # Import matplotlib.pyplot as plt
+                    
+                    # Create x and y data
+                    
+                    # Create a scatter plot with red points
+                    
+                    # Add title and axis labels
+                    
+                    # Display the plot
+                </code>
+                
+                <code data-type="solution">
+                    # Import matplotlib.pyplot as plt
+                    import matplotlib.pyplot as plt
+                    
+                    # Create x and y data
+                    x = [10, 20, 30, 40, 50]
+                    y = [15, 25, 35, 45, 55]
+                    
+                    # Create a scatter plot with red points
+                    plt.scatter(x, y, color='red')
+                    
+                    # Add title and axis labels
+                    plt.title("My Scatter Plot")
+                    plt.xlabel("X Values")
+                    plt.ylabel("Y Values")
+                    
+                    # Display the plot
+                    plt.show()
+                </code>
+                
+                <code data-type="sct">
+                    # Check if matplotlib.pyplot was imported
+                    test_import("matplotlib.pyplot", 
+                        incorrect_msg="You need to import matplotlib.pyplot as plt.")
+                    
+                    # Check if plt.scatter() was used
+                    test_function("plt.scatter", 
+                        incorrect_msg="Use plt.scatter() to create a scatter plot.")
+                    
+                    # Check if color='red' was used
+                    test_function("plt.scatter", 
+                        incorrect_msg="Use color='red' to make the points red.")
+                    
+                    # Check if plt.title() was used
+                    test_function("plt.title", 
+                        incorrect_msg="Add a title using plt.title().")
+                    
+                    # Check if plt.xlabel() was used
+                    test_function("plt.xlabel", 
+                        incorrect_msg="Label the x-axis using plt.xlabel().")
+                    
+                    # Check if plt.ylabel() was used
+                    test_function("plt.ylabel", 
+                        incorrect_msg="Label the y-axis using plt.ylabel().")
+                    
+                    # Check if plt.show() was used
+                    test_function("plt.show", 
+                        incorrect_msg="Display your plot using plt.show().")
+                    
+                    # Success message
+                    success_msg("🎉 Excellent! You created a scatter plot with customized points!")
+                </code>
+                
+                <div data-type="hint">
+                    <strong>Stuck? Try this:</strong><br>
+                    1. Import: <code>import matplotlib.pyplot as plt</code><br>
+                    2. Data: <code>x = [10, 20, 30, 40, 50]</code> and <code>y = [15, 25, 35, 45, 55]</code><br>
+                    3. Scatter: <code>plt.scatter(x, y, color='red')</code><br>
+                    4. Title: <code>plt.title("My Scatter Plot")</code><br>
+                    5. Labels: <code>plt.xlabel("X Values")</code> and <code>plt.ylabel("Y Values")</code><br>
+                    6. Show: <code>plt.show()</code>
+                </div>
+            </div>
+        </div>
+
+        <!-- EXERCISE 5: Creating Histograms -->
+            <div class="exercise" data-exercise="5" style="display: none; background: #111b28; border-radius: 12px; padding: 25px; border: 1px solid #1a2433; margin-bottom: 20px;">
+                <h3 style="color: #2dce89; margin-bottom: 10px;">Exercise 5: Creating Histograms</h3>
+                <p style="color: #a0b4c8; margin-bottom: 20px;">
+                    Create a histogram with the data <code>[2, 3, 3, 4, 4, 4, 5, 6, 6, 7, 8, 8]</code>.<br>
+                    Use <strong>6 bins</strong> and a <strong>red color</strong> for the bars.<br>
+                    Add a title and labels for the axes.
+                </p>
+                
+                <div data-datacamp-exercise data-lang="python" data-height="500">
+                    <code data-type="pre-exercise-code">
+                        # This code runs before the student's code to set up the environment
+                        # It ensures matplotlib displays properly in the browser
+                    </code>
+                    
+                    <code data-type="sample-code">
+                        # Import matplotlib.pyplot as plt
+                        
+                        # Create the data
+                        
+                        # Create a histogram with 6 bins and red bars
+                        
+                        # Add title and axis labels
+                        
+                        # Display the plot
+                    </code>
+                    
+                    <code data-type="solution">
+                        # Import matplotlib.pyplot as plt
+                        import matplotlib.pyplot as plt
+                        
+                        # Create the data
+                        data = [2, 3, 3, 4, 4, 4, 5, 6, 6, 7, 8, 8]
+                        
+                        # Create a histogram with 6 bins and red bars
+                        plt.hist(data, bins=6, color='red', edgecolor='black')
+                        
+                        # Add title and axis labels
+                        plt.title("My Histogram")
+                        plt.xlabel("Values")
+                        plt.ylabel("Frequency")
+                        
+                        # Display the plot
+                        plt.show()
+                    </code>
+                    
+                    <code data-type="sct">
+                        # Check if matplotlib.pyplot was imported
+                        test_import("matplotlib.pyplot", 
+                            incorrect_msg="You need to import matplotlib.pyplot as plt.")
+                        
+                        # Check if plt.hist() was used
+                        test_function("plt.hist", 
+                            incorrect_msg="Use plt.hist() to create a histogram.")
+                        
+                        # Check if bins=6 was used
+                        test_function("plt.hist", 
+                            incorrect_msg="Use bins=6 to set the number of bins.")
+                        
+                        # Check if color='red' was used
+                        test_function("plt.hist", 
+                            incorrect_msg="Use color='red' to make the bars red.")
+                        
+                        # Check if plt.title() was used
+                        test_function("plt.title", 
+                            incorrect_msg="Add a title using plt.title().")
+                        
+                        # Check if plt.xlabel() was used
+                        test_function("plt.xlabel", 
+                            incorrect_msg="Label the x-axis using plt.xlabel().")
+                        
+                        # Check if plt.ylabel() was used
+                        test_function("plt.ylabel", 
+                            incorrect_msg="Label the y-axis using plt.ylabel().")
+                        
+                        # Check if plt.show() was used
+                        test_function("plt.show", 
+                            incorrect_msg="Display your plot using plt.show().")
+                        
+                        # Success message
+                        success_msg("🎉 Excellent! You created a histogram to visualize data distribution!")
+                    </code>
+                    
+                    <div data-type="hint">
+                        <strong>Stuck? Try this:</strong><br>
+                        1. Import: <code>import matplotlib.pyplot as plt</code><br>
+                        2. Data: <code>data = [2, 3, 3, 4, 4, 4, 5, 6, 6, 7, 8, 8]</code><br>
+                        3. Histogram: <code>plt.hist(data, bins=6, color='red', edgecolor='black')</code><br>
+                        4. Title: <code>plt.title("My Histogram")</code><br>
+                        5. Labels: <code>plt.xlabel("Values")</code> and <code>plt.ylabel("Frequency")</code><br>
+                        6. Show: <code>plt.show()</code>
+                    </div>
+                </div>
+            </div>
+
+        <!-- Navigation Back -->
+        <div style="display: flex; justify-content: space-between; margin-top: 20px; padding-top: 20px; border-top: 1px solid #1a2433;">
+            <a href="/pycraft/practice.html" style="color: #2dce89;">← Back to Practice</a>
+            <a href="/pycraft/chapter-2.html" style="color: #2dce89;">Next Chapter →</a>
+        </div>
+    </div>
+
+    <!-- JavaScript for Exercise Navigation -->
+    <script>
+        let currentExercise = 1;
+        const totalExercises = 3;
+
+        function showExercise(num) {
+            // Hide all exercises
+            const exercises = document.querySelectorAll('.exercise');
+            exercises.forEach((ex, index) => {
+                ex.style.display = 'none';
+            });
+            
+            // Show the selected exercise
+            const target = document.querySelector(`.exercise[data-exercise="${num}"]`);
+            if (target) {
+                target.style.display = 'block';
+            }
+            
+            // Update counter
+            document.getElementById('exerciseCounter').textContent = `✅ Exercise ${num} of ${totalExercises}`;
+            
+            // Update button states
+            document.getElementById('prevBtn').style.opacity = num === 1 ? '0.4' : '1';
+            document.getElementById('prevBtn').style.cursor = num === 1 ? 'default' : 'pointer';
+            document.getElementById('nextBtn').style.opacity = num === totalExercises ? '0.4' : '1';
+            document.getElementById('nextBtn').style.cursor = num === totalExercises ? 'default' : 'pointer';
+            
+            currentExercise = num;
+            
+            // Scroll to top of exercise
+            document.querySelector('.container').scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+
+        function nextExercise() {
+            if (currentExercise < totalExercises) {
+                showExercise(currentExercise + 1);
+            }
+        }
+
+        function prevExercise() {
+            if (currentExercise > 1) {
+                showExercise(currentExercise - 1);
+            }
+        }
+
+        // Initialize on page load
+        document.addEventListener('DOMContentLoaded', function() {
+            showExercise(1);
+        });
+    </script>
+
+    <script src="/pycraft/js/nav.js"></script>
+</body>
+</html>
