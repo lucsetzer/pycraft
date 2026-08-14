@@ -1,1 +1,687 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Chapter 13: Visualizing Your Data pandas – PyCraft</title>
+    <link rel="stylesheet" href="/pycraft/css/style.css"/>
+    <script type="text/javascript" src="//cdn.datacamp.com/dcl-react.js.gz"></script>
+</head>
+<body>
+    <div class="container" style="padding-top: 100px; max-width: 900px; margin: 0 auto;">
+        
+        <!-- Chapter Header -->
+        <div style="margin-bottom: 30px; border-bottom: 2px solid #2dce89; padding-bottom: 20px;">
+            <h1 style="font-size: 2rem;">Chapter 13: Visualizing Your Data pandas</h1>
+            <p style="color: #a0b4c8; font-size: 1.1rem;">Variables, data types, and basic operations.</p>
+            <div style="display: flex; gap: 15px; margin-top: 12px; flex-wrap: wrap; align-items: center;">
+                <span style="background: #1a2433; padding: 4px 14px; border-radius: 20px; font-size: 0.85rem;">📚 DataCamp Chapter 1</span>
+                <span style="background: #1a2433; padding: 4px 14px; border-radius: 20px; font-size: 0.85rem;" id="exerciseCounter">✅ Exercise 1 of 3</span>
+                <!-- Navigation buttons -->
+                <div style="display: flex; gap: 8px; margin-left: auto;">
+                    <button onclick="prevExercise()" id="prevBtn" style="background: #1a2433; color: #a0b4c8; border: 1px solid #2d3748; padding: 6px 16px; border-radius: 6px; cursor: pointer; font-size: 0.85rem;">
+                        ← Previous
+                    </button>
+                    <button onclick="nextExercise()" id="nextBtn" style="background: #2dce89; color: #0a0e17; border: none; padding: 6px 16px; border-radius: 6px; cursor: pointer; font-size: 0.85rem; font-weight: 600;">
+                        Next →
+                    </button>
+                </div>
+            </div>
+        </div>
 
+        <!-- Exercise Container -->
+        <div id="exerciseContainer">
+            
+            <!-- EXERCISE 1: Creating a Simple Line Plot -->
+            <div class="exercise" data-exercise="1" style="display: block; background: #111b28; border-radius: 12px; padding: 25px; border: 1px solid #1a2433; margin-bottom: 20px;">
+                <h3 style="color: #2dce89; margin-bottom: 10px;">Exercise 1: Creating a Simple Line Plot</h3>
+                <p style="color: #a0b4c8; margin-bottom: 20px;">
+                    Create a DataFrame with columns <code>"Week"</code> and <code>"Visitors"</code>. Use data for 4 weeks.<br>
+                    Plot a line chart showing the number of visitors each week.<br>
+                    Add appropriate axis labels and a title to the chart.
+                </p>
+                
+                <div data-datacamp-exercise data-lang="python" data-height="500">
+                    <code data-type="pre-exercise-code">
+                        # This code runs before the student's code to set up the environment
+                        import pandas as pd
+                        import matplotlib.pyplot as plt
+                    </code>
+                    
+                    <code data-type="sample-code">
+                        # Import pandas and matplotlib.pyplot
+                        
+                        # Create a DataFrame with Week and Visitors
+                        
+                        # Plot a line chart
+                        
+                        # Add axis labels and a title
+                        
+                        # Display the chart
+                    </code>
+                    
+                    <code data-type="solution">
+                        # Import pandas and matplotlib.pyplot
+                        import pandas as pd
+                        import matplotlib.pyplot as plt
+                        
+                        # Create a DataFrame with Week and Visitors
+                        data = {
+                            "Week": [1, 2, 3, 4],
+                            "Visitors": [150, 200, 180, 220]
+                        }
+                        df = pd.DataFrame(data)
+                        
+                        # Plot a line chart
+                        plt.plot(df["Week"], df["Visitors"])
+                        
+                        # Add axis labels and a title
+                        plt.xlabel("Week")
+                        plt.ylabel("Number of Visitors")
+                        plt.title("Visitors by Week")
+                        
+                        # Display the chart
+                        plt.show()
+                    </code>
+                    
+                    <code data-type="sct">
+                        # Check if pandas was imported
+                        test_import("pandas", 
+                            incorrect_msg="You need to import pandas as pd.")
+                        
+                        # Check if matplotlib.pyplot was imported
+                        test_import("matplotlib.pyplot", 
+                            incorrect_msg="You need to import matplotlib.pyplot as plt.")
+                        
+                        # Check if a DataFrame exists
+                        test_object("df", 
+                            incorrect_msg="Create a DataFrame called 'df' using pd.DataFrame().")
+                        
+                        # Check if 'Week' column exists
+                        test_object("df", 
+                            incorrect_msg="Your DataFrame should have a 'Week' column.")
+                        
+                        # Check if 'Visitors' column exists
+                        test_object("df", 
+                            incorrect_msg="Your DataFrame should have a 'Visitors' column.")
+                        
+                        # Check if plot was created
+                        test_function("plt.plot", 
+                            incorrect_msg="Use plt.plot() to create a line chart.")
+                        
+                        # Check if xlabel was added
+                        test_function("plt.xlabel", 
+                            incorrect_msg="Label the x-axis using plt.xlabel().")
+                        
+                        # Check if ylabel was added
+                        test_function("plt.ylabel", 
+                            incorrect_msg="Label the y-axis using plt.ylabel().")
+                        
+                        # Check if title was added
+                        test_function("plt.title", 
+                            incorrect_msg="Add a title using plt.title().")
+                        
+                        # Check if show was called
+                        test_function("plt.show", 
+                            incorrect_msg="Display the chart using plt.show().")
+                        
+                        # Success message
+                        success_msg("🎉 Excellent! You created a line chart to visualize the data!")
+                    </code>
+                    
+                    <div data-type="hint">
+                        <strong>Stuck? Try this:</strong><br>
+                        1. Import libraries: <code>import pandas as pd</code> and <code>import matplotlib.pyplot as plt</code><br>
+                        2. Create DataFrame:<br>
+                        <code>data = {</code><br>
+                        <code>&nbsp;&nbsp;&nbsp;&nbsp;"Week": [1, 2, 3, 4],</code><br>
+                        <code>&nbsp;&nbsp;&nbsp;&nbsp;"Visitors": [150, 200, 180, 220]</code><br>
+                        <code>}</code><br>
+                        <code>df = pd.DataFrame(data)</code><br>
+                        3. Plot: <code>plt.plot(df["Week"], df["Visitors"])</code><br>
+                        4. Labels: <code>plt.xlabel("Week")</code>, <code>plt.ylabel("Number of Visitors")</code><br>
+                        5. Title: <code>plt.title("Visitors by Week")</code><br>
+                        6. Show: <code>plt.show()</code>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- EXERCISE 2: Creating a Bar Chart -->
+            <div class="exercise" data-exercise="2" style="display: none; background: #111b28; border-radius: 12px; padding: 25px; border: 1px solid #1a2433; margin-bottom: 20px;">
+                <h3 style="color: #2dce89; margin-bottom: 10px;">Exercise 2: Creating a Bar Chart</h3>
+                <p style="color: #a0b4c8; margin-bottom: 20px;">
+                    Create a DataFrame with columns <code>"City"</code> and <code>"Population"</code> for 4 cities.<br>
+                    Plot a bar chart to show the population for each city.<br>
+                    Customize the chart with a title, axis labels, and gridlines.
+                </p>
+                
+                <div data-datacamp-exercise data-lang="python" data-height="500">
+                    <code data-type="pre-exercise-code">
+                        # This code runs before the student's code to set up the environment
+                        import pandas as pd
+                        import matplotlib.pyplot as plt
+                    </code>
+                    
+                    <code data-type="sample-code">
+                        # Import pandas and matplotlib.pyplot
+                        
+                        # Create a DataFrame with City and Population
+                        
+                        # Plot a bar chart
+                        
+                        # Add title, axis labels, and gridlines
+                        
+                        # Display the chart
+                    </code>
+                    
+                    <code data-type="solution">
+                        # Import pandas and matplotlib.pyplot
+                        import pandas as pd
+                        import matplotlib.pyplot as plt
+                        
+                        # Create a DataFrame with City and Population
+                        data = {
+                            "City": ["New York", "Los Angeles", "Chicago", "Houston"],
+                            "Population": [8419000, 3980000, 2716000, 2328000]
+                        }
+                        df = pd.DataFrame(data)
+                        
+                        # Plot a bar chart
+                        plt.bar(df["City"], df["Population"])
+                        
+                        # Add title, axis labels, and gridlines
+                        plt.title("City Populations")
+                        plt.xlabel("City")
+                        plt.ylabel("Population")
+                        plt.grid(True, axis='y', linestyle='--', alpha=0.7)
+                        
+                        # Display the chart
+                        plt.show()
+                    </code>
+                    
+                    <code data-type="sct">
+                        # Check if pandas was imported
+                        test_import("pandas", 
+                            incorrect_msg="You need to import pandas as pd.")
+                        
+                        # Check if matplotlib.pyplot was imported
+                        test_import("matplotlib.pyplot", 
+                            incorrect_msg="You need to import matplotlib.pyplot as plt.")
+                        
+                        # Check if a DataFrame exists
+                        test_object("df", 
+                            incorrect_msg="Create a DataFrame called 'df' using pd.DataFrame().")
+                        
+                        # Check if 'City' column exists
+                        test_object("df", 
+                            incorrect_msg="Your DataFrame should have a 'City' column.")
+                        
+                        # Check if 'Population' column exists
+                        test_object("df", 
+                            incorrect_msg="Your DataFrame should have a 'Population' column.")
+                        
+                        # Check if DataFrame has 4 rows
+                        test_object("df", 
+                            incorrect_msg="Your DataFrame should contain data for 4 cities.")
+                        
+                        # Check if bar chart was created
+                        test_function("plt.bar", 
+                            incorrect_msg="Use plt.bar() to create a bar chart.")
+                        
+                        # Check if title was added
+                        test_function("plt.title", 
+                            incorrect_msg="Add a title using plt.title().")
+                        
+                        # Check if xlabel was added
+                        test_function("plt.xlabel", 
+                            incorrect_msg="Label the x-axis using plt.xlabel().")
+                        
+                        # Check if ylabel was added
+                        test_function("plt.ylabel", 
+                            incorrect_msg="Label the y-axis using plt.ylabel().")
+                        
+                        # Check if grid was added
+                        test_function("plt.grid", 
+                            incorrect_msg="Add gridlines using plt.grid(True).")
+                        
+                        # Check if show was called
+                        test_function("plt.show", 
+                            incorrect_msg="Display the chart using plt.show().")
+                        
+                        # Success message
+                        success_msg("🎉 Excellent! You created a bar chart with customizations!")
+                    </code>
+                    
+                    <div data-type="hint">
+                        <strong>Stuck? Try this:</strong><br>
+                        1. Import libraries: <code>import pandas as pd</code> and <code>import matplotlib.pyplot as plt</code><br>
+                        2. Create DataFrame:<br>
+                        <code>data = {</code><br>
+                        <code>&nbsp;&nbsp;&nbsp;&nbsp;"City": ["New York", "Los Angeles", "Chicago", "Houston"],</code><br>
+                        <code>&nbsp;&nbsp;&nbsp;&nbsp;"Population": [8419000, 3980000, 2716000, 2328000]</code><br>
+                        <code>}</code><br>
+                        <code>df = pd.DataFrame(data)</code><br>
+                        3. Bar chart: <code>plt.bar(df["City"], df["Population"])</code><br>
+                        4. Title: <code>plt.title("City Populations")</code><br>
+                        5. Labels: <code>plt.xlabel("City")</code>, <code>plt.ylabel("Population")</code><br>
+                        6. Grid: <code>plt.grid(True, axis='y', linestyle='--', alpha=0.7)</code><br>
+                        7. Show: <code>plt.show()</code>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- EXERCISE 3: Creating a Histogram -->
+            <div class="exercise" data-exercise="3" style="display: none; background: #111b28; border-radius: 12px; padding: 25px; border: 1px solid #1a2433; margin-bottom: 20px;">
+                <h3 style="color: #2dce89; margin-bottom: 10px;">Exercise 3: Creating a Histogram</h3>
+                <p style="color: #a0b4c8; margin-bottom: 20px;">
+                    Create a DataFrame with a column <code>"Scores"</code> containing 10 test scores.<br>
+                    Plot a histogram to visualize the distribution of scores.<br>
+                    Set the number of bins to 5 and customize the chart title and labels.
+                </p>
+                
+                <div data-datacamp-exercise data-lang="python" data-height="500">
+                    <code data-type="pre-exercise-code">
+                        # This code runs before the student's code to set up the environment
+                        import pandas as pd
+                        import matplotlib.pyplot as plt
+                    </code>
+                    
+                    <code data-type="sample-code">
+                        # Import pandas and matplotlib.pyplot
+                        
+                        # Create a DataFrame with a "Scores" column
+                        
+                        # Plot a histogram with 5 bins
+                        
+                        # Add title and axis labels
+                        
+                        # Display the chart
+                    </code>
+                    
+                    <code data-type="solution">
+                        # Import pandas and matplotlib.pyplot
+                        import pandas as pd
+                        import matplotlib.pyplot as plt
+                        
+                        # Create a DataFrame with a "Scores" column
+                        data = {
+                            "Scores": [72, 85, 90, 65, 78, 92, 88, 70, 95, 82]
+                        }
+                        df = pd.DataFrame(data)
+                        
+                        # Plot a histogram with 5 bins
+                        plt.hist(df["Scores"], bins=5, edgecolor='black')
+                        
+                        # Add title and axis labels
+                        plt.title("Distribution of Test Scores")
+                        plt.xlabel("Scores")
+                        plt.ylabel("Frequency")
+                        
+                        # Display the chart
+                        plt.show()
+                    </code>
+                    
+                    <code data-type="sct">
+                        # Check if pandas was imported
+                        test_import("pandas", 
+                            incorrect_msg="You need to import pandas as pd.")
+                        
+                        # Check if matplotlib.pyplot was imported
+                        test_import("matplotlib.pyplot", 
+                            incorrect_msg="You need to import matplotlib.pyplot as plt.")
+                        
+                        # Check if a DataFrame exists
+                        test_object("df", 
+                            incorrect_msg="Create a DataFrame called 'df' using pd.DataFrame().")
+                        
+                        # Check if 'Scores' column exists
+                        test_object("df", 
+                            incorrect_msg="Your DataFrame should have a 'Scores' column.")
+                        
+                        # Check if histogram was created
+                        test_function("plt.hist", 
+                            incorrect_msg="Use plt.hist() to create a histogram.")
+                        
+                        # Check if bins=5 was used
+                        test_function("plt.hist", 
+                            incorrect_msg="Set the number of bins to 5 using bins=5.")
+                        
+                        # Check if edgecolor was used
+                        test_function("plt.hist", 
+                            incorrect_msg="Use edgecolor='black' to make bar edges visible.")
+                        
+                        # Check if title was added
+                        test_function("plt.title", 
+                            incorrect_msg="Add a title using plt.title().")
+                        
+                        # Check if xlabel was added
+                        test_function("plt.xlabel", 
+                            incorrect_msg="Label the x-axis using plt.xlabel().")
+                        
+                        # Check if ylabel was added
+                        test_function("plt.ylabel", 
+                            incorrect_msg="Label the y-axis using plt.ylabel().")
+                        
+                        # Check if show was called
+                        test_function("plt.show", 
+                            incorrect_msg="Display the chart using plt.show().")
+                        
+                        # Success message
+                        success_msg("🎉 Excellent! You created a histogram to visualize the score distribution!")
+                    </code>
+                    
+                    <div data-type="hint">
+                        <strong>Stuck? Try this:</strong><br>
+                        1. Import libraries: <code>import pandas as pd</code> and <code>import matplotlib.pyplot as plt</code><br>
+                        2. Create DataFrame:<br>
+                        <code>data = {"Scores": [72, 85, 90, 65, 78, 92, 88, 70, 95, 82]}</code><br>
+                        <code>df = pd.DataFrame(data)</code><br>
+                        3. Histogram: <code>plt.hist(df["Scores"], bins=5, edgecolor='black')</code><br>
+                        4. Title: <code>plt.title("Distribution of Test Scores")</code><br>
+                        5. Labels: <code>plt.xlabel("Scores")</code>, <code>plt.ylabel("Frequency")</code><br>
+                        6. Show: <code>plt.show()</code>
+                    </div>
+                </div>
+            </div>
+          
+            <!-- EXERCISE 4: Creating a Scatter Plot -->
+            <div class="exercise" data-exercise="4" style="display: none; background: #111b28; border-radius: 12px; padding: 25px; border: 1px solid #1a2433; margin-bottom: 20px;">
+                <h3 style="color: #2dce89; margin-bottom: 10px;">Exercise 4: Creating a Scatter Plot</h3>
+                <p style="color: #a0b4c8; margin-bottom: 20px;">
+                    Create a DataFrame with columns <code>"Hours Studied"</code> and <code>"Test Score"</code>.<br>
+                    Plot a scatter plot to show the relationship between hours studied and test scores.<br>
+                    Add a title and axis labels.
+                </p>
+                
+                <div data-datacamp-exercise data-lang="python" data-height="500">
+                    <code data-type="pre-exercise-code">
+                        # This code runs before the student's code to set up the environment
+                        import pandas as pd
+                        import matplotlib.pyplot as plt
+                    </code>
+                    
+                    <code data-type="sample-code">
+                        # Import pandas and matplotlib.pyplot
+                        
+                        # Create a DataFrame with Hours Studied and Test Score
+                        
+                        # Plot a scatter plot
+                        
+                        # Add title and axis labels
+                        
+                        # Display the chart
+                    </code>
+                    
+                    <code data-type="solution">
+                        # Import pandas and matplotlib.pyplot
+                        import pandas as pd
+                        import matplotlib.pyplot as plt
+                        
+                        # Create a DataFrame with Hours Studied and Test Score
+                        data = {
+                            "Hours Studied": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
+                            "Test Score": [55, 60, 65, 70, 75, 80, 82, 85, 90, 95]
+                        }
+                        df = pd.DataFrame(data)
+                        
+                        # Plot a scatter plot
+                        plt.scatter(df["Hours Studied"], df["Test Score"])
+                        
+                        # Add title and axis labels
+                        plt.title("Hours Studied vs. Test Score")
+                        plt.xlabel("Hours Studied")
+                        plt.ylabel("Test Score")
+                        
+                        # Display the chart
+                        plt.show()
+                    </code>
+                    
+                    <code data-type="sct">
+                        # Check if pandas was imported
+                        test_import("pandas", 
+                            incorrect_msg="You need to import pandas as pd.")
+                        
+                        # Check if matplotlib.pyplot was imported
+                        test_import("matplotlib.pyplot", 
+                            incorrect_msg="You need to import matplotlib.pyplot as plt.")
+                        
+                        # Check if a DataFrame exists
+                        test_object("df", 
+                            incorrect_msg="Create a DataFrame called 'df' using pd.DataFrame().")
+                        
+                        # Check if 'Hours Studied' column exists
+                        test_object("df", 
+                            incorrect_msg="Your DataFrame should have a 'Hours Studied' column.")
+                        
+                        # Check if 'Test Score' column exists
+                        test_object("df", 
+                            incorrect_msg="Your DataFrame should have a 'Test Score' column.")
+                        
+                        # Check if scatter plot was created
+                        test_function("plt.scatter", 
+                            incorrect_msg="Use plt.scatter() to create a scatter plot.")
+                        
+                        # Check if title was added
+                        test_function("plt.title", 
+                            incorrect_msg="Add a title using plt.title().")
+                        
+                        # Check if xlabel was added
+                        test_function("plt.xlabel", 
+                            incorrect_msg="Label the x-axis using plt.xlabel().")
+                        
+                        # Check if ylabel was added
+                        test_function("plt.ylabel", 
+                            incorrect_msg="Label the y-axis using plt.ylabel().")
+                        
+                        # Check if show was called
+                        test_function("plt.show", 
+                            incorrect_msg="Display the chart using plt.show().")
+                        
+                        # Success message
+                        success_msg("🎉 Excellent! You created a scatter plot to show the relationship!")
+                    </code>
+                    
+                    <div data-type="hint">
+                        <strong>Stuck? Try this:</strong><br>
+                        1. Import libraries: <code>import pandas as pd</code> and <code>import matplotlib.pyplot as plt</code><br>
+                        2. Create DataFrame:<br>
+                        <code>data = {</code><br>
+                        <code>&nbsp;&nbsp;&nbsp;&nbsp;"Hours Studied": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10],</code><br>
+                        <code>&nbsp;&nbsp;&nbsp;&nbsp;"Test Score": [55, 60, 65, 70, 75, 80, 82, 85, 90, 95]</code><br>
+                        <code>}</code><br>
+                        <code>df = pd.DataFrame(data)</code><br>
+                        3. Scatter: <code>plt.scatter(df["Hours Studied"], df["Test Score"])</code><br>
+                        4. Title: <code>plt.title("Hours Studied vs. Test Score")</code><br>
+                        5. Labels: <code>plt.xlabel("Hours Studied")</code>, <code>plt.ylabel("Test Score")</code><br>
+                        6. Show: <code>plt.show()</code>
+                    </div>
+                </div>
+            </div>
+
+            <!-- EXERCISE 5: Customizing Plots -->
+            <div class="exercise" data-exercise="5" style="display: none; background: #111b28; border-radius: 12px; padding: 25px; border: 1px solid #1a2433; margin-bottom: 20px;">
+                <h3 style="color: #2dce89; margin-bottom: 10px;">Exercise 5: Customizing Plots</h3>
+                <p style="color: #a0b4c8; margin-bottom: 20px;">
+                    Create a line chart with any dataset of your choice.<br>
+                    Customize the chart by changing the color, adding markers, and enabling gridlines.
+                </p>
+                
+                <div data-datacamp-exercise data-lang="python" data-height="500">
+                    <code data-type="pre-exercise-code">
+                        # This code runs before the student's code to set up the environment
+                        import pandas as pd
+                        import matplotlib.pyplot as plt
+                    </code>
+                    
+                    <code data-type="sample-code">
+                        # Import pandas and matplotlib.pyplot
+                        
+                        # Create a DataFrame with your own data
+                        
+                        # Create a line chart with customizations:
+                        # - Change the color
+                        # - Add markers
+                        # - Enable gridlines
+                        
+                        # Add title and axis labels
+                        
+                        # Display the chart
+                    </code>
+                    
+                    <code data-type="solution">
+                        # Import pandas and matplotlib.pyplot
+                        import pandas as pd
+                        import matplotlib.pyplot as plt
+                        
+                        # Create a DataFrame with your own data
+                        data = {
+                            "Month": ["Jan", "Feb", "Mar", "Apr", "May", "Jun"],
+                            "Sales": [1200, 1500, 1300, 1800, 1700, 2000]
+                        }
+                        df = pd.DataFrame(data)
+                        
+                        # Create a line chart with customizations:
+                        # - Change the color to blue
+                        # - Add circular markers
+                        # - Enable gridlines
+                        plt.plot(df["Month"], df["Sales"], color='blue', marker='o', linestyle='-', linewidth=2)
+                        plt.grid(True)
+                        
+                        # Add title and axis labels
+                        plt.title("Monthly Sales", fontsize=16)
+                        plt.xlabel("Month")
+                        plt.ylabel("Sales ($)")
+                        
+                        # Display the chart
+                        plt.show()
+                    </code>
+                    
+                    <code data-type="sct">
+                        # Check if pandas was imported
+                        test_import("pandas", 
+                            incorrect_msg="You need to import pandas as pd.")
+                        
+                        # Check if matplotlib.pyplot was imported
+                        test_import("matplotlib.pyplot", 
+                            incorrect_msg="You need to import matplotlib.pyplot as plt.")
+                        
+                        # Check if a DataFrame exists
+                        test_object("df", 
+                            incorrect_msg="Create a DataFrame called 'df' using pd.DataFrame().")
+                        
+                        # Check if line chart was created
+                        test_function("plt.plot", 
+                            incorrect_msg="Use plt.plot() to create a line chart.")
+                        
+                        # Check if color was customized
+                        test_function("plt.plot", 
+                            incorrect_msg="Customize the line color using color='blue' or another color.")
+                        
+                        # Check if markers were added
+                        test_function("plt.plot", 
+                            incorrect_msg="Add markers using marker='o' or another marker style.")
+                        
+                        # Check if gridlines were enabled
+                        test_function("plt.grid", 
+                            incorrect_msg="Enable gridlines using plt.grid(True).")
+                        
+                        # Check if title was added
+                        test_function("plt.title", 
+                            incorrect_msg="Add a title using plt.title().")
+                        
+                        # Check if xlabel was added
+                        test_function("plt.xlabel", 
+                            incorrect_msg="Label the x-axis using plt.xlabel().")
+                        
+                        # Check if ylabel was added
+                        test_function("plt.ylabel", 
+                            incorrect_msg="Label the y-axis using plt.ylabel().")
+                        
+                        # Check if show was called
+                        test_function("plt.show", 
+                            incorrect_msg="Display the chart using plt.show().")
+                        
+                        # Success message
+                        success_msg("🎉 Excellent! You customized your plot with colors, markers, and gridlines!")
+                    </code>
+                    
+                    <div data-type="hint">
+                        <strong>Stuck? Try this:</strong><br>
+                        1. Import libraries: <code>import pandas as pd</code> and <code>import matplotlib.pyplot as plt</code><br>
+                        2. Create DataFrame with your own data:<br>
+                        <code>data = {</code><br>
+                        <code>&nbsp;&nbsp;&nbsp;&nbsp;"Month": ["Jan", "Feb", "Mar", "Apr", "May", "Jun"],</code><br>
+                        <code>&nbsp;&nbsp;&nbsp;&nbsp;"Sales": [1200, 1500, 1300, 1800, 1700, 2000]</code><br>
+                        <code>}</code><br>
+                        <code>df = pd.DataFrame(data)</code><br>
+                        3. Customized plot:<br>
+                        <code>plt.plot(df["Month"], df["Sales"], color='blue', marker='o', linestyle='-', linewidth=2)</code><br>
+                        4. Grid: <code>plt.grid(True)</code><br>
+                        5. Title: <code>plt.title("Monthly Sales", fontsize=16)</code><br>
+                        6. Labels: <code>plt.xlabel("Month")</code>, <code>plt.ylabel("Sales ($)")</code><br>
+                        7. Show: <code>plt.show()</code>
+                    </div>
+                </div>
+            </div>
+                          
+        <!-- Navigation Back -->
+        <div style="display: flex; justify-content: space-between; margin-top: 20px; padding-top: 20px; border-top: 1px solid #1a2433;">
+            <a href="/pycraft/practice.html" style="color: #2dce89;">← Back to Practice</a>
+            <a href="/pycraft/chapter-2.html" style="color: #2dce89;">Next Chapter →</a>
+        </div>
+    </div>
+
+    <!-- JavaScript for Exercise Navigation -->
+    <script>
+        let currentExercise = 1;
+        const totalExercises = 3;
+
+        function showExercise(num) {
+            // Hide all exercises
+            const exercises = document.querySelectorAll('.exercise');
+            exercises.forEach((ex, index) => {
+                ex.style.display = 'none';
+            });
+            
+            // Show the selected exercise
+            const target = document.querySelector(`.exercise[data-exercise="${num}"]`);
+            if (target) {
+                target.style.display = 'block';
+            }
+            
+            // Update counter
+            document.getElementById('exerciseCounter').textContent = `✅ Exercise ${num} of ${totalExercises}`;
+            
+            // Update button states
+            document.getElementById('prevBtn').style.opacity = num === 1 ? '0.4' : '1';
+            document.getElementById('prevBtn').style.cursor = num === 1 ? 'default' : 'pointer';
+            document.getElementById('nextBtn').style.opacity = num === totalExercises ? '0.4' : '1';
+            document.getElementById('nextBtn').style.cursor = num === totalExercises ? 'default' : 'pointer';
+            
+            currentExercise = num;
+            
+            // Scroll to top of exercise
+            document.querySelector('.container').scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+
+        function nextExercise() {
+            if (currentExercise < totalExercises) {
+                showExercise(currentExercise + 1);
+            }
+        }
+
+        function prevExercise() {
+            if (currentExercise > 1) {
+                showExercise(currentExercise - 1);
+            }
+        }
+
+        // Initialize on page load
+        document.addEventListener('DOMContentLoaded', function() {
+            showExercise(1);
+        });
+    </script>
+
+    <script src="/pycraft/js/nav.js"></script>
+</body>
+</html>
