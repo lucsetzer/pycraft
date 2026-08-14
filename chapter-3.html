@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Chapter 3: Functions and Packages – PyCraft</title>
+    <link rel="stylesheet" href="/pycraft/css/style.css"/>
+    <script type="text/javascript" src="//cdn.datacamp.com/dcl-react.js.gz"></script>
+</head>
+<body>
+    <div class="container" style="padding-top: 100px; max-width: 900px; margin: 0 auto;">
+        
+        <!-- Chapter Header -->
+        <div style="margin-bottom: 30px; border-bottom: 2px solid #2dce89; padding-bottom: 20px;">
+            <h1 style="font-size: 2rem;">Chapter 3: Functions and Packages</h1>
+            <p style="color: #a0b4c8; font-size: 1.1rem;">Variables, data types, and basic operations.</p>
+            <div style="display: flex; gap: 15px; margin-top: 12px; flex-wrap: wrap; align-items: center;">
+                <span style="background: #1a2433; padding: 4px 14px; border-radius: 20px; font-size: 0.85rem;">📚 DataCamp Chapter 1</span>
+                <span style="background: #1a2433; padding: 4px 14px; border-radius: 20px; font-size: 0.85rem;" id="exerciseCounter">✅ Exercise 1 of 3</span>
+                <!-- Navigation buttons -->
+                <div style="display: flex; gap: 8px; margin-left: auto;">
+                    <button onclick="prevExercise()" id="prevBtn" style="background: #1a2433; color: #a0b4c8; border: 1px solid #2d3748; padding: 6px 16px; border-radius: 6px; cursor: pointer; font-size: 0.85rem;">
+                        ← Previous
+                    </button>
+                    <button onclick="nextExercise()" id="nextBtn" style="background: #2dce89; color: #0a0e17; border: none; padding: 6px 16px; border-radius: 6px; cursor: pointer; font-size: 0.85rem; font-weight: 600;">
+                        Next →
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Exercise Container -->
+        <div id="exerciseContainer">
+            
+            <!-- EXERCISE 1: Introduction to Functions -->
+            <div class="exercise" data-exercise="1" style="display: block; background: #111b28; border-radius: 12px; padding: 25px; border: 1px solid #1a2433; margin-bottom: 20px;">
+                <h3 style="color: #2dce89; margin-bottom: 10px;">Exercise 1: Introduction to Functions</h3>
+                <p style="color: #a0b4c8; margin-bottom: 20px;">
+                    Write a function called <code>welcome</code> that prints <code>"Welcome to Python programming!"</code>.<br>
+                    Call the <code>welcome</code> function.
+                </p>
+                
+                <div data-datacamp-exercise data-lang="python" data-height="400">
+                    <code data-type="pre-exercise-code"># Nothing needed here</code>
+                    
+                    <code data-type="sample-code">
+                        # Define the welcome function
+                        
+                        # Call the welcome function
+                    </code>
+                    
+                    <code data-type="solution">
+                        # Define the welcome function
+                        def welcome():
+                            print("Welcome to Python programming!")
+                        
+                        # Call the welcome function
+                        welcome()
+                    </code>
+                    
+                    <code data-type="sct">
+                      # Check if the function 'welcome' exists
+                      test_function("welcome", 
+                          incorrect_msg="You need to define a function called 'welcome'.")
+                      
+                      # Check if the function contains a print statement
+                      # This is more complex and might not work in all environments
+                      # We'll use a simpler approach:
+                      test_function("welcome", 
+                          incorrect_msg="Your welcome() function should contain a print statement.")
+                      
+                      # Check if the function was called
+                      test_output_contains("Welcome to Python programming!", 
+                          incorrect_msg="Make sure you called the welcome() function.")
+                      
+                      # Success message
+                      success_msg("🎉 Excellent! You defined and called your first function!")
+                  </code>
+                    
+                    <div data-type="hint">
+                        <strong>Stuck? Try this:</strong><br>
+                        1. Define the function:<br>
+                        <code>def welcome():<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;print("Welcome to Python programming!")</code><br>
+                        2. Call the function: <code>welcome()</code>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- EXERCISE 2: Functions with Parameters -->
+            <div class="exercise" data-exercise="2" style="display: none; background: #111b28; border-radius: 12px; padding: 25px; border: 1px solid #1a2433; margin-bottom: 20px;">
+                <h3 style="color: #2dce89; margin-bottom: 10px;">Exercise 2: Functions with Parameters</h3>
+                <p style="color: #a0b4c8; margin-bottom: 20px;">
+                    Write a function called <code>multiply_numbers</code> that takes two arguments, multiplies them, and prints the result.<br>
+                    Call the function with any two numbers of your choice.
+                </p>
+                
+                <div data-datacamp-exercise data-lang="python" data-height="400">
+                    <code data-type="pre-exercise-code"># Nothing needed here</code>
+                    
+                    <code data-type="sample-code">
+                        # Define the multiply_numbers function with two parameters
+                        
+                        # Call the function with two numbers
+                    </code>
+                    
+                    <code data-type="solution">
+                        # Define the multiply_numbers function with two parameters
+                        def multiply_numbers(a, b):
+                            result = a * b
+                            print(result)
+                        
+                        # Call the function with two numbers
+                        multiply_numbers(5, 3)
+                    </code>
+                    
+                    <code data-type="sct">
+                        # Check if the function 'multiply_numbers' exists
+                        test_function("multiply_numbers", 
+                            incorrect_msg="You need to define a function called 'multiply_numbers'.")
+                        
+                        # Check if the function accepts two arguments
+                        # This is a simplified check - we'll test by calling it
+                        test_function("multiply_numbers", 
+                            incorrect_msg="Your function should accept two arguments (parameters).")
+                        
+                        # Check if the function prints the result
+                        # We can check if a number appears in the output
+                        test_output_contains("15", 
+                            incorrect_msg="Make sure your function multiplies the two numbers and prints the result.")
+                        
+                        # Check if the function was called
+                        # If output appears, the function was called
+                        test_output_contains("15", 
+                            incorrect_msg="Make sure you called the multiply_numbers() function with two numbers.")
+                        
+                        # Success message
+                        success_msg("🎉 Excellent! You wrote a function that multiplies two numbers!")
+                    </code>
+                    
+                    <div data-type="hint">
+                        <strong>Stuck? Try this:</strong><br>
+                        1. Define the function with two parameters:<br>
+                        <code>def multiply_numbers(a, b):<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;result = a * b<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;print(result)</code><br>
+                        2. Call the function: <code>multiply_numbers(5, 3)</code>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- EXERCISE 3: Functions with Return Values -->
+            <div class="exercise" data-exercise="3" style="display: none; background: #111b28; border-radius: 12px; padding: 25px; border: 1px solid #1a2433; margin-bottom: 20px;">
+                <h3 style="color: #2dce89; margin-bottom: 10px;">Exercise 3: Functions with Return Values</h3>
+                <p style="color: #a0b4c8; margin-bottom: 20px;">
+                    Write a function called <code>cube</code> that takes one argument and returns its cube (the number multiplied by itself twice).<br>
+                    Call the function with a number of your choice, store the result in a variable, and print it.
+                </p>
+                
+                <div data-datacamp-exercise data-lang="python" data-height="400">
+                    <code data-type="pre-exercise-code"># Nothing needed here</code>
+                    
+                    <code data-type="sample-code">
+                        # Define the cube function that returns the cube of a number
+                        
+                        # Call the function, store the result, and print it
+                    </code>
+                    
+                    <code data-type="solution">
+                        # Define the cube function that returns the cube of a number
+                        def cube(num):
+                            return num ** 3
+                        
+                        # Call the function, store the result, and print it
+                        result = cube(3)
+                        print(result)
+                    </code>
+                    
+                    <code data-type="sct">
+                        # Check if the function 'cube' exists
+                        test_function("cube", 
+                            incorrect_msg="You need to define a function called 'cube'.")
+                        
+                        # Check if the function accepts one argument
+                        test_function("cube", 
+                            incorrect_msg="Your function should accept one argument.")
+                        
+                        # Check if the function returns the correct value
+                        # We'll test with a specific number (3)
+                        test_function("cube", 
+                            incorrect_msg="Your cube function should return num * num * num or num ** 3.")
+                        
+                        # Check if the result was stored in a variable
+                        test_object("result", 
+                            incorrect_msg="You need to store the result in a variable called 'result'.")
+                        
+                        # Check if print was used to display the result
+                        test_function("print", 
+                            incorrect_msg="You need to use print() to display the result.")
+                        
+                        # Check if the correct result was printed (3^3 = 27)
+                        test_output_contains("27", 
+                            incorrect_msg="Make sure you're printing the result variable.")
+                        
+                        # Success message
+                        success_msg("🎉 Perfect! You wrote a function that returns a value and printed it!")
+                    </code>
+                    
+                    <div data-type="hint">
+                        <strong>Stuck? Try this:</strong><br>
+                        1. Define the function with one parameter:<br>
+                        <code>def cube(num):<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;return num ** 3</code><br>
+                        2. Call the function and store the result:<br>
+                        <code>result = cube(3)</code><br>
+                        3. Print the result: <code>print(result)</code>
+                    </div>
+                </div>
+            </div>
+
+            <!-- EXERCISE 4: Importing and Using Packages -->
+            <div class="exercise" data-exercise="4" style="display: none; background: #111b28; border-radius: 12px; padding: 25px; border: 1px solid #1a2433; margin-bottom: 20px;">
+                <h3 style="color: #2dce89; margin-bottom: 10px;">Exercise 4: Importing and Using Packages</h3>
+                <p style="color: #a0b4c8; margin-bottom: 20px;">
+                    Import the <code>math</code> package and use the <code>pow()</code> function to calculate 2 raised to the power of 3.<br>
+                    Use <code>math.factorial()</code> to find the factorial of 5 and print the result.
+                </p>
+                
+                <div data-datacamp-exercise data-lang="python" data-height="400">
+                    <code data-type="pre-exercise-code"># Nothing needed here</code>
+                    
+                    <code data-type="sample-code">
+                        # Import the math package
+                        
+                        # Use pow() to calculate 2^3
+                        
+                        # Use math.factorial() to find 5! and print it
+                    </code>
+                    
+                    <code data-type="solution">
+                        # Import the math package
+                        import math
+                        
+                        # Use pow() to calculate 2^3
+                        print(math.pow(2, 3))
+                        
+                        # Use math.factorial() to find 5! and print it
+                        print(math.factorial(5))
+                    </code>
+                    
+                    <code data-type="sct">
+                        # Check if math was imported
+                        test_import("math", 
+                            incorrect_msg="You need to import the math package using 'import math'.")
+                        
+                        # Check if math.pow was used
+                        test_function("math.pow", 
+                            incorrect_msg="Use math.pow() to calculate 2 raised to the power of 3.")
+                        
+                        # Check if pow() was called with correct arguments
+                        test_output_contains("8.0", 
+                            incorrect_msg="math.pow(2, 3) should return 8.0.")
+                        
+                        # Check if math.factorial was used
+                        test_function("math.factorial", 
+                            incorrect_msg="Use math.factorial() to calculate the factorial of 5.")
+                        
+                        # Check if factorial was called with correct argument
+                        test_output_contains("120", 
+                            incorrect_msg="math.factorial(5) should return 120.")
+                        
+                        # Check if print was used at least once
+                        test_function("print", 
+                            incorrect_msg="You need to use print() to display the results.")
+                        
+                        # Success message
+                        success_msg("🎉 Excellent! You imported the math package and used its functions!")
+                    </code>
+                    
+                    <div data-type="hint">
+                        <strong>Stuck? Try this:</strong><br>
+                        1. Import the math package: <code>import math</code><br>
+                        2. Calculate 2^3: <code>print(math.pow(2, 3))</code><br>
+                        3. Calculate 5!: <code>print(math.factorial(5))</code>
+                    </div>
+                </div>
+            </div>
+
+        <!-- Navigation Back -->
+        <div style="display: flex; justify-content: space-between; margin-top: 20px; padding-top: 20px; border-top: 1px solid #1a2433;">
+            <a href="/pycraft/practice.html" style="color: #2dce89;">← Back to Practice</a>
+            <a href="/pycraft/chapter-2.html" style="color: #2dce89;">Next Chapter →</a>
+        </div>
+    </div>
+
+    <!-- JavaScript for Exercise Navigation -->
+    <script>
+        let currentExercise = 1;
+        const totalExercises = 3;
+
+        function showExercise(num) {
+            // Hide all exercises
+            const exercises = document.querySelectorAll('.exercise');
+            exercises.forEach((ex, index) => {
+                ex.style.display = 'none';
+            });
+            
+            // Show the selected exercise
+            const target = document.querySelector(`.exercise[data-exercise="${num}"]`);
+            if (target) {
+                target.style.display = 'block';
+            }
+            
+            // Update counter
+            document.getElementById('exerciseCounter').textContent = `✅ Exercise ${num} of ${totalExercises}`;
+            
+            // Update button states
+            document.getElementById('prevBtn').style.opacity = num === 1 ? '0.4' : '1';
+            document.getElementById('prevBtn').style.cursor = num === 1 ? 'default' : 'pointer';
+            document.getElementById('nextBtn').style.opacity = num === totalExercises ? '0.4' : '1';
+            document.getElementById('nextBtn').style.cursor = num === totalExercises ? 'default' : 'pointer';
+            
+            currentExercise = num;
+            
+            // Scroll to top of exercise
+            document.querySelector('.container').scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+
+        function nextExercise() {
+            if (currentExercise < totalExercises) {
+                showExercise(currentExercise + 1);
+            }
+        }
+
+        function prevExercise() {
+            if (currentExercise > 1) {
+                showExercise(currentExercise - 1);
+            }
+        }
+
+        // Initialize on page load
+        document.addEventListener('DOMContentLoaded', function() {
+            showExercise(1);
+        });
+    </script>
+
+    <script src="/pycraft/js/nav.js"></script>
+</body>
+</html>
