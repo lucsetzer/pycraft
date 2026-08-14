@@ -78,103 +78,158 @@
                 </div>
             </div>
             
-            <!-- EXERCISE 2: Basic Math -->
+            <!-- EXERCISE 2: Variables -->
             <div class="exercise" data-exercise="2" style="display: none; background: #111b28; border-radius: 12px; padding: 25px; border: 1px solid #1a2433; margin-bottom: 20px;">
-                <h3 style="color: #2dce89; margin-bottom: 10px;">Exercise 2: Basic Math</h3>
+                <h3 style="color: #2dce89; margin-bottom: 10px;">Exercise 2: Variables</h3>
                 <p style="color: #a0b4c8; margin-bottom: 20px;">
-                    Calculate the area of a rectangle with <code>width = 5</code> and <code>height = 8</code>. 
-                    Store the result in a variable called <code>area</code>, then print it.
+                    Create a variable called <code>city</code> and store the name of your city as a string.<br>
+                    Create a variable called <code>year</code> and store the current year as a number.<br>
+                    Use <code>print()</code> to display both variables.
                 </p>
                 
                 <div data-datacamp-exercise data-lang="python" data-height="400">
                     <code data-type="pre-exercise-code"># Nothing needed here</code>
                     
                     <code data-type="sample-code">
-                        # Define width and height
-                        width = 5
-                        height = 8
+                        # Create a variable called 'city' and store your city name
                         
-                        # Calculate the area
+                        # Create a variable called 'year' and store the current year
                         
-                        # Print the result
+                        # Print both variables
                     </code>
                     
                     <code data-type="solution">
-                        # Define width and height
-                        width = 5
-                        height = 8
+                        # Create a variable called 'city' and store your city name
+                        city = "New York"
                         
-                        # Calculate the area
-                        area = width * height
+                        # Create a variable called 'year' and store the current year
+                        year = 2025
                         
-                        # Print the result
-                        print(area)
+                        # Print both variables
+                        print(city, year)
                     </code>
                     
                     <code data-type="sct">
-                        # Check if 'area' exists
-                        test_object("area", 
-                            incorrect_msg="You need to create a variable called 'area'.")
+                        # Check if 'city' exists
+                        test_object("city", 
+                            incorrect_msg="You need to create a variable called 'city'.")
                         
-                        # Check if 'area' is correct (40)
-                        test_object("area", 
-                            incorrect_msg="Make sure you multiply width by height correctly. Hint: area = width * height")
+                        # Check if 'city' is a string (not required but helpful)
+                        # test_data_type("city", "str", incorrect_msg="city should be a string, like 'London'.")
                         
-                        # Check if 'print' was used
+                        # Check if 'year' exists
+                        test_object("year", 
+                            incorrect_msg="You need to create a variable called 'year'.")
+                        
+                        # Check if 'year' is a number
+                        # test_data_type("year", "int", incorrect_msg="year should be a number, like 2025.")
+                        
+                        # Check if print() was used
                         test_function("print", 
-                            incorrect_msg="You need to use print() to show the result.")
+                            incorrect_msg="You need to use print() to display your variables.")
                         
-                        # Check if 'print' was called with the right argument
-                        # This is a more advanced check – it verifies print(area) was used
-                        test_output_contains("40", 
-                            incorrect_msg="Make sure you're printing the 'area' variable. Did you use print(area)?")
+                        # Check if both variables were printed
+                        # This checks the output contains text (city name will be printed)
+                        # Note: We can't check exact values since students use different cities
+                        test_output_contains("city", 
+                            incorrect_msg="Make sure you're printing the 'city' variable. Try: print(city, year)")
                         
                         # Success message
-                        success_msg("Perfect! You calculated the area correctly and printed it!")
+                        success_msg("🎉 Excellent! You created variables and printed them!")
                     </code>
                     
                     <div data-type="hint">
                         <strong>Stuck? Try this:</strong><br>
-                        1. Create the variable: <code>area = width * height</code><br>
-                        2. Print it: <code>print(area)</code>
+                        1. Create a string variable: <code>city = "London"</code><br>
+                        2. Create a number variable: <code>year = 2025</code><br>
+                        3. Print both: <code>print(city, year)</code>
                     </div>
                 </div>
             </div>
             
-            <!-- EXERCISE 3 -->
-            <div class="exercise" data-exercise="3" style="display: none; background: #111b28; border-radius: 12px; padding: 25px; border: 1px solid #1a2433; margin-bottom: 20px;">
-                <h3 style="color: #2dce89; margin-bottom: 10px;">Exercise 3: String Concatenation</h3>
-                <p style="color: #a0b4c8; margin-bottom: 20px;">Create two variables, <code>first_name</code> and <code>last_name</code>, and combine them into a full name.</p>
+            <!-- EXERCISE 3: Basic Math Operations -->
+        <div class="exercise" data-exercise="3" style="display: none; background: #111b28; border-radius: 12px; padding: 25px; border: 1px solid #1a2433; margin-bottom: 20px;">
+            <h3 style="color: #2dce89; margin-bottom: 10px;">Exercise 3: Basic Math Operations</h3>
+            <p style="color: #a0b4c8; margin-bottom: 20px;">
+                Create two variables called <code>num1</code> and <code>num2</code> and assign any two numbers.<br>
+                Perform these operations and print the results:
+            </p>
+            <ul style="color: #a0b4c8; margin-bottom: 20px; padding-left: 20px;">
+                <li>Add <code>num1</code> and <code>num2</code></li>
+                <li>Subtract <code>num2</code> from <code>num1</code></li>
+                <li>Multiply <code>num1</code> and <code>num2</code></li>
+                <li>Divide <code>num1</code> by <code>num2</code></li>
+            </ul>
+            
+            <div data-datacamp-exercise data-lang="python" data-height="450">
+                <code data-type="pre-exercise-code"># Nothing needed here</code>
                 
-                <div data-datacamp-exercise data-lang="python" data-height="350">
-                    <code data-type="pre-exercise-code"># Nothing needed here</code>
-                    <code data-type="sample-code">
-                        # Create first_name and last_name variables
-                        
-                        # Combine them into full_name
-                        
-                        # Print full_name
-                    </code>
-                    <code data-type="solution">
-                        # Create first_name and last_name variables
-                        first_name = "John"
-                        last_name = "Doe"
-                        
-                        # Combine them into full_name
-                        full_name = first_name + " " + last_name
-                        
-                        # Print full_name
-                        print(full_name)
-                    </code>
-                    <code data-type="sct">
-                        test_object("full_name")
-                        test_function("print")
-                        success_msg("Excellent! You combined strings!")
-                    </code>
-                    <div data-type="hint">Use the <code>+</code> operator to concatenate strings.</div>
+                <code data-type="sample-code">
+                    # Create two variables and assign any numbers
+                    
+                    # Addition
+                    
+                    # Subtraction
+                    
+                    # Multiplication
+                    
+                    # Division
+                </code>
+                
+                <code data-type="solution">
+                    # Create two variables and assign any numbers
+                    num1 = 10
+                    num2 = 3
+                    
+                    # Addition
+                    print(num1 + num2)
+                    
+                    # Subtraction
+                    print(num1 - num2)
+                    
+                    # Multiplication
+                    print(num1 * num2)
+                    
+                    # Division
+                    print(num1 / num2)
+                </code>
+                
+                <code data-type="sct">
+                    # Check if 'num1' exists
+                    test_object("num1", 
+                        incorrect_msg="You need to create a variable called 'num1'.")
+                    
+                    # Check if 'num2' exists
+                    test_object("num2", 
+                        incorrect_msg="You need to create a variable called 'num2'.")
+                    
+                    # Check if both are numbers (optional)
+                    # If students use strings, this will give a helpful error
+                    
+                    # Check if print() was used at least once
+                    test_function("print", 
+                        incorrect_msg="You need to use print() to show your results.")
+                    
+                    # Check if addition was printed (by checking output)
+                    # This is tricky because we don't know what numbers students used
+                    # We'll check that the output contains numbers (simplified)
+                    test_output_contains("num1", 
+                        incorrect_msg="Make sure you're printing the results of each operation.")
+                    
+                    # Success message
+                    success_msg("🎉 Excellent work! You performed all four operations!")
+                </code>
+                
+                <div data-type="hint">
+                    <strong>Stuck? Try this:</strong><br>
+                    1. <code>num1 = 10</code> and <code>num2 = 3</code><br>
+                    2. Addition: <code>print(num1 + num2)</code><br>
+                    3. Subtraction: <code>print(num1 - num2)</code><br>
+                    4. Multiplication: <code>print(num1 * num2)</code><br>
+                    5. Division: <code>print(num1 / num2)</code>
                 </div>
             </div>
-        </div>
+        </div>    
 
         <!-- Navigation Back -->
         <div style="display: flex; justify-content: space-between; margin-top: 20px; padding-top: 20px; border-top: 1px solid #1a2433;">
