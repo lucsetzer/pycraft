@@ -1,1 +1,453 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Chapter 10: Introducing DataFrames pandas – PyCraft</title>
+    <link rel="stylesheet" href="/pycraft/css/style.css"/>
+    <script type="text/javascript" src="//cdn.datacamp.com/dcl-react.js.gz"></script>
+</head>
+<body>
+    <div class="container" style="padding-top: 100px; max-width: 900px; margin: 0 auto;">
+        
+        <!-- Chapter Header -->
+        <div style="margin-bottom: 30px; border-bottom: 2px solid #2dce89; padding-bottom: 20px;">
+            <h1 style="font-size: 2rem;">Chapter 10: Introducing DataFrames pandas</h1>
+            <p style="color: #a0b4c8; font-size: 1.1rem;">Variables, data types, and basic operations.</p>
+            <div style="display: flex; gap: 15px; margin-top: 12px; flex-wrap: wrap; align-items: center;">
+                <span style="background: #1a2433; padding: 4px 14px; border-radius: 20px; font-size: 0.85rem;">📚 DataCamp Chapter 1</span>
+                <span style="background: #1a2433; padding: 4px 14px; border-radius: 20px; font-size: 0.85rem;" id="exerciseCounter">✅ Exercise 1 of 3</span>
+                <!-- Navigation buttons -->
+                <div style="display: flex; gap: 8px; margin-left: auto;">
+                    <button onclick="prevExercise()" id="prevBtn" style="background: #1a2433; color: #a0b4c8; border: 1px solid #2d3748; padding: 6px 16px; border-radius: 6px; cursor: pointer; font-size: 0.85rem;">
+                        ← Previous
+                    </button>
+                    <button onclick="nextExercise()" id="nextBtn" style="background: #2dce89; color: #0a0e17; border: none; padding: 6px 16px; border-radius: 6px; cursor: pointer; font-size: 0.85rem; font-weight: 600;">
+                        Next →
+                    </button>
+                </div>
+            </div>
+        </div>
 
+        <!-- Exercise Container -->
+        <div id="exerciseContainer">
+            
+            <!-- EXERCISE 1: Creating a Simple DataFrame -->
+            <div class="exercise" data-exercise="1" style="display: block; background: #111b28; border-radius: 12px; padding: 25px; border: 1px solid #1a2433; margin-bottom: 20px;">
+                <h3 style="color: #2dce89; margin-bottom: 10px;">Exercise 1: Creating a Simple DataFrame</h3>
+                <p style="color: #a0b4c8; margin-bottom: 20px;">
+                    Create a DataFrame with columns <code>"Product"</code>, <code>"Price"</code>, and <code>"Quantity"</code> containing at least 3 rows of data.<br>
+                    Print the DataFrame.
+                </p>
+                
+                <div data-datacamp-exercise data-lang="python" data-height="400">
+                    <code data-type="pre-exercise-code">
+                        # This code runs before the student's code to set up the environment
+                        # It ensures pandas is available
+                    </code>
+                    
+                    <code data-type="sample-code">
+                        # Import pandas as pd
+                        
+                        # Create a DataFrame with columns: Product, Price, Quantity
+                        
+                        # Print the DataFrame
+                    </code>
+                    
+                    <code data-type="solution">
+                        # Import pandas as pd
+                        import pandas as pd
+                        
+                        # Create a DataFrame with columns: Product, Price, Quantity
+                        data = {
+                            "Product": ["Laptop", "Mouse", "Keyboard"],
+                            "Price": [1200, 25, 75],
+                            "Quantity": [5, 30, 15]
+                        }
+                        df = pd.DataFrame(data)
+                        
+                        # Print the DataFrame
+                        print(df)
+                    </code>
+                    
+                    <code data-type="sct">
+                        # Check if pandas was imported
+                        test_import("pandas", 
+                            incorrect_msg="You need to import pandas as pd.")
+                        
+                        # Check if a DataFrame was created
+                        test_object("df", 
+                            incorrect_msg="Create a DataFrame called 'df' using pd.DataFrame().")
+                        
+                        # Check if 'Product' column exists
+                        test_object("df", 
+                            incorrect_msg="Your DataFrame should have a 'Product' column.")
+                        
+                        # Check if 'Price' column exists
+                        test_object("df", 
+                            incorrect_msg="Your DataFrame should have a 'Price' column.")
+                        
+                        # Check if 'Quantity' column exists
+                        test_object("df", 
+                            incorrect_msg="Your DataFrame should have a 'Quantity' column.")
+                        
+                        # Check if DataFrame has at least 3 rows
+                        test_object("df", 
+                            incorrect_msg="Your DataFrame should contain at least 3 rows of data.")
+                        
+                        # Check if print was used
+                        test_function("print", 
+                            incorrect_msg="Use print() to display the DataFrame.")
+                        
+                        # Success message
+                        success_msg("🎉 Excellent! You created your first DataFrame with pandas!")
+                    </code>
+                    
+                    <div data-type="hint">
+                        <strong>Stuck? Try this:</strong><br>
+                        1. Import pandas: <code>import pandas as pd</code><br>
+                        2. Create a dictionary with your data:<br>
+                        <code>data = {</code><br>
+                        <code>&nbsp;&nbsp;&nbsp;&nbsp;"Product": ["Laptop", "Mouse", "Keyboard"],</code><br>
+                        <code>&nbsp;&nbsp;&nbsp;&nbsp;"Price": [1200, 25, 75],</code><br>
+                        <code>&nbsp;&nbsp;&nbsp;&nbsp;"Quantity": [5, 30, 15]</code><br>
+                        <code>}</code><br>
+                        3. Convert to DataFrame: <code>df = pd.DataFrame(data)</code><br>
+                        4. Print: <code>print(df)</code>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- EXERCISE 2: Accessing Columns and Rows -->
+            <div class="exercise" data-exercise="2" style="display: none; background: #111b28; border-radius: 12px; padding: 25px; border: 1px solid #1a2433; margin-bottom: 20px;">
+                <h3 style="color: #2dce89; margin-bottom: 10px;">Exercise 2: Accessing Columns and Rows</h3>
+                <p style="color: #a0b4c8; margin-bottom: 20px;">
+                    Create a DataFrame with columns <code>"Country"</code> and <code>"Capital"</code>.<br>
+                    Access and print only the <code>"Capital"</code> column.<br>
+                    Access and print the first row of the DataFrame using <code>loc</code>.
+                </p>
+                
+                <div data-datacamp-exercise data-lang="python" data-height="450">
+                    <code data-type="pre-exercise-code">
+                        # This code runs before the student's code to set up the environment
+                        import pandas as pd
+                    </code>
+                    
+                    <code data-type="sample-code">
+                        # Import pandas as pd
+                        
+                        # Create a DataFrame with columns: Country and Capital
+                        
+                        # Access and print only the "Capital" column
+                        
+                        # Access and print the first row using loc
+                    </code>
+                    
+                    <code data-type="solution">
+                        # Import pandas as pd
+                        import pandas as pd
+                        
+                        # Create a DataFrame with columns: Country and Capital
+                        data = {
+                            "Country": ["USA", "France", "Japan", "Brazil"],
+                            "Capital": ["Washington D.C.", "Paris", "Tokyo", "Brasília"]
+                        }
+                        df = pd.DataFrame(data)
+                        
+                        # Access and print only the "Capital" column
+                        print(df["Capital"])
+                        
+                        # Access and print the first row using loc
+                        print(df.loc[0])
+                    </code>
+                    
+                    <code data-type="sct">
+                        # Check if pandas was imported
+                        test_import("pandas", 
+                            incorrect_msg="You need to import pandas as pd.")
+                        
+                        # Check if a DataFrame exists
+                        test_object("df", 
+                            incorrect_msg="Create a DataFrame called 'df' using pd.DataFrame().")
+                        
+                        # Check if 'Country' column exists
+                        test_object("df", 
+                            incorrect_msg="Your DataFrame should have a 'Country' column.")
+                        
+                        # Check if 'Capital' column exists
+                        test_object("df", 
+                            incorrect_msg="Your DataFrame should have a 'Capital' column.")
+                        
+                        # Check if 'Capital' column was printed
+                        test_output_contains("Capital", 
+                            incorrect_msg="Access and print the 'Capital' column using df['Capital'].")
+                        
+                        # Check if first row was printed using loc
+                        test_output_contains("0", 
+                            incorrect_msg="Access and print the first row using df.loc[0].")
+                        
+                        # Check if print was used
+                        test_function("print", 
+                            incorrect_msg="Use print() to display the results.")
+                        
+                        # Success message
+                        success_msg("🎉 Excellent! You accessed columns and rows in your DataFrame!")
+                    </code>
+                    
+                    <div data-type="hint">
+                        <strong>Stuck? Try this:</strong><br>
+                        1. Import pandas: <code>import pandas as pd</code><br>
+                        2. Create DataFrame:<br>
+                        <code>data = {</code><br>
+                        <code>&nbsp;&nbsp;&nbsp;&nbsp;"Country": ["USA", "France", "Japan", "Brazil"],</code><br>
+                        <code>&nbsp;&nbsp;&nbsp;&nbsp;"Capital": ["Washington D.C.", "Paris", "Tokyo", "Brasília"]</code><br>
+                        <code>}</code><br>
+                        <code>df = pd.DataFrame(data)</code><br>
+                        3. Print Capital column: <code>print(df["Capital"])</code><br>
+                        4. Print first row: <code>print(df.loc[0])</code>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- EXERCISE 3: Adding and Modifying Columns -->
+            <div class="exercise" data-exercise="3" style="display: none; background: #111b28; border-radius: 12px; padding: 25px; border: 1px solid #1a2433; margin-bottom: 20px;">
+                <h3 style="color: #2dce89; margin-bottom: 10px;">Exercise 3: Adding and Modifying Columns</h3>
+                <p style="color: #a0b4c8; margin-bottom: 20px;">
+                    Create a DataFrame with columns <code>"Item"</code> and <code>"Cost"</code>.<br>
+                    Add a new column <code>"Discount"</code> with values of your choice.<br>
+                    Modify the <code>"Cost"</code> column by increasing each value by 10.
+                </p>
+                
+                <div data-datacamp-exercise data-lang="python" data-height="450">
+                    <code data-type="pre-exercise-code">
+                        # This code runs before the student's code to set up the environment
+                        import pandas as pd
+                    </code>
+                    
+                    <code data-type="sample-code">
+                        # Create a DataFrame with columns: Item and Cost
+                        
+                        # Add a new column called "Discount"
+                        
+                        # Modify the "Cost" column by increasing each value by 10
+                        
+                        # Print the updated DataFrame
+                    </code>
+                    
+                    <code data-type="solution">
+                        # Create a DataFrame with columns: Item and Cost
+                        import pandas as pd
+                        data = {
+                            "Item": ["Apple", "Banana", "Orange", "Grape"],
+                            "Cost": [1.50, 0.75, 1.25, 2.00]
+                        }
+                        df = pd.DataFrame(data)
+                        
+                        # Add a new column called "Discount"
+                        df["Discount"] = [0.10, 0.05, 0.15, 0.20]
+                        
+                        # Modify the "Cost" column by increasing each value by 10
+                        df["Cost"] = df["Cost"] + 10
+                        
+                        # Print the updated DataFrame
+                        print(df)
+                    </code>
+                    
+                    <code data-type="sct">
+                        # Check if pandas was imported
+                        test_import("pandas", 
+                            incorrect_msg="You need to import pandas as pd.")
+                        
+                        # Check if a DataFrame exists
+                        test_object("df", 
+                            incorrect_msg="Create a DataFrame called 'df' using pd.DataFrame().")
+                        
+                        # Check if 'Item' column exists
+                        test_object("df", 
+                            incorrect_msg="Your DataFrame should have an 'Item' column.")
+                        
+                        # Check if 'Cost' column exists
+                        test_object("df", 
+                            incorrect_msg="Your DataFrame should have a 'Cost' column.")
+                        
+                        # Check if 'Discount' column was added
+                        test_object("df", 
+                            incorrect_msg="Add a new column called 'Discount'.")
+                        
+                        # Check if 'Cost' column was modified
+                        test_object("df", 
+                            incorrect_msg="Modify the 'Cost' column by increasing each value by 10.")
+                        
+                        # Check if print was used
+                        test_function("print", 
+                            incorrect_msg="Use print() to display the updated DataFrame.")
+                        
+                        # Success message
+                        success_msg("🎉 Excellent! You added a new column and modified an existing one!")
+                    </code>
+                    
+                    <div data-type="hint">
+                        <strong>Stuck? Try this:</strong><br>
+                        1. Create DataFrame:<br>
+                        <code>import pandas as pd</code><br>
+                        <code>data = {</code><br>
+                        <code>&nbsp;&nbsp;&nbsp;&nbsp;"Item": ["Apple", "Banana", "Orange", "Grape"],</code><br>
+                        <code>&nbsp;&nbsp;&nbsp;&nbsp;"Cost": [1.50, 0.75, 1.25, 2.00]</code><br>
+                        <code>}</code><br>
+                        <code>df = pd.DataFrame(data)</code><br>
+                        2. Add Discount column: <code>df["Discount"] = [0.10, 0.05, 0.15, 0.20]</code><br>
+                        3. Modify Cost: <code>df["Cost"] = df["Cost"] + 10</code><br>
+                        4. Print: <code>print(df)</code>
+                    </div>
+                </div>
+            </div>
+
+            <!-- EXERCISE 4: Filtering Data -->
+            <div class="exercise" data-exercise="4" style="display: none; background: #111b28; border-radius: 12px; padding: 25px; border: 1px solid #1a2433; margin-bottom: 20px;">
+                <h3 style="color: #2dce89; margin-bottom: 10px;">Exercise 4: Filtering Data</h3>
+                <p style="color: #a0b4c8; margin-bottom: 20px;">
+                    Create a DataFrame with columns <code>"Student"</code> and <code>"Score"</code>.<br>
+                    Filter and print rows where the <code>"Score"</code> is greater than 70.
+                </p>
+                
+                <div data-datacamp-exercise data-lang="python" data-height="450">
+                    <code data-type="pre-exercise-code">
+                        # This code runs before the student's code to set up the environment
+                        import pandas as pd
+                    </code>
+                    
+                    <code data-type="sample-code">
+                        # Create a DataFrame with columns: Student and Score
+                        
+                        # Filter rows where Score is greater than 70
+                        
+                        # Print the filtered DataFrame
+                    </code>
+                    
+                    <code data-type="solution">
+                        # Create a DataFrame with columns: Student and Score
+                        import pandas as pd
+                        data = {
+                            "Student": ["Alice", "Bob", "Charlie", "Diana", "Eve"],
+                            "Score": [85, 62, 78, 91, 55]
+                        }
+                        df = pd.DataFrame(data)
+                        
+                        # Filter rows where Score is greater than 70
+                        filtered_df = df[df["Score"] > 70]
+                        
+                        # Print the filtered DataFrame
+                        print(filtered_df)
+                    </code>
+                    
+                    <code data-type="sct">
+                        # Check if pandas was imported
+                        test_import("pandas", 
+                            incorrect_msg="You need to import pandas as pd.")
+                        
+                        # Check if a DataFrame exists
+                        test_object("df", 
+                            incorrect_msg="Create a DataFrame called 'df' using pd.DataFrame().")
+                        
+                        # Check if 'Student' column exists
+                        test_object("df", 
+                            incorrect_msg="Your DataFrame should have a 'Student' column.")
+                        
+                        # Check if 'Score' column exists
+                        test_object("df", 
+                            incorrect_msg="Your DataFrame should have a 'Score' column.")
+                        
+                        # Check if filtered DataFrame exists
+                        test_object("filtered_df", 
+                            incorrect_msg="Filter the DataFrame and store the result in a variable called 'filtered_df'.")
+                        
+                        # Check if the filter condition was applied correctly
+                        test_object("filtered_df", 
+                            incorrect_msg="Filter rows where Score is greater than 70 using df[df['Score'] > 70].")
+                        
+                        # Check if print was used
+                        test_function("print", 
+                            incorrect_msg="Use print() to display the filtered DataFrame.")
+                        
+                        # Success message
+                        success_msg("🎉 Excellent! You filtered the DataFrame to show only scores above 70!")
+                    </code>
+                    
+                    <div data-type="hint">
+                        <strong>Stuck? Try this:</strong><br>
+                        1. Import pandas: <code>import pandas as pd</code><br>
+                        2. Create DataFrame:<br>
+                        <code>data = {</code><br>
+                        <code>&nbsp;&nbsp;&nbsp;&nbsp;"Student": ["Alice", "Bob", "Charlie", "Diana", "Eve"],</code><br>
+                        <code>&nbsp;&nbsp;&nbsp;&nbsp;"Score": [85, 62, 78, 91, 55]</code><br>
+                        <code>}</code><br>
+                        <code>df = pd.DataFrame(data)</code><br>
+                        3. Filter scores > 70: <code>filtered_df = df[df["Score"] > 70]</code><br>
+                        4. Print: <code>print(filtered_df)</code>
+                    </div>
+                </div>
+            </div>
+
+            
+                          
+        <!-- Navigation Back -->
+        <div style="display: flex; justify-content: space-between; margin-top: 20px; padding-top: 20px; border-top: 1px solid #1a2433;">
+            <a href="/pycraft/practice.html" style="color: #2dce89;">← Back to Practice</a>
+            <a href="/pycraft/chapter-2.html" style="color: #2dce89;">Next Chapter →</a>
+        </div>
+    </div>
+
+    <!-- JavaScript for Exercise Navigation -->
+    <script>
+        let currentExercise = 1;
+        const totalExercises = 3;
+
+        function showExercise(num) {
+            // Hide all exercises
+            const exercises = document.querySelectorAll('.exercise');
+            exercises.forEach((ex, index) => {
+                ex.style.display = 'none';
+            });
+            
+            // Show the selected exercise
+            const target = document.querySelector(`.exercise[data-exercise="${num}"]`);
+            if (target) {
+                target.style.display = 'block';
+            }
+            
+            // Update counter
+            document.getElementById('exerciseCounter').textContent = `✅ Exercise ${num} of ${totalExercises}`;
+            
+            // Update button states
+            document.getElementById('prevBtn').style.opacity = num === 1 ? '0.4' : '1';
+            document.getElementById('prevBtn').style.cursor = num === 1 ? 'default' : 'pointer';
+            document.getElementById('nextBtn').style.opacity = num === totalExercises ? '0.4' : '1';
+            document.getElementById('nextBtn').style.cursor = num === totalExercises ? 'default' : 'pointer';
+            
+            currentExercise = num;
+            
+            // Scroll to top of exercise
+            document.querySelector('.container').scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+
+        function nextExercise() {
+            if (currentExercise < totalExercises) {
+                showExercise(currentExercise + 1);
+            }
+        }
+
+        function prevExercise() {
+            if (currentExercise > 1) {
+                showExercise(currentExercise - 1);
+            }
+        }
+
+        // Initialize on page load
+        document.addEventListener('DOMContentLoaded', function() {
+            showExercise(1);
+        });
+    </script>
+
+    <script src="/pycraft/js/nav.js"></script>
+</body>
+</html>
