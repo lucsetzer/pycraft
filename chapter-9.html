@@ -1,1 +1,504 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Chapter 9: Random Numbers – PyCraft</title>
+    <link rel="stylesheet" href="/pycraft/css/style.css"/>
+    <script type="text/javascript" src="//cdn.datacamp.com/dcl-react.js.gz"></script>
+</head>
+<body>
+    <div class="container" style="padding-top: 100px; max-width: 900px; margin: 0 auto;">
+        
+        <!-- Chapter Header -->
+        <div style="margin-bottom: 30px; border-bottom: 2px solid #2dce89; padding-bottom: 20px;">
+            <h1 style="font-size: 2rem;">Chapter 9: Random Numbers</h1>
+            <p style="color: #a0b4c8; font-size: 1.1rem;">Variables, data types, and basic operations.</p>
+            <div style="display: flex; gap: 15px; margin-top: 12px; flex-wrap: wrap; align-items: center;">
+                <span style="background: #1a2433; padding: 4px 14px; border-radius: 20px; font-size: 0.85rem;">📚 DataCamp Chapter 1</span>
+                <span style="background: #1a2433; padding: 4px 14px; border-radius: 20px; font-size: 0.85rem;" id="exerciseCounter">✅ Exercise 1 of 3</span>
+                <!-- Navigation buttons -->
+                <div style="display: flex; gap: 8px; margin-left: auto;">
+                    <button onclick="prevExercise()" id="prevBtn" style="background: #1a2433; color: #a0b4c8; border: 1px solid #2d3748; padding: 6px 16px; border-radius: 6px; cursor: pointer; font-size: 0.85rem;">
+                        ← Previous
+                    </button>
+                    <button onclick="nextExercise()" id="nextBtn" style="background: #2dce89; color: #0a0e17; border: none; padding: 6px 16px; border-radius: 6px; cursor: pointer; font-size: 0.85rem; font-weight: 600;">
+                        Next →
+                    </button>
+                </div>
+            </div>
+        </div>
 
+        <!-- Exercise Container -->
+        <div id="exerciseContainer">
+            
+            <!-- EXERCISE 1: Generating Random Numbers -->
+            <div class="exercise" data-exercise="1" style="display: block; background: #111b28; border-radius: 12px; padding: 25px; border: 1px solid #1a2433; margin-bottom: 20px;">
+                <h3 style="color: #2dce89; margin-bottom: 10px;">Exercise 1: Generating Random Numbers</h3>
+                <p style="color: #a0b4c8; margin-bottom: 20px;">
+                    Write a program that generates and prints a random number between 1 and 100.<br>
+                    Write a program that generates two random numbers between 1 and 20, adds them, and prints the result.
+                </p>
+                
+                <div data-datacamp-exercise data-lang="python" data-height="450">
+                    <code data-type="pre-exercise-code">
+                        # This code runs before the student's code to set up the environment
+                        # It ensures random works properly
+                        import random
+                    </code>
+                    
+                    <code data-type="sample-code">
+                        # Generate and print a random number between 1 and 100
+                        
+                        # Generate two random numbers between 1 and 20, add them, and print the result
+                    </code>
+                    
+                    <code data-type="solution">
+                        # Generate and print a random number between 1 and 100
+                        import random
+                        num1 = random.randint(1, 100)
+                        print(num1)
+                        
+                        # Generate two random numbers between 1 and 20, add them, and print the result
+                        import random
+                        a = random.randint(1, 20)
+                        b = random.randint(1, 20)
+                        result = a + b
+                        print(f"The sum of {a} and {b} is {result}")
+                    </code>
+                    
+                    <code data-type="sct">
+                        # Check if random was imported
+                        test_import("random", 
+                            incorrect_msg="You need to import the random module.")
+                        
+                        # Check if randint was used
+                        test_function("random.randint", 
+                            incorrect_msg="Use random.randint() to generate a random number.")
+                        
+                        # Check if first random number is between 1 and 100
+                        test_function("random.randint", 
+                            incorrect_msg="Use random.randint(1, 100) for the first number.")
+                        
+                        # Check if second random number is between 1 and 20
+                        test_function("random.randint", 
+                            incorrect_msg="Use random.randint(1, 20) for the two numbers.")
+                        
+                        # Check if print was used
+                        test_function("print", 
+                            incorrect_msg="Use print() to display the results.")
+                        
+                        # Check if addition was performed
+                        test_function("print", 
+                            incorrect_msg="Make sure you add the two random numbers together.")
+                        
+                        # Success message
+                        success_msg("🎉 Excellent! You generated random numbers and performed operations!")
+                    </code>
+                    
+                    <div data-type="hint">
+                        <strong>Stuck? Try this:</strong><br>
+                        1. Generate and print random number between 1 and 100:<br>
+                        <code>import random</code><br>
+                        <code>num = random.randint(1, 100)</code><br>
+                        <code>print(num)</code><br>
+                        <br>
+                        2. Generate two numbers between 1 and 20, add them, and print the result:<br>
+                        <code>import random</code><br>
+                        <code>a = random.randint(1, 20)</code><br>
+                        <code>b = random.randint(1, 20)</code><br>
+                        <code>result = a + b</code><br>
+                        <code>print(f"The sum of {a} and {b} is {result}")</code>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- EXERCISE 2: Generating Random Floats -->
+            <div class="exercise" data-exercise="2" style="display: none; background: #111b28; border-radius: 12px; padding: 25px; border: 1px solid #1a2433; margin-bottom: 20px;">
+                <h3 style="color: #2dce89; margin-bottom: 10px;">Exercise 2: Generating Random Floats</h3>
+                <p style="color: #a0b4c8; margin-bottom: 20px;">
+                    Write a program that generates and prints a random float between 0 and 1.<br>
+                    Write a program that generates a random float between 5 and 15 and prints it.
+                </p>
+                
+                <div data-datacamp-exercise data-lang="python" data-height="400">
+                    <code data-type="pre-exercise-code">
+                        # This code runs before the student's code to set up the environment
+                        import random
+                    </code>
+                    
+                    <code data-type="sample-code">
+                        # Generate and print a random float between 0 and 1
+                        
+                        # Generate and print a random float between 5 and 15
+                    </code>
+                    
+                    <code data-type="solution">
+                        # Generate and print a random float between 0 and 1
+                        import random
+                        print(random.random())
+                        
+                        # Generate and print a random float between 5 and 15
+                        import random
+                        print(random.uniform(5, 15))
+                    </code>
+                    
+                    <code data-type="sct">
+                        # Check if random was imported
+                        test_import("random", 
+                            incorrect_msg="You need to import the random module.")
+                        
+                        # Check if random.random() was used
+                        test_function("random.random", 
+                            incorrect_msg="Use random.random() to generate a float between 0 and 1.")
+                        
+                        # Check if random.uniform() was used
+                        test_function("random.uniform", 
+                            incorrect_msg="Use random.uniform(5, 15) to generate a float between 5 and 15.")
+                        
+                        # Check if print was used
+                        test_function("print", 
+                            incorrect_msg="Use print() to display the results.")
+                        
+                        # Check if output contains a number (simplified check)
+                        test_function("print", 
+                            incorrect_msg="Your program should print the generated random numbers.")
+                        
+                        # Success message
+                        success_msg("🎉 Excellent! You generated random floats with random() and uniform()!")
+                    </code>
+                    
+                    <div data-type="hint">
+                        <strong>Stuck? Try this:</strong><br>
+                        1. Random float between 0 and 1:<br>
+                        <code>import random</code><br>
+                        <code>print(random.random())</code><br>
+                        <br>
+                        2. Random float between 5 and 15:<br>
+                        <code>import random</code><br>
+                        <code>print(random.uniform(5, 15))</code>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- EXERCISE 3: Choosing a Random Item from a List -->
+            <div class="exercise" data-exercise="3" style="display: none; background: #111b28; border-radius: 12px; padding: 25px; border: 1px solid #1a2433; margin-bottom: 20px;">
+                <h3 style="color: #2dce89; margin-bottom: 10px;">Exercise 3: Choosing a Random Item from a List</h3>
+                <p style="color: #a0b4c8; margin-bottom: 20px;">
+                    Create a list of five colors. Write a program to randomly choose and print one color.<br>
+                    Create a list of five names. Write a program that randomly selects a name and prints it.
+                </p>
+                
+                <div data-datacamp-exercise data-lang="python" data-height="450">
+                    <code data-type="pre-exercise-code">
+                        # This code runs before the student's code to set up the environment
+                        import random
+                    </code>
+                    
+                    <code data-type="sample-code">
+                        # Create a list of five colors and randomly choose one
+                        
+                        # Create a list of five names and randomly choose one
+                    </code>
+                    
+                    <code data-type="solution">
+                        # Create a list of five colors and randomly choose one
+                        import random
+                        colors = ["red", "blue", "green", "yellow", "purple"]
+                        chosen_color = random.choice(colors)
+                        print(f"Random color: {chosen_color}")
+                        
+                        # Create a list of five names and randomly choose one
+                        import random
+                        names = ["Alice", "Bob", "Charlie", "Diana", "Eve"]
+                        chosen_name = random.choice(names)
+                        print(f"Random name: {chosen_name}")
+                    </code>
+                    
+                    <code data-type="sct">
+                        # Check if random was imported
+                        test_import("random", 
+                            incorrect_msg="You need to import the random module.")
+                        
+                        # Check if colors list exists
+                        test_object("colors", 
+                            incorrect_msg="Create a list called 'colors' with five colors.")
+                        
+                        # Check if names list exists
+                        test_object("names", 
+                            incorrect_msg="Create a list called 'names' with five names.")
+                        
+                        # Check if random.choice() was used
+                        test_function("random.choice", 
+                            incorrect_msg="Use random.choice() to randomly select an item from a list.")
+                        
+                        # Check if print was used
+                        test_function("print", 
+                            incorrect_msg="Use print() to display the randomly chosen item.")
+                        
+                        # Check if output contains a color (simplified check)
+                        test_output_contains("Random color", 
+                            incorrect_msg="Print the randomly chosen color.")
+                        
+                        # Check if output contains a name (simplified check)
+                        test_output_contains("Random name", 
+                            incorrect_msg="Print the randomly chosen name.")
+                        
+                        # Success message
+                        success_msg("🎉 Excellent! You used random.choice() to select random items from lists!")
+                    </code>
+                    
+                    <div data-type="hint">
+                        <strong>Stuck? Try this:</strong><br>
+                        1. Random color:<br>
+                        <code>import random</code><br>
+                        <code>colors = ["red", "blue", "green", "yellow", "purple"]</code><br>
+                        <code>chosen_color = random.choice(colors)</code><br>
+                        <code>print(f"Random color: {chosen_color}")</code><br>
+                        <br>
+                        2. Random name:<br>
+                        <code>import random</code><br>
+                        <code>names = ["Alice", "Bob", "Charlie", "Diana", "Eve"]</code><br>
+                        <code>chosen_name = random.choice(names)</code><br>
+                        <code>print(f"Random name: {chosen_name}")</code>
+                    </div>
+                </div>
+            </div>
+
+            <!-- EXERCISE 4: Shuffling a List -->
+            <div class="exercise" data-exercise="4" style="display: none; background: #111b28; border-radius: 12px; padding: 25px; border: 1px solid #1a2433; margin-bottom: 20px;">
+                <h3 style="color: #2dce89; margin-bottom: 10px;">Exercise 4: Shuffling a List</h3>
+                <p style="color: #a0b4c8; margin-bottom: 20px;">
+                    Create a list of numbers from 1 to 10. Write a program to shuffle the list and print it.<br>
+                    Create a list of your favorite songs. Write a program to shuffle the list and print the new order.
+                </p>
+                
+                <div data-datacamp-exercise data-lang="python" data-height="450">
+                    <code data-type="pre-exercise-code">
+                        # This code runs before the student's code to set up the environment
+                        import random
+                    </code>
+                    
+                    <code data-type="sample-code">
+                        # Create a list of numbers 1-10, shuffle it, and print it
+                        
+                        # Create a list of favorite songs, shuffle it, and print it
+                    </code>
+                    
+                    <code data-type="solution">
+                        # Create a list of numbers 1-10, shuffle it, and print it
+                        import random
+                        numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+                        random.shuffle(numbers)
+                        print("Shuffled numbers:", numbers)
+                        
+                        # Create a list of favorite songs, shuffle it, and print it
+                        import random
+                        songs = ["Bohemian Rhapsody", "Imagine", "Hotel California", "Stairway to Heaven", "Yesterday"]
+                        random.shuffle(songs)
+                        print("Shuffled songs:", songs)
+                    </code>
+                    
+                    <code data-type="sct">
+                        # Check if random was imported
+                        test_import("random", 
+                            incorrect_msg="You need to import the random module.")
+                        
+                        # Check if numbers list exists
+                        test_object("numbers", 
+                            incorrect_msg="Create a list called 'numbers' with numbers 1 to 10.")
+                        
+                        # Check if numbers list has correct values
+                        test_object("numbers", 
+                            incorrect_msg="Your numbers list should contain 1, 2, 3, 4, 5, 6, 7, 8, 9, 10.")
+                        
+                        # Check if songs list exists
+                        test_object("songs", 
+                            incorrect_msg="Create a list called 'songs' with your favorite songs.")
+                        
+                        # Check if random.shuffle() was used
+                        test_function("random.shuffle", 
+                            incorrect_msg="Use random.shuffle() to shuffle your list.")
+                        
+                        # Check if print was used
+                        test_function("print", 
+                            incorrect_msg="Use print() to display the shuffled list.")
+                        
+                        # Check if output contains the list label
+                        test_output_contains("Shuffled numbers", 
+                            incorrect_msg="Print the shuffled numbers list.")
+                        test_output_contains("Shuffled songs", 
+                            incorrect_msg="Print the shuffled songs list.")
+                        
+                        # Success message
+                        success_msg("🎉 Excellent! You shuffled lists using random.shuffle()!")
+                    </code>
+                    
+                    <div data-type="hint">
+                        <strong>Stuck? Try this:</strong><br>
+                        1. Shuffle numbers 1-10:<br>
+                        <code>import random</code><br>
+                        <code>numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]</code><br>
+                        <code>random.shuffle(numbers)</code><br>
+                        <code>print("Shuffled numbers:", numbers)</code><br>
+                        <br>
+                        2. Shuffle favorite songs:<br>
+                        <code>import random</code><br>
+                        <code>songs = ["Bohemian Rhapsody", "Imagine", "Hotel California"]</code><br>
+                        <code>random.shuffle(songs)</code><br>
+                        <code>print("Shuffled songs:", songs)</code>
+                    </div>
+                </div>
+            </div>
+
+            <!-- EXERCISE 5: Random Sampling from a List -->
+            <div class="exercise" data-exercise="5" style="display: none; background: #111b28; border-radius: 12px; padding: 25px; border: 1px solid #1a2433; margin-bottom: 20px;">
+                <h3 style="color: #2dce89; margin-bottom: 10px;">Exercise 5: Random Sampling from a List</h3>
+                <p style="color: #a0b4c8; margin-bottom: 20px;">
+                    Create a list of 10 numbers. Write a program to randomly select 4 unique numbers and print them.<br>
+                    Create a list of 6 cities. Write a program to randomly select 2 cities and print them.
+                </p>
+                
+                <div data-datacamp-exercise data-lang="python" data-height="450">
+                    <code data-type="pre-exercise-code">
+                        # This code runs before the student's code to set up the environment
+                        import random
+                    </code>
+                    
+                    <code data-type="sample-code">
+                        # Create a list of 10 numbers and randomly select 4 unique numbers
+                        
+                        # Create a list of 6 cities and randomly select 2 cities
+                    </code>
+                    
+                    <code data-type="solution">
+                        # Create a list of 10 numbers and randomly select 4 unique numbers
+                        import random
+                        numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+                        selected_numbers = random.sample(numbers, 4)
+                        print("Selected numbers:", selected_numbers)
+                        
+                        # Create a list of 6 cities and randomly select 2 cities
+                        import random
+                        cities = ["New York", "London", "Tokyo", "Paris", "Sydney", "Berlin"]
+                        selected_cities = random.sample(cities, 2)
+                        print("Selected cities:", selected_cities)
+                    </code>
+                    
+                    <code data-type="sct">
+                        # Check if random was imported
+                        test_import("random", 
+                            incorrect_msg="You need to import the random module.")
+                        
+                        # Check if numbers list exists
+                        test_object("numbers", 
+                            incorrect_msg="Create a list called 'numbers' with 10 numbers.")
+                        
+                        # Check if cities list exists
+                        test_object("cities", 
+                            incorrect_msg="Create a list called 'cities' with 6 cities.")
+                        
+                        # Check if random.sample() was used
+                        test_function("random.sample", 
+                            incorrect_msg="Use random.sample() to select unique items from your list.")
+                        
+                        # Check if sample size is 4 for numbers
+                        test_function("random.sample", 
+                            incorrect_msg="Use random.sample(numbers, 4) to select 4 unique numbers.")
+                        
+                        # Check if sample size is 2 for cities
+                        test_function("random.sample", 
+                            incorrect_msg="Use random.sample(cities, 2) to select 2 unique cities.")
+                        
+                        # Check if print was used
+                        test_function("print", 
+                            incorrect_msg="Use print() to display the selected items.")
+                        
+                        # Check if output contains the selections
+                        test_output_contains("Selected numbers", 
+                            incorrect_msg="Print the selected numbers.")
+                        test_output_contains("Selected cities", 
+                            incorrect_msg="Print the selected cities.")
+                        
+                        # Success message
+                        success_msg("🎉 Excellent! You used random.sample() to select unique items from lists!")
+                    </code>
+                    
+                    <div data-type="hint">
+                        <strong>Stuck? Try this:</strong><br>
+                        1. Random sample of 4 numbers from 10 numbers:<br>
+                        <code>import random</code><br>
+                        <code>numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]</code><br>
+                        <code>selected_numbers = random.sample(numbers, 4)</code><br>
+                        <code>print("Selected numbers:", selected_numbers)</code><br>
+                        <br>
+                        2. Random sample of 2 cities from 6 cities:<br>
+                        <code>import random</code><br>
+                        <code>cities = ["New York", "London", "Tokyo", "Paris", "Sydney", "Berlin"]</code><br>
+                        <code>selected_cities = random.sample(cities, 2)</code><br>
+                        <code>print("Selected cities:", selected_cities)</code>
+                    </div>
+                </div>
+            </div>
+                          
+        <!-- Navigation Back -->
+        <div style="display: flex; justify-content: space-between; margin-top: 20px; padding-top: 20px; border-top: 1px solid #1a2433;">
+            <a href="/pycraft/practice.html" style="color: #2dce89;">← Back to Practice</a>
+            <a href="/pycraft/chapter-2.html" style="color: #2dce89;">Next Chapter →</a>
+        </div>
+    </div>
+
+    <!-- JavaScript for Exercise Navigation -->
+    <script>
+        let currentExercise = 1;
+        const totalExercises = 3;
+
+        function showExercise(num) {
+            // Hide all exercises
+            const exercises = document.querySelectorAll('.exercise');
+            exercises.forEach((ex, index) => {
+                ex.style.display = 'none';
+            });
+            
+            // Show the selected exercise
+            const target = document.querySelector(`.exercise[data-exercise="${num}"]`);
+            if (target) {
+                target.style.display = 'block';
+            }
+            
+            // Update counter
+            document.getElementById('exerciseCounter').textContent = `✅ Exercise ${num} of ${totalExercises}`;
+            
+            // Update button states
+            document.getElementById('prevBtn').style.opacity = num === 1 ? '0.4' : '1';
+            document.getElementById('prevBtn').style.cursor = num === 1 ? 'default' : 'pointer';
+            document.getElementById('nextBtn').style.opacity = num === totalExercises ? '0.4' : '1';
+            document.getElementById('nextBtn').style.cursor = num === totalExercises ? 'default' : 'pointer';
+            
+            currentExercise = num;
+            
+            // Scroll to top of exercise
+            document.querySelector('.container').scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+
+        function nextExercise() {
+            if (currentExercise < totalExercises) {
+                showExercise(currentExercise + 1);
+            }
+        }
+
+        function prevExercise() {
+            if (currentExercise > 1) {
+                showExercise(currentExercise - 1);
+            }
+        }
+
+        // Initialize on page load
+        document.addEventListener('DOMContentLoaded', function() {
+            showExercise(1);
+        });
+    </script>
+
+    <script src="/pycraft/js/nav.js"></script>
+</body>
+</html>
