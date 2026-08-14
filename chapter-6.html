@@ -1,1 +1,491 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Chapter 6: Dictionaries – PyCraft</title>
+    <link rel="stylesheet" href="/pycraft/css/style.css"/>
+    <script type="text/javascript" src="//cdn.datacamp.com/dcl-react.js.gz"></script>
+</head>
+<body>
+    <div class="container" style="padding-top: 100px; max-width: 900px; margin: 0 auto;">
+        
+        <!-- Chapter Header -->
+        <div style="margin-bottom: 30px; border-bottom: 2px solid #2dce89; padding-bottom: 20px;">
+            <h1 style="font-size: 2rem;">Chapter 6: Dictionaries</h1>
+            <p style="color: #a0b4c8; font-size: 1.1rem;">Variables, data types, and basic operations.</p>
+            <div style="display: flex; gap: 15px; margin-top: 12px; flex-wrap: wrap; align-items: center;">
+                <span style="background: #1a2433; padding: 4px 14px; border-radius: 20px; font-size: 0.85rem;">📚 DataCamp Chapter 1</span>
+                <span style="background: #1a2433; padding: 4px 14px; border-radius: 20px; font-size: 0.85rem;" id="exerciseCounter">✅ Exercise 1 of 3</span>
+                <!-- Navigation buttons -->
+                <div style="display: flex; gap: 8px; margin-left: auto;">
+                    <button onclick="prevExercise()" id="prevBtn" style="background: #1a2433; color: #a0b4c8; border: 1px solid #2d3748; padding: 6px 16px; border-radius: 6px; cursor: pointer; font-size: 0.85rem;">
+                        ← Previous
+                    </button>
+                    <button onclick="nextExercise()" id="nextBtn" style="background: #2dce89; color: #0a0e17; border: none; padding: 6px 16px; border-radius: 6px; cursor: pointer; font-size: 0.85rem; font-weight: 600;">
+                        Next →
+                    </button>
+                </div>
+            </div>
+        </div>
 
+        <!-- Exercise Container -->
+        <div id="exerciseContainer">
+            
+            <!-- EXERCISE 1: Introduction to Dictionaries -->
+            <div class="exercise" data-exercise="1" style="display: block; background: #111b28; border-radius: 12px; padding: 25px; border: 1px solid #1a2433; margin-bottom: 20px;">
+                <h3 style="color: #2dce89; margin-bottom: 10px;">Exercise 1: Introduction to Dictionaries</h3>
+                <p style="color: #a0b4c8; margin-bottom: 20px;">
+                    Create a dictionary called <code>car</code> with keys <code>"brand"</code>, <code>"model"</code>, and <code>"year"</code>, and assign values to them.<br>
+                    Print the value associated with the key <code>"model"</code>.
+                </p>
+                
+                <div data-datacamp-exercise data-lang="python" data-height="400">
+                    <code data-type="pre-exercise-code"># Nothing needed here</code>
+                    
+                    <code data-type="sample-code">
+                        # Create a dictionary called 'car' with keys: brand, model, year
+                        
+                        # Print the value associated with the key "model"
+                    </code>
+                    
+                    <code data-type="solution">
+                        # Create a dictionary called 'car' with keys: brand, model, year
+                        car = {
+                            "brand": "Toyota",
+                            "model": "Camry",
+                            "year": 2020
+                        }
+                        
+                        # Print the value associated with the key "model"
+                        print(car["model"])
+                    </code>
+                    
+                    <code data-type="sct">
+                        # Check if 'car' exists
+                        test_object("car", 
+                            incorrect_msg="You need to create a dictionary called 'car'.")
+                        
+                        # Check if 'car' is a dictionary
+                        # This is a simplified check
+                        test_object("car", 
+                            incorrect_msg="Make sure 'car' is a dictionary using curly braces: {}")
+                        
+                        # Check if 'brand' key exists
+                        test_object("car", 
+                            incorrect_msg="Your dictionary should have a key called 'brand'.")
+                        
+                        # Check if 'model' key exists
+                        test_object("car", 
+                            incorrect_msg="Your dictionary should have a key called 'model'.")
+                        
+                        # Check if 'year' key exists
+                        test_object("car", 
+                            incorrect_msg="Your dictionary should have a key called 'year'.")
+                        
+                        # Check if the 'model' value was printed
+                        test_output_contains("model", 
+                            incorrect_msg="Print the value associated with the key 'model'.")
+                        
+                        # Check if print() was used
+                        test_function("print", 
+                            incorrect_msg="You need to use print() to display the model.")
+                        
+                        # Success message
+                        success_msg("🎉 Great work! You created a dictionary and accessed a value using its key!")
+                    </code>
+                    
+                    <div data-type="hint">
+                        <strong>Stuck? Try this:</strong><br>
+                        1. Create a dictionary:<br>
+                        <code>car = {<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;"brand": "Toyota",<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;"model": "Camry",<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;"year": 2020<br>
+                        }</code><br>
+                        2. Access the model: <code>print(car["model"])</code>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- EXERCISE 2: Adding and Updating Dictionary Items -->
+            <div class="exercise" data-exercise="2" style="display: none; background: #111b28; border-radius: 12px; padding: 25px; border: 1px solid #1a2433; margin-bottom: 20px;">
+                <h3 style="color: #2dce89; margin-bottom: 10px;">Exercise 2: Adding and Updating Dictionary Items</h3>
+                <p style="color: #a0b4c8; margin-bottom: 20px;">
+                    Starting with the <code>car</code> dictionary from Exercise 1:
+                </p>
+                <ul style="color: #a0b4c8; margin-bottom: 20px; padding-left: 20px;">
+                    <li>Add a new key-value pair: <code>"color"</code> with a value (e.g., <code>"blue"</code>)</li>
+                    <li>Update the value of the <code>"year"</code> key (e.g., to <code>2022</code>)</li>
+                    <li>Print the updated dictionary</li>
+                </ul>
+                
+                <div data-datacamp-exercise data-lang="python" data-height="400">
+                    <code data-type="pre-exercise-code">
+                        # This code runs before the student's code to set up the dictionary
+                        car = {
+                            "brand": "Toyota",
+                            "model": "Camry",
+                            "year": 2020
+                        }
+                    </code>
+                    
+                    <code data-type="sample-code">
+                        # Add a new key "color" with a value
+                        
+                        # Update the "year" key to a new value
+                        
+                        # Print the updated dictionary
+                    </code>
+                    
+                    <code data-type="solution">
+                        # Add a new key "color" with a value
+                        car["color"] = "blue"
+                        
+                        # Update the "year" key to a new value
+                        car["year"] = 2022
+                        
+                        # Print the updated dictionary
+                        print(car)
+                    </code>
+                    
+                    <code data-type="sct">
+                        # Check if 'car' exists
+                        test_object("car", 
+                            incorrect_msg="The 'car' dictionary should exist.")
+                        
+                        # Check if 'color' key was added
+                        test_object("car", 
+                            incorrect_msg="Add a new key 'color' with a value.")
+                        
+                        # Check if 'year' was updated
+                        test_object("car", 
+                            incorrect_msg="Update the 'year' key to a new value.")
+                        
+                        # Check if the dictionary was printed
+                        test_function("print", 
+                            incorrect_msg="Print the updated dictionary using print().")
+                        
+                        # Check if output contains the new color
+                        test_output_contains("'color'", 
+                            incorrect_msg="Your dictionary should include the 'color' key.")
+                        
+                        # Check if year was updated (checking for 2022)
+                        test_output_contains("2022", 
+                            incorrect_msg="Update the 'year' key to 2022.")
+                        
+                        # Success message
+                        success_msg("🎉 Excellent! You added a new key and updated an existing one!")
+                    </code>
+                    
+                    <div data-type="hint">
+                        <strong>Stuck? Try this:</strong><br>
+                        1. Add a new key: <code>car["color"] = "blue"</code><br>
+                        2. Update existing key: <code>car["year"] = 2022</code><br>
+                        3. Print the dictionary: <code>print(car)</code>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- EXERCISE 3: Removing Dictionary Items -->
+            <div class="exercise" data-exercise="3" style="display: none; background: #111b28; border-radius: 12px; padding: 25px; border: 1px solid #1a2433; margin-bottom: 20px;">
+                <h3 style="color: #2dce89; margin-bottom: 10px;">Exercise 3: Removing Dictionary Items</h3>
+                <p style="color: #a0b4c8; margin-bottom: 20px;">
+                    Starting with the <code>car</code> dictionary from Exercise 2 (with keys: brand, model, year, color):
+                </p>
+                <ul style="color: #a0b4c8; margin-bottom: 20px; padding-left: 20px;">
+                    <li>Remove the <code>"color"</code> key using <code>del</code></li>
+                    <li>Use <code>pop()</code> to remove the <code>"model"</code> key</li>
+                    <li>Print the resulting dictionary</li>
+                </ul>
+                
+                <div data-datacamp-exercise data-lang="python" data-height="400">
+                    <code data-type="pre-exercise-code">
+                        # This code runs before the student's code to set up the dictionary
+                        car = {
+                            "brand": "Toyota",
+                            "model": "Camry",
+                            "year": 2022,
+                            "color": "blue"
+                        }
+                    </code>
+                    
+                    <code data-type="sample-code">
+                        # Remove the "color" key using del
+                        
+                        # Remove the "model" key using pop()
+                        
+                        # Print the resulting dictionary
+                    </code>
+                    
+                    <code data-type="solution">
+                        # Remove the "color" key using del
+                        del car["color"]
+                        
+                        # Remove the "model" key using pop()
+                        car.pop("model")
+                        
+                        # Print the resulting dictionary
+                        print(car)
+                    </code>
+                    
+                    <code data-type="sct">
+                        # Check if 'car' exists
+                        test_object("car", 
+                            incorrect_msg="The 'car' dictionary should exist.")
+                        
+                        # Check if "color" was removed using del
+                        test_object("car", 
+                            incorrect_msg="Remove the 'color' key using del.")
+                        
+                        # Check if "model" was removed using pop()
+                        test_object("car", 
+                            incorrect_msg="Remove the 'model' key using pop().")
+                        
+                        # Check if the dictionary was printed
+                        test_function("print", 
+                            incorrect_msg="Print the resulting dictionary using print().")
+                        
+                        # Check if "color" is gone from output
+                        # We'll check for the remaining keys
+                        test_output_contains("'brand'", 
+                            incorrect_msg="Your dictionary should still have the 'brand' key.")
+                        test_output_contains("2022", 
+                            incorrect_msg="Your dictionary should still have 'year' with value 2022.")
+                        
+                        # Success message
+                        success_msg("🎉 Perfect! You successfully removed keys using del and pop()!")
+                    </code>
+                    
+                    <div data-type="hint">
+                        <strong>Stuck? Try this:</strong><br>
+                        1. Remove with <code>del</code>: <code>del car["color"]</code><br>
+                        2. Remove with <code>pop()</code>: <code>car.pop("model")</code><br>
+                        3. Print: <code>print(car)</code><br>
+                        <br>
+                        <strong>Remember:</strong> <code>del</code> removes a key-value pair permanently,<br>
+                        while <code>pop()</code> removes it but also returns the removed value (if you need it).
+                    </div>
+                </div>
+            </div>
+
+            <!-- EXERCISE 4: Looping Through a Dictionary -->
+            <div class="exercise" data-exercise="4" style="display: none; background: #111b28; border-radius: 12px; padding: 25px; border: 1px solid #1a2433; margin-bottom: 20px;">
+                <h3 style="color: #2dce89; margin-bottom: 10px;">Exercise 4: Looping Through a Dictionary</h3>
+                <p style="color: #a0b4c8; margin-bottom: 20px;">
+                    Starting with the <code>car</code> dictionary (with keys: brand, model, year):
+                </p>
+                <ul style="color: #a0b4c8; margin-bottom: 20px; padding-left: 20px;">
+                    <li>Write a loop to print all keys and values in the <code>car</code> dictionary</li>
+                    <li>Modify the loop to print a sentence like <code>"The brand of the car is Toyota"</code> for each key-value pair</li>
+                </ul>
+                
+                <div data-datacamp-exercise data-lang="python" data-height="450">
+                    <code data-type="pre-exercise-code">
+                        # This code runs before the student's code to set up the dictionary
+                        car = {
+                            "brand": "Toyota",
+                            "model": "Camry",
+                            "year": 2022
+                        }
+                    </code>
+                    
+                    <code data-type="sample-code">
+                        # Loop through the dictionary and print all keys and values
+                        
+                        # Modify the loop to print a sentence for each key-value pair
+                    </code>
+                    
+                    <code data-type="solution">
+                        # Loop through the dictionary and print all keys and values
+                        for key, value in car.items():
+                            print(key, value)
+                        
+                        # Modify the loop to print a sentence for each key-value pair
+                        for key, value in car.items():
+                            print(f"The {key} of the car is {value}")
+                    </code>
+                    
+                    <code data-type="sct">
+                        # Check if 'car' exists
+                        test_object("car", 
+                            incorrect_msg="The 'car' dictionary should exist.")
+                        
+                        # Check if .items() was used to loop
+                        test_object("car", 
+                            incorrect_msg="Use .items() to loop through key-value pairs.")
+                        
+                        # Check if print was used with both key and value
+                        test_function("print", 
+                            incorrect_msg="Use print() to display the keys and values.")
+                        
+                        # Check if the output contains the sentence format
+                        test_output_contains("The", 
+                            incorrect_msg="Print a sentence like 'The brand of the car is Toyota'.")
+                        test_output_contains("of the car is", 
+                            incorrect_msg="Use the format: 'The [key] of the car is [value]'.")
+                        
+                        # Success message
+                        success_msg("🎉 Excellent! You mastered looping through dictionaries!")
+                    </code>
+                    
+                    <div data-type="hint">
+                        <strong>Stuck? Try this:</strong><br>
+                        1. Loop through key-value pairs:<br>
+                        <code>for key, value in car.items():<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;print(key, value)</code><br>
+                        2. Print a sentence:<br>
+                        <code>for key, value in car.items():<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;print(f"The {key} of the car is {value}")</code>
+                    </div>
+                </div>
+            </div>
+
+            <!-- EXERCISE 5: Nested Dictionaries -->
+            <div class="exercise" data-exercise="5" style="display: none; background: #111b28; border-radius: 12px; padding: 25px; border: 1px solid #1a2433; margin-bottom: 20px;">
+                <h3 style="color: #2dce89; margin-bottom: 10px;">Exercise 5: Nested Dictionaries</h3>
+                <p style="color: #a0b4c8; margin-bottom: 20px;">
+                    Create a nested dictionary called <code>library</code> with two books. Each book should have keys like <code>"title"</code>, <code>"author"</code>, and <code>"year"</code>.<br>
+                    Print the title of one book and the author of the other.
+                </p>
+                
+                <div data-datacamp-exercise data-lang="python" data-height="450">
+                    <code data-type="pre-exercise-code"># Nothing needed here</code>
+                    
+                    <code data-type="sample-code">
+                        # Create a nested dictionary called 'library' with two books
+                        
+                        # Print the title of one book and the author of the other
+                    </code>
+                    
+                    <code data-type="solution">
+                        # Create a nested dictionary called 'library' with two books
+                        library = {
+                            "book1": {
+                                "title": "1984",
+                                "author": "George Orwell",
+                                "year": 1949
+                            },
+                            "book2": {
+                                "title": "To Kill a Mockingbird",
+                                "author": "Harper Lee",
+                                "year": 1960
+                            }
+                        }
+                        
+                        # Print the title of one book and the author of the other
+                        print(library["book1"]["title"])
+                        print(library["book2"]["author"])
+                    </code>
+                    
+                    <code data-type="sct">
+                        # Check if 'library' exists
+                        test_object("library", 
+                            incorrect_msg="You need to create a dictionary called 'library'.")
+                        
+                        # Check if 'library' is a dictionary
+                        test_object("library", 
+                            incorrect_msg="Make sure 'library' is a dictionary.")
+                        
+                        # Check if 'library' has two books
+                        test_object("library", 
+                            incorrect_msg="Your library should contain two books.")
+                        
+                        # Check if book1 has required keys
+                        test_object("library", 
+                            incorrect_msg="book1 should have keys: 'title', 'author', 'year'.")
+                        
+                        # Check if book2 has required keys
+                        test_object("library", 
+                            incorrect_msg="book2 should have keys: 'title', 'author', 'year'.")
+                        
+                        # Check if title of one book was printed
+                        test_output_contains("1984", 
+                            incorrect_msg="Print the title of one book.")
+                        
+                        # Check if author of the other book was printed
+                        test_output_contains("Harper Lee", 
+                            incorrect_msg="Print the author of the other book.")
+                        
+                        # Check if print was used
+                        test_function("print", 
+                            incorrect_msg="Use print() to display the results.")
+                        
+                        # Success message
+                        success_msg("🎉 Excellent! You created a nested dictionary and accessed values!")
+                    </code>
+                    
+                    <div data-type="hint">
+                        <strong>Stuck? Try this:</strong><br>
+                        1. Create a nested dictionary:<br>
+                        <code>library = {<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;"book1": {"title": "1984", "author": "George Orwell", "year": 1949},<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;"book2": {"title": "To Kill a Mockingbird", "author": "Harper Lee", "year": 1960}<br>
+                        }</code><br>
+                        2. Access values: <code>library["book1"]["title"]</code> and <code>library["book2"]["author"]</code><br>
+                        3. Print: <code>print()</code>
+                    </div>
+                </div>
+            </div>
+
+        <!-- Navigation Back -->
+        <div style="display: flex; justify-content: space-between; margin-top: 20px; padding-top: 20px; border-top: 1px solid #1a2433;">
+            <a href="/pycraft/practice.html" style="color: #2dce89;">← Back to Practice</a>
+            <a href="/pycraft/chapter-2.html" style="color: #2dce89;">Next Chapter →</a>
+        </div>
+    </div>
+
+    <!-- JavaScript for Exercise Navigation -->
+    <script>
+        let currentExercise = 1;
+        const totalExercises = 3;
+
+        function showExercise(num) {
+            // Hide all exercises
+            const exercises = document.querySelectorAll('.exercise');
+            exercises.forEach((ex, index) => {
+                ex.style.display = 'none';
+            });
+            
+            // Show the selected exercise
+            const target = document.querySelector(`.exercise[data-exercise="${num}"]`);
+            if (target) {
+                target.style.display = 'block';
+            }
+            
+            // Update counter
+            document.getElementById('exerciseCounter').textContent = `✅ Exercise ${num} of ${totalExercises}`;
+            
+            // Update button states
+            document.getElementById('prevBtn').style.opacity = num === 1 ? '0.4' : '1';
+            document.getElementById('prevBtn').style.cursor = num === 1 ? 'default' : 'pointer';
+            document.getElementById('nextBtn').style.opacity = num === totalExercises ? '0.4' : '1';
+            document.getElementById('nextBtn').style.cursor = num === totalExercises ? 'default' : 'pointer';
+            
+            currentExercise = num;
+            
+            // Scroll to top of exercise
+            document.querySelector('.container').scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+
+        function nextExercise() {
+            if (currentExercise < totalExercises) {
+                showExercise(currentExercise + 1);
+            }
+        }
+
+        function prevExercise() {
+            if (currentExercise > 1) {
+                showExercise(currentExercise - 1);
+            }
+        }
+
+        // Initialize on page load
+        document.addEventListener('DOMContentLoaded', function() {
+            showExercise(1);
+        });
+    </script>
+
+    <script src="/pycraft/js/nav.js"></script>
+</body>
+</html>
