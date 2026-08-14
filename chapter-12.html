@@ -1,1 +1,572 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Chapter 12: Explicit Indexes pandas – PyCraft</title>
+    <link rel="stylesheet" href="/pycraft/css/style.css"/>
+    <script type="text/javascript" src="//cdn.datacamp.com/dcl-react.js.gz"></script>
+</head>
+<body>
+    <div class="container" style="padding-top: 100px; max-width: 900px; margin: 0 auto;">
+        
+        <!-- Chapter Header -->
+        <div style="margin-bottom: 30px; border-bottom: 2px solid #2dce89; padding-bottom: 20px;">
+            <h1 style="font-size: 2rem;">Chapter 12: Explicit Indexes pandas</h1>
+            <p style="color: #a0b4c8; font-size: 1.1rem;">Variables, data types, and basic operations.</p>
+            <div style="display: flex; gap: 15px; margin-top: 12px; flex-wrap: wrap; align-items: center;">
+                <span style="background: #1a2433; padding: 4px 14px; border-radius: 20px; font-size: 0.85rem;">📚 DataCamp Chapter 1</span>
+                <span style="background: #1a2433; padding: 4px 14px; border-radius: 20px; font-size: 0.85rem;" id="exerciseCounter">✅ Exercise 1 of 3</span>
+                <!-- Navigation buttons -->
+                <div style="display: flex; gap: 8px; margin-left: auto;">
+                    <button onclick="prevExercise()" id="prevBtn" style="background: #1a2433; color: #a0b4c8; border: 1px solid #2d3748; padding: 6px 16px; border-radius: 6px; cursor: pointer; font-size: 0.85rem;">
+                        ← Previous
+                    </button>
+                    <button onclick="nextExercise()" id="nextBtn" style="background: #2dce89; color: #0a0e17; border: none; padding: 6px 16px; border-radius: 6px; cursor: pointer; font-size: 0.85rem; font-weight: 600;">
+                        Next →
+                    </button>
+                </div>
+            </div>
+        </div>
 
+        <!-- Exercise Container -->
+        <div id="exerciseContainer">
+            
+            <!-- EXERCISE 1: Default Index in pandas -->
+            <div class="exercise" data-exercise="1" style="display: block; background: #111b28; border-radius: 12px; padding: 25px; border: 1px solid #1a2433; margin-bottom: 20px;">
+                <h3 style="color: #2dce89; margin-bottom: 10px;">Exercise 1: Default Index in pandas</h3>
+                <p style="color: #a0b4c8; margin-bottom: 20px;">
+                    Create a DataFrame with columns <code>"Product"</code> and <code>"Price"</code> with 3 rows of data.<br>
+                    Print the default index of the DataFrame using <code>.index</code>.
+                </p>
+                
+                <div data-datacamp-exercise data-lang="python" data-height="400">
+                    <code data-type="pre-exercise-code">
+                        # This code runs before the student's code to set up the environment
+                        import pandas as pd
+                    </code>
+                    
+                    <code data-type="sample-code">
+                        # Import pandas as pd
+                        
+                        # Create a DataFrame with columns: Product and Price (3 rows)
+                        
+                        # Print the default index using .index
+                    </code>
+                    
+                    <code data-type="solution">
+                        # Import pandas as pd
+                        import pandas as pd
+                        
+                        # Create a DataFrame with columns: Product and Price (3 rows)
+                        data = {
+                            "Product": ["Laptop", "Mouse", "Keyboard"],
+                            "Price": [1200, 25, 75]
+                        }
+                        df = pd.DataFrame(data)
+                        
+                        # Print the default index using .index
+                        print(df.index)
+                    </code>
+                    
+                    <code data-type="sct">
+                        # Check if pandas was imported
+                        test_import("pandas", 
+                            incorrect_msg="You need to import pandas as pd.")
+                        
+                        # Check if a DataFrame exists
+                        test_object("df", 
+                            incorrect_msg="Create a DataFrame called 'df' using pd.DataFrame().")
+                        
+                        # Check if 'Product' column exists
+                        test_object("df", 
+                            incorrect_msg="Your DataFrame should have a 'Product' column.")
+                        
+                        # Check if 'Price' column exists
+                        test_object("df", 
+                            incorrect_msg="Your DataFrame should have a 'Price' column.")
+                        
+                        # Check if DataFrame has 3 rows
+                        test_object("df", 
+                            incorrect_msg="Your DataFrame should contain 3 rows of data.")
+                        
+                        # Check if .index was used
+                        test_function("print", 
+                            incorrect_msg="Print the default index using df.index.")
+                        
+                        # Check if output contains the index range (0, 1, 2)
+                        test_output_contains("RangeIndex", 
+                            incorrect_msg="The default index should be a RangeIndex starting at 0.")
+                        test_output_contains("0, 1, 2", 
+                            incorrect_msg="The default index should show start=0, stop=3, step=1.")
+                        
+                        # Success message
+                        success_msg("🎉 Excellent! You explored the default index in pandas!")
+                    </code>
+                    
+                    <div data-type="hint">
+                        <strong>Stuck? Try this:</strong><br>
+                        1. Import pandas: <code>import pandas as pd</code><br>
+                        2. Create DataFrame:<br>
+                        <code>data = {</code><br>
+                        <code>&nbsp;&nbsp;&nbsp;&nbsp;"Product": ["Laptop", "Mouse", "Keyboard"],</code><br>
+                        <code>&nbsp;&nbsp;&nbsp;&nbsp;"Price": [1200, 25, 75]</code><br>
+                        <code>}</code><br>
+                        <code>df = pd.DataFrame(data)</code><br>
+                        3. Print index: <code>print(df.index)</code>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- EXERCISE 2: Setting a Custom Index -->
+            <div class="exercise" data-exercise="2" style="display: none; background: #111b28; border-radius: 12px; padding: 25px; border: 1px solid #1a2433; margin-bottom: 20px;">
+                <h3 style="color: #2dce89; margin-bottom: 10px;">Exercise 2: Setting a Custom Index</h3>
+                <p style="color: #a0b4c8; margin-bottom: 20px;">
+                    Create a DataFrame with columns <code>"ID"</code>, <code>"Item"</code>, and <code>"Cost"</code>.<br>
+                    Set the <code>"ID"</code> column as the index.<br>
+                    Print the DataFrame.
+                </p>
+                
+                <div data-datacamp-exercise data-lang="python" data-height="400">
+                    <code data-type="pre-exercise-code">
+                        # This code runs before the student's code to set up the environment
+                        import pandas as pd
+                    </code>
+                    
+                    <code data-type="sample-code">
+                        # Import pandas as pd
+                        
+                        # Create a DataFrame with columns: ID, Item, Cost
+                        
+                        # Set the "ID" column as the index
+                        
+                        # Print the DataFrame
+                    </code>
+                    
+                    <code data-type="solution">
+                        # Import pandas as pd
+                        import pandas as pd
+                        
+                        # Create a DataFrame with columns: ID, Item, Cost
+                        data = {
+                            "ID": [101, 102, 103],
+                            "Item": ["Laptop", "Mouse", "Keyboard"],
+                            "Cost": [1200, 25, 75]
+                        }
+                        df = pd.DataFrame(data)
+                        
+                        # Set the "ID" column as the index
+                        df = df.set_index("ID")
+                        
+                        # Print the DataFrame
+                        print(df)
+                    </code>
+                    
+                    <code data-type="sct">
+                        # Check if pandas was imported
+                        test_import("pandas", 
+                            incorrect_msg="You need to import pandas as pd.")
+                        
+                        # Check if a DataFrame exists
+                        test_object("df", 
+                            incorrect_msg="Create a DataFrame called 'df' using pd.DataFrame().")
+                        
+                        # Check if 'ID' column exists
+                        test_object("df", 
+                            incorrect_msg="Your DataFrame should have an 'ID' column.")
+                        
+                        # Check if 'Item' column exists
+                        test_object("df", 
+                            incorrect_msg="Your DataFrame should have an 'Item' column.")
+                        
+                        # Check if 'Cost' column exists
+                        test_object("df", 
+                            incorrect_msg="Your DataFrame should have a 'Cost' column.")
+                        
+                        # Check if 'ID' was set as index
+                        test_object("df", 
+                            incorrect_msg="Set the 'ID' column as the index using df.set_index('ID').")
+                        
+                        # Check if 'ID' is no longer a column
+                        test_object("df", 
+                            incorrect_msg="After setting 'ID' as index, it should no longer be a column.")
+                        
+                        # Check if print was used
+                        test_function("print", 
+                            incorrect_msg="Use print() to display the DataFrame.")
+                        
+                        # Success message
+                        success_msg("🎉 Excellent! You set a custom index using set_index()!")
+                    </code>
+                    
+                    <div data-type="hint">
+                        <strong>Stuck? Try this:</strong><br>
+                        1. Import pandas: <code>import pandas as pd</code><br>
+                        2. Create DataFrame:<br>
+                        <code>data = {</code><br>
+                        <code>&nbsp;&nbsp;&nbsp;&nbsp;"ID": [101, 102, 103],</code><br>
+                        <code>&nbsp;&nbsp;&nbsp;&nbsp;"Item": ["Laptop", "Mouse", "Keyboard"],</code><br>
+                        <code>&nbsp;&nbsp;&nbsp;&nbsp;"Cost": [1200, 25, 75]</code><br>
+                        <code>}</code><br>
+                        <code>df = pd.DataFrame(data)</code><br>
+                        3. Set ID as index: <code>df = df.set_index("ID")</code><br>
+                        4. Print: <code>print(df)</code>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- EXERCISE 3: Accessing Rows Using an Index -->
+            <div class="exercise" data-exercise="3" style="display: none; background: #111b28; border-radius: 12px; padding: 25px; border: 1px solid #1a2433; margin-bottom: 20px;">
+                <h3 style="color: #2dce89; margin-bottom: 10px;">Exercise 3: Accessing Rows Using an Index</h3>
+                <p style="color: #a0b4c8; margin-bottom: 20px;">
+                    Create a DataFrame with columns <code>"Code"</code> and <code>"Product"</code>. Use <code>"Code"</code> as the index.<br>
+                    Access and print the row with a specific index using <code>.loc</code>.
+                </p>
+                
+                <div data-datacamp-exercise data-lang="python" data-height="450">
+                    <code data-type="pre-exercise-code">
+                        # This code runs before the student's code to set up the environment
+                        import pandas as pd
+                    </code>
+                    
+                    <code data-type="sample-code">
+                        # Import pandas as pd
+                        
+                        # Create a DataFrame with columns: Code and Product
+                        
+                        # Set "Code" as the index
+                        
+                        # Access and print the row with a specific index using .loc
+                    </code>
+                    
+                    <code data-type="solution">
+                        # Import pandas as pd
+                        import pandas as pd
+                        
+                        # Create a DataFrame with columns: Code and Product
+                        data = {
+                            "Code": ["P001", "P002", "P003", "P004"],
+                            "Product": ["Laptop", "Mouse", "Keyboard", "Monitor"]
+                        }
+                        df = pd.DataFrame(data)
+                        
+                        # Set "Code" as the index
+                        df = df.set_index("Code")
+                        
+                        # Access and print the row with a specific index using .loc
+                        print(df.loc["P002"])
+                    </code>
+                    
+                    <code data-type="sct">
+                        # Check if pandas was imported
+                        test_import("pandas", 
+                            incorrect_msg="You need to import pandas as pd.")
+                        
+                        # Check if a DataFrame exists
+                        test_object("df", 
+                            incorrect_msg="Create a DataFrame called 'df' using pd.DataFrame().")
+                        
+                        # Check if 'Code' column exists
+                        test_object("df", 
+                            incorrect_msg="Your DataFrame should have a 'Code' column.")
+                        
+                        # Check if 'Product' column exists
+                        test_object("df", 
+                            incorrect_msg="Your DataFrame should have a 'Product' column.")
+                        
+                        # Check if 'Code' was set as index
+                        test_object("df", 
+                            incorrect_msg="Set the 'Code' column as the index using df.set_index('Code').")
+                        
+                        # Check if .loc was used to access a row
+                        test_function("print", 
+                            incorrect_msg="Access a row using df.loc['Code'] and print it.")
+                        
+                        # Check if output contains the product name
+                        test_output_contains("Product", 
+                            incorrect_msg="Your output should show the row data.")
+                        
+                        # Success message
+                        success_msg("🎉 Excellent! You accessed a row using .loc with a custom index!")
+                    </code>
+                    
+                    <div data-type="hint">
+                        <strong>Stuck? Try this:</strong><br>
+                        1. Import pandas: <code>import pandas as pd</code><br>
+                        2. Create DataFrame:<br>
+                        <code>data = {</code><br>
+                        <code>&nbsp;&nbsp;&nbsp;&nbsp;"Code": ["P001", "P002", "P003", "P004"],</code><br>
+                        <code>&nbsp;&nbsp;&nbsp;&nbsp;"Product": ["Laptop", "Mouse", "Keyboard", "Monitor"]</code><br>
+                        <code>}</code><br>
+                        <code>df = pd.DataFrame(data)</code><br>
+                        3. Set Code as index: <code>df = df.set_index("Code")</code><br>
+                        4. Access row: <code>print(df.loc["P002"])</code>
+                    </div>
+                </div>
+            </div>
+
+            <!-- EXERCISE 4: Resetting an Index -->
+            <div class="exercise" data-exercise="4" style="display: none; background: #111b28; border-radius: 12px; padding: 25px; border: 1px solid #1a2433; margin-bottom: 20px;">
+                <h3 style="color: #2dce89; margin-bottom: 10px;">Exercise 4: Resetting an Index</h3>
+                <p style="color: #a0b4c8; margin-bottom: 20px;">
+                    Create a DataFrame with columns <code>"OrderID"</code> and <code>"Amount"</code>. Use <code>"OrderID"</code> as the index.<br>
+                    Reset the index back to the default numeric index.<br>
+                    Print the updated DataFrame.
+                </p>
+                
+                <div data-datacamp-exercise data-lang="python" data-height="450">
+                    <code data-type="pre-exercise-code">
+                        # This code runs before the student's code to set up the environment
+                        import pandas as pd
+                    </code>
+                    
+                    <code data-type="sample-code">
+                        # Import pandas as pd
+                        
+                        # Create a DataFrame with columns: OrderID and Amount
+                        
+                        # Set "OrderID" as the index
+                        
+                        # Reset the index back to default numeric index
+                        
+                        # Print the updated DataFrame
+                    </code>
+                    
+                    <code data-type="solution">
+                        # Import pandas as pd
+                        import pandas as pd
+                        
+                        # Create a DataFrame with columns: OrderID and Amount
+                        data = {
+                            "OrderID": [101, 102, 103, 104],
+                            "Amount": [250, 150, 300, 200]
+                        }
+                        df = pd.DataFrame(data)
+                        
+                        # Set "OrderID" as the index
+                        df = df.set_index("OrderID")
+                        
+                        # Reset the index back to default numeric index
+                        df = df.reset_index()
+                        
+                        # Print the updated DataFrame
+                        print(df)
+                    </code>
+                    
+                    <code data-type="sct">
+                        # Check if pandas was imported
+                        test_import("pandas", 
+                            incorrect_msg="You need to import pandas as pd.")
+                        
+                        # Check if a DataFrame exists
+                        test_object("df", 
+                            incorrect_msg="Create a DataFrame called 'df' using pd.DataFrame().")
+                        
+                        # Check if 'OrderID' column exists
+                        test_object("df", 
+                            incorrect_msg="Your DataFrame should have an 'OrderID' column.")
+                        
+                        # Check if 'Amount' column exists
+                        test_object("df", 
+                            incorrect_msg="Your DataFrame should have an 'Amount' column.")
+                        
+                        # Check if reset_index() was used
+                        test_object("df", 
+                            incorrect_msg="Reset the index using df.reset_index().")
+                        
+                        # Check if 'OrderID' is a column again
+                        test_object("df", 
+                            incorrect_msg="After resetting, 'OrderID' should be a column again.")
+                        
+                        # Check if default index is back (0, 1, 2, 3)
+                        test_output_contains("0", 
+                            incorrect_msg="The reset index should start at 0.")
+                        
+                        # Check if print was used
+                        test_function("print", 
+                            incorrect_msg="Use print() to display the updated DataFrame.")
+                        
+                        # Success message
+                        success_msg("🎉 Excellent! You reset the index back to default!")
+                    </code>
+                    
+                    <div data-type="hint">
+                        <strong>Stuck? Try this:</strong><br>
+                        1. Import pandas: <code>import pandas as pd</code><br>
+                        2. Create DataFrame:<br>
+                        <code>data = {</code><br>
+                        <code>&nbsp;&nbsp;&nbsp;&nbsp;"OrderID": [101, 102, 103, 104],</code><br>
+                        <code>&nbsp;&nbsp;&nbsp;&nbsp;"Amount": [250, 150, 300, 200]</code><br>
+                        <code>}</code><br>
+                        <code>df = pd.DataFrame(data)</code><br>
+                        3. Set index: <code>df = df.set_index("OrderID")</code><br>
+                        4. Reset index: <code>df = df.reset_index()</code><br>
+                        5. Print: <code>print(df)</code>
+                    </div>
+                </div>
+            </div>
+
+            <!-- EXERCISE 5: Multi-Index DataFrames -->
+            <div class="exercise" data-exercise="5" style="display: none; background: #111b28; border-radius: 12px; padding: 25px; border: 1px solid #1a2433; margin-bottom: 20px;">
+                <h3 style="color: #2dce89; margin-bottom: 10px;">Exercise 5: Multi-Index DataFrames</h3>
+                <p style="color: #a0b4c8; margin-bottom: 20px;">
+                    Create a DataFrame with columns <code>"Region"</code>, <code>"Year"</code>, and <code>"Sales"</code>.<br>
+                    Set <code>"Region"</code> and <code>"Year"</code> as a Multi-Index.<br>
+                    Print the DataFrame.
+                </p>
+                
+                <div data-datacamp-exercise data-lang="python" data-height="450">
+                    <code data-type="pre-exercise-code">
+                        # This code runs before the student's code to set up the environment
+                        import pandas as pd
+                    </code>
+                    
+                    <code data-type="sample-code">
+                        # Import pandas as pd
+                        
+                        # Create a DataFrame with columns: Region, Year, Sales
+                        
+                        # Set "Region" and "Year" as a Multi-Index
+                        
+                        # Print the DataFrame
+                    </code>
+                    
+                    <code data-type="solution">
+                        # Import pandas as pd
+                        import pandas as pd
+                        
+                        # Create a DataFrame with columns: Region, Year, Sales
+                        data = {
+                            "Region": ["North", "North", "South", "South", "East", "East"],
+                            "Year": [2020, 2021, 2020, 2021, 2020, 2021],
+                            "Sales": [100, 120, 80, 95, 110, 130]
+                        }
+                        df = pd.DataFrame(data)
+                        
+                        # Set "Region" and "Year" as a Multi-Index
+                        df = df.set_index(["Region", "Year"])
+                        
+                        # Print the DataFrame
+                        print(df)
+                    </code>
+                    
+                    <code data-type="sct">
+                        # Check if pandas was imported
+                        test_import("pandas", 
+                            incorrect_msg="You need to import pandas as pd.")
+                        
+                        # Check if a DataFrame exists
+                        test_object("df", 
+                            incorrect_msg="Create a DataFrame called 'df' using pd.DataFrame().")
+                        
+                        # Check if 'Region' column exists
+                        test_object("df", 
+                            incorrect_msg="Your DataFrame should have a 'Region' column.")
+                        
+                        # Check if 'Year' column exists
+                        test_object("df", 
+                            incorrect_msg="Your DataFrame should have a 'Year' column.")
+                        
+                        # Check if 'Sales' column exists
+                        test_object("df", 
+                            incorrect_msg="Your DataFrame should have a 'Sales' column.")
+                        
+                        # Check if Multi-Index was set
+                        test_object("df", 
+                            incorrect_msg="Set 'Region' and 'Year' as a Multi-Index using df.set_index(['Region', 'Year']).")
+                        
+                        # Check if index has multiple levels
+                        test_object("df", 
+                            incorrect_msg="Your index should have two levels: 'Region' and 'Year'.")
+                        
+                        # Check if print was used
+                        test_function("print", 
+                            incorrect_msg="Use print() to display the DataFrame.")
+                        
+                        # Check if output shows a Multi-Index structure
+                        test_output_contains("Region", 
+                            incorrect_msg="Your output should show the Multi-Index with Region and Year.")
+                        test_output_contains("Year", 
+                            incorrect_msg="Your output should show the Multi-Index with Region and Year.")
+                        
+                        # Success message
+                        success_msg("🎉 Excellent! You created a Multi-Index DataFrame!")
+                    </code>
+                    
+                    <div data-type="hint">
+                        <strong>Stuck? Try this:</strong><br>
+                        1. Import pandas: <code>import pandas as pd</code><br>
+                        2. Create DataFrame:<br>
+                        <code>data = {</code><br>
+                        <code>&nbsp;&nbsp;&nbsp;&nbsp;"Region": ["North", "North", "South", "South", "East", "East"],</code><br>
+                        <code>&nbsp;&nbsp;&nbsp;&nbsp;"Year": [2020, 2021, 2020, 2021, 2020, 2021],</code><br>
+                        <code>&nbsp;&nbsp;&nbsp;&nbsp;"Sales": [100, 120, 80, 95, 110, 130]</code><br>
+                        <code>}</code><br>
+                        <code>df = pd.DataFrame(data)</code><br>
+                        3. Set Multi-Index: <code>df = df.set_index(["Region", "Year"])</code><br>
+                        4. Print: <code>print(df)</code>
+                    </div>
+                </div>
+            </div>
+                          
+        <!-- Navigation Back -->
+        <div style="display: flex; justify-content: space-between; margin-top: 20px; padding-top: 20px; border-top: 1px solid #1a2433;">
+            <a href="/pycraft/practice.html" style="color: #2dce89;">← Back to Practice</a>
+            <a href="/pycraft/chapter-2.html" style="color: #2dce89;">Next Chapter →</a>
+        </div>
+    </div>
+
+    <!-- JavaScript for Exercise Navigation -->
+    <script>
+        let currentExercise = 1;
+        const totalExercises = 3;
+
+        function showExercise(num) {
+            // Hide all exercises
+            const exercises = document.querySelectorAll('.exercise');
+            exercises.forEach((ex, index) => {
+                ex.style.display = 'none';
+            });
+            
+            // Show the selected exercise
+            const target = document.querySelector(`.exercise[data-exercise="${num}"]`);
+            if (target) {
+                target.style.display = 'block';
+            }
+            
+            // Update counter
+            document.getElementById('exerciseCounter').textContent = `✅ Exercise ${num} of ${totalExercises}`;
+            
+            // Update button states
+            document.getElementById('prevBtn').style.opacity = num === 1 ? '0.4' : '1';
+            document.getElementById('prevBtn').style.cursor = num === 1 ? 'default' : 'pointer';
+            document.getElementById('nextBtn').style.opacity = num === totalExercises ? '0.4' : '1';
+            document.getElementById('nextBtn').style.cursor = num === totalExercises ? 'default' : 'pointer';
+            
+            currentExercise = num;
+            
+            // Scroll to top of exercise
+            document.querySelector('.container').scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+
+        function nextExercise() {
+            if (currentExercise < totalExercises) {
+                showExercise(currentExercise + 1);
+            }
+        }
+
+        function prevExercise() {
+            if (currentExercise > 1) {
+                showExercise(currentExercise - 1);
+            }
+        }
+
+        // Initialize on page load
+        document.addEventListener('DOMContentLoaded', function() {
+            showExercise(1);
+        });
+    </script>
+
+    <script src="/pycraft/js/nav.js"></script>
+</body>
+</html>
