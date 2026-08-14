@@ -1,1 +1,501 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Chapter 8: While Loop – PyCraft</title>
+    <link rel="stylesheet" href="/pycraft/css/style.css"/>
+    <script type="text/javascript" src="//cdn.datacamp.com/dcl-react.js.gz"></script>
+</head>
+<body>
+    <div class="container" style="padding-top: 100px; max-width: 900px; margin: 0 auto;">
+        
+        <!-- Chapter Header -->
+        <div style="margin-bottom: 30px; border-bottom: 2px solid #2dce89; padding-bottom: 20px;">
+            <h1 style="font-size: 2rem;">Chapter 8: While Loop</h1>
+            <p style="color: #a0b4c8; font-size: 1.1rem;">Variables, data types, and basic operations.</p>
+            <div style="display: flex; gap: 15px; margin-top: 12px; flex-wrap: wrap; align-items: center;">
+                <span style="background: #1a2433; padding: 4px 14px; border-radius: 20px; font-size: 0.85rem;">📚 DataCamp Chapter 1</span>
+                <span style="background: #1a2433; padding: 4px 14px; border-radius: 20px; font-size: 0.85rem;" id="exerciseCounter">✅ Exercise 1 of 3</span>
+                <!-- Navigation buttons -->
+                <div style="display: flex; gap: 8px; margin-left: auto;">
+                    <button onclick="prevExercise()" id="prevBtn" style="background: #1a2433; color: #a0b4c8; border: 1px solid #2d3748; padding: 6px 16px; border-radius: 6px; cursor: pointer; font-size: 0.85rem;">
+                        ← Previous
+                    </button>
+                    <button onclick="nextExercise()" id="nextBtn" style="background: #2dce89; color: #0a0e17; border: none; padding: 6px 16px; border-radius: 6px; cursor: pointer; font-size: 0.85rem; font-weight: 600;">
+                        Next →
+                    </button>
+                </div>
+            </div>
+        </div>
 
+        <!-- Exercise Container -->
+        <div id="exerciseContainer">
+            
+            <!-- EXERCISE 1: Basic while Loop -->
+            <div class="exercise" data-exercise="1" style="display: block; background: #111b28; border-radius: 12px; padding: 25px; border: 1px solid #1a2433; margin-bottom: 20px;">
+                <h3 style="color: #2dce89; margin-bottom: 10px;">Exercise 1: Basic while Loop</h3>
+                <p style="color: #a0b4c8; margin-bottom: 20px;">
+                    Write a <code>while</code> loop that prints numbers from 1 to 10.<br>
+                    Write a <code>while</code> loop that prints numbers from 10 down to 1.
+                </p>
+                
+                <div data-datacamp-exercise data-lang="python" data-height="400">
+                    <code data-type="pre-exercise-code"># Nothing needed here</code>
+                    
+                    <code data-type="sample-code">
+                        # While loop from 1 to 10
+                        
+                        # While loop from 10 down to 1
+                    </code>
+                    
+                    <code data-type="solution">
+                        # While loop from 1 to 10
+                        i = 1
+                        while i <= 10:
+                            print(i)
+                            i += 1
+                        
+                        # While loop from 10 down to 1
+                        j = 10
+                        while j >= 1:
+                            print(j)
+                            j -= 1
+                    </code>
+                    
+                    <code data-type="sct">
+                        # Check if loop from 1 to 10 printed
+                        test_output_contains("1", 
+                            incorrect_msg="Your first loop should start at 1.")
+                        test_output_contains("10", 
+                            incorrect_msg="Your first loop should go up to 10.")
+                        
+                        # Check if loop from 10 to 1 printed
+                        test_output_contains("10", 
+                            incorrect_msg="Your second loop should start at 10.")
+                        test_output_contains("1", 
+                            incorrect_msg="Your second loop should go down to 1.")
+                        
+                        # Check if all numbers from 1 to 10 and 10 to 1 are printed
+                        # This is a simplified check
+                        test_function("print", 
+                            incorrect_msg="Use print() inside your loops to display the numbers.")
+                        
+                        # Check if loop variable was updated
+                        # This is a simplified check - we check if multiple numbers were printed
+                        # (At least 5 numbers should appear)
+                        test_function("print", 
+                            incorrect_msg="Make sure you're updating your loop variable (i += 1 or i -= 1).")
+                        
+                        # Success message
+                        success_msg("🎉 Excellent! You wrote both while loops correctly!")
+                    </code>
+                    
+                    <div data-type="hint">
+                        <strong>Stuck? Try this:</strong><br>
+                        1. While loop from 1 to 10:<br>
+                        <code>i = 1</code><br>
+                        <code>while i &lt;= 10:</code><br>
+                        <code>&nbsp;&nbsp;&nbsp;&nbsp;print(i)</code><br>
+                        <code>&nbsp;&nbsp;&nbsp;&nbsp;i += 1</code><br>
+                        <br>
+                        2. While loop from 10 to 1:<br>
+                        <code>j = 10</code><br>
+                        <code>while j &gt;= 1:</code><br>
+                        <code>&nbsp;&nbsp;&nbsp;&nbsp;print(j)</code><br>
+                        <code>&nbsp;&nbsp;&nbsp;&nbsp;j -= 1</code>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- EXERCISE 2: Using while Loops with Conditions -->
+            <div class="exercise" data-exercise="2" style="display: none; background: #111b28; border-radius: 12px; padding: 25px; border: 1px solid #1a2433; margin-bottom: 20px;">
+                <h3 style="color: #2dce89; margin-bottom: 10px;">Exercise 2: Using while Loops with Conditions</h3>
+                <p style="color: #a0b4c8; margin-bottom: 20px;">
+                    Write a program that asks the user to input a number. Keep asking until the user enters <code>0</code>.<br>
+                    Write a <code>while</code> loop that keeps running until the user types <code>"exit"</code>.
+                </p>
+                
+                <div data-datacamp-exercise data-lang="python" data-height="500">
+                    <code data-type="pre-exercise-code">
+                        # This code helps simulate user input for testing
+                        # In a real environment, input() would work normally
+                    </code>
+                    
+                    <code data-type="sample-code">
+                        # While loop that asks for a number until 0 is entered
+                        
+                        # While loop that runs until "exit" is typed
+                    </code>
+                    
+                    <code data-type="solution">
+                        # While loop that asks for a number until 0 is entered
+                        num = int(input("Enter a number (0 to stop): "))
+                        while num != 0:
+                            print(f"You entered: {num}")
+                            num = int(input("Enter a number (0 to stop): "))
+                        print("You entered 0. Program ended.")
+                        
+                        # While loop that runs until "exit" is typed
+                        user_input = input("Type 'exit' to stop: ")
+                        while user_input != "exit":
+                            print(f"You typed: {user_input}")
+                            user_input = input("Type 'exit' to stop: ")
+                        print("You typed 'exit'. Program ended.")
+                    </code>
+                    
+                    <code data-type="sct">
+                        # Check if input() was used
+                        test_function("input", 
+                            incorrect_msg="Use input() to get user input.")
+                        
+                        # Check if int() was used for number conversion
+                        test_function("int", 
+                            incorrect_msg="Convert the input to an integer using int() for the number loop.")
+                        
+                        # Check if while loop was used for numbers
+                        test_function("print", 
+                            incorrect_msg="Use a while loop to keep asking until 0 is entered.")
+                        
+                        # Check if while loop was used for strings
+                        test_function("print", 
+                            incorrect_msg="Use a while loop to keep asking until 'exit' is typed.")
+                        
+                        # Success message
+                        success_msg("🎉 Excellent! You wrote while loops that respond to user input!")
+                    </code>
+                    
+                    <div data-type="hint">
+                        <strong>Stuck? Try this:</strong><br>
+                        1. Number loop:<br>
+                        <code>num = int(input("Enter a number (0 to stop): "))</code><br>
+                        <code>while num != 0:</code><br>
+                        <code>&nbsp;&nbsp;&nbsp;&nbsp;print(f"You entered: {num}")</code><br>
+                        <code>&nbsp;&nbsp;&nbsp;&nbsp;num = int(input("Enter a number (0 to stop): "))</code><br>
+                        <br>
+                        2. String loop:<br>
+                        <code>user_input = input("Type 'exit' to stop: ")</code><br>
+                        <code>while user_input != "exit":</code><br>
+                        <code>&nbsp;&nbsp;&nbsp;&nbsp;print(f"You typed: {user_input}")</code><br>
+                        <code>&nbsp;&nbsp;&nbsp;&nbsp;user_input = input("Type 'exit' to stop: ")</code>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- EXERCISE 3: Infinite Loops and Breaking Out -->
+            <div class="exercise" data-exercise="3" style="display: none; background: #111b28; border-radius: 12px; padding: 25px; border: 1px solid #1a2433; margin-bottom: 20px;">
+                <h3 style="color: #2dce89; margin-bottom: 10px;">Exercise 3: Infinite Loops and Breaking Out</h3>
+                <p style="color: #a0b4c8; margin-bottom: 20px;">
+                    Write an infinite loop that keeps printing <code>"Hello!"</code>. Use the <code>break</code> statement to stop the loop after 5 iterations.<br>
+                    Write a program where the user keeps entering numbers, but the loop breaks if they enter a negative number.
+                </p>
+                
+                <div data-datacamp-exercise data-lang="python" data-height="500">
+                    <code data-type="pre-exercise-code">
+                        # This code helps simulate user input for testing
+                        # In a real environment, input() would work normally
+                    </code>
+                    
+                    <code data-type="sample-code">
+                        # Infinite loop that prints "Hello!" and breaks after 5 times
+                        
+                        # Loop that breaks when user enters a negative number
+                    </code>
+                    
+                    <code data-type="solution">
+                        # Infinite loop that prints "Hello!" and breaks after 5 times
+                        count = 0
+                        while True:
+                            print("Hello!")
+                            count += 1
+                            if count == 5:
+                                break
+                        print("Loop ended after 5 iterations.")
+                        
+                        # Loop that breaks when user enters a negative number
+                        while True:
+                            num = int(input("Enter a number (negative to stop): "))
+                            if num < 0:
+                                print("Negative number entered. Loop ended.")
+                                break
+                            print(f"You entered: {num}")
+                    </code>
+                    
+                    <code data-type="sct">
+                        # Check if while True was used
+                        test_function("print", 
+                            incorrect_msg="Use 'while True:' to create an infinite loop.")
+                        
+                        # Check if break was used
+                        test_function("print", 
+                            incorrect_msg="Use 'break' to exit the loop when the condition is met.")
+                        
+                        # Check if "Hello!" was printed 5 times
+                        test_output_contains("Hello!", 
+                            incorrect_msg="Your loop should print 'Hello!' 5 times.")
+                        
+                        # Check if input() was used
+                        test_function("input", 
+                            incorrect_msg="Use input() to get user input.")
+                        
+                        # Check if int() was used for number conversion
+                        test_function("int", 
+                            incorrect_msg="Convert the input to an integer using int().")
+                        
+                        # Check if negative number check was implemented
+                        test_output_contains("negative", 
+                            incorrect_msg="Check if the number is negative and use break to exit.")
+                        
+                        # Success message
+                        success_msg("🎉 Excellent! You mastered infinite loops and the break statement!")
+                    </code>
+                    
+                    <div data-type="hint">
+                        <strong>Stuck? Try this:</strong><br>
+                        1. Hello loop:<br>
+                        <code>count = 0</code><br>
+                        <code>while True:</code><br>
+                        <code>&nbsp;&nbsp;&nbsp;&nbsp;print("Hello!")</code><br>
+                        <code>&nbsp;&nbsp;&nbsp;&nbsp;count += 1</code><br>
+                        <code>&nbsp;&nbsp;&nbsp;&nbsp;if count == 5:</code><br>
+                        <code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;break</code><br>
+                        <br>
+                        2. Number loop:<br>
+                        <code>while True:</code><br>
+                        <code>&nbsp;&nbsp;&nbsp;&nbsp;num = int(input("Enter a number: "))</code><br>
+                        <code>&nbsp;&nbsp;&nbsp;&nbsp;if num &lt; 0:</code><br>
+                        <code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;break</code><br>
+                        <code>&nbsp;&nbsp;&nbsp;&nbsp;print(f"You entered: {num}")</code>
+                    </div>
+                </div>
+            </div>
+
+            <!-- EXERCISE 4: Using while Loops with else -->
+            <div class="exercise" data-exercise="4" style="display: none; background: #111b28; border-radius: 12px; padding: 25px; border: 1px solid #1a2433; margin-bottom: 20px;">
+                <h3 style="color: #2dce89; margin-bottom: 10px;">Exercise 4: Using while Loops with else</h3>
+                <p style="color: #a0b4c8; margin-bottom: 20px;">
+                    Write a <code>while</code> loop that counts from 1 to 3 and prints <code>"Done!"</code> after the loop finishes.<br>
+                    Write a <code>while</code> loop that checks if a number is less than 10. Use the <code>else</code> statement to print <code>"Condition no longer true"</code> when the loop ends.
+                </p>
+                
+                <div data-datacamp-exercise data-lang="python" data-height="450">
+                    <code data-type="pre-exercise-code"># Nothing needed here</code>
+                    
+                    <code data-type="sample-code">
+                        # While loop from 1 to 3 with else
+                        
+                        # While loop with condition and else
+                    </code>
+                    
+                    <code data-type="solution">
+                        # While loop from 1 to 3 with else
+                        i = 1
+                        while i <= 3:
+                            print(i)
+                            i += 1
+                        else:
+                            print("Done!")
+                        
+                        # While loop with condition and else
+                        num = 5
+                        while num < 10:
+                            print(f"num is {num}")
+                            num += 1
+                        else:
+                            print("Condition no longer true")
+                    </code>
+                    
+                    <code data-type="sct">
+                        # Check if first loop printed 1, 2, 3
+                        test_output_contains("1", 
+                            incorrect_msg="Your first loop should print 1, 2, 3.")
+                        test_output_contains("2", 
+                            incorrect_msg="Your first loop should print 1, 2, 3.")
+                        test_output_contains("3", 
+                            incorrect_msg="Your first loop should print 1, 2, 3.")
+                        
+                        # Check if "Done!" was printed
+                        test_output_contains("Done!", 
+                            incorrect_msg="Use the else statement to print 'Done!' after the loop.")
+                        
+                        # Check if second loop printed numbers 5-9
+                        test_output_contains("5", 
+                            incorrect_msg="Your second loop should start at 5.")
+                        test_output_contains("9", 
+                            incorrect_msg="Your second loop should go up to 9.")
+                        
+                        # Check if "Condition no longer true" was printed
+                        test_output_contains("Condition no longer true", 
+                            incorrect_msg="Use the else statement to print 'Condition no longer true'.")
+                        
+                        # Success message
+                        success_msg("🎉 Excellent! You mastered while loops with else statements!")
+                    </code>
+                    
+                    <div data-type="hint">
+                        <strong>Stuck? Try this:</strong><br>
+                        1. Count from 1 to 3 with else:<br>
+                        <code>i = 1</code><br>
+                        <code>while i &lt;= 3:</code><br>
+                        <code>&nbsp;&nbsp;&nbsp;&nbsp;print(i)</code><br>
+                        <code>&nbsp;&nbsp;&nbsp;&nbsp;i += 1</code><br>
+                        <code>else:</code><br>
+                        <code>&nbsp;&nbsp;&nbsp;&nbsp;print("Done!")</code><br>
+                        <br>
+                        2. While loop with condition and else:<br>
+                        <code>num = 5</code><br>
+                        <code>while num &lt; 10:</code><br>
+                        <code>&nbsp;&nbsp;&nbsp;&nbsp;print(f"num is {num}")</code><br>
+                        <code>&nbsp;&nbsp;&nbsp;&nbsp;num += 1</code><br>
+                        <code>else:</code><br>
+                        <code>&nbsp;&nbsp;&nbsp;&nbsp;print("Condition no longer true")</code>
+                    </div>
+                </div>
+            </div>  
+
+            <!-- EXERCISE 5: Combining while Loops with Lists -->
+            <div class="exercise" data-exercise="5" style="display: none; background: #111b28; border-radius: 12px; padding: 25px; border: 1px solid #1a2433; margin-bottom: 20px;">
+                <h3 style="color: #2dce89; margin-bottom: 10px;">Exercise 5: Combining while Loops with Lists</h3>
+                <p style="color: #a0b4c8; margin-bottom: 20px;">
+                    Create a list of numbers <code>[10, 20, 30, 40, 50]</code>. Use a <code>while</code> loop to print each number.<br>
+                    Create a list of strings (e.g., friends' names) and use a <code>while</code> loop to print each name.
+                </p>
+                
+                <div data-datacamp-exercise data-lang="python" data-height="450">
+                    <code data-type="pre-exercise-code"># Nothing needed here</code>
+                    
+                    <code data-type="sample-code">
+                        # Create a list of numbers and print each using a while loop
+                        
+                        # Create a list of strings and print each using a while loop
+                    </code>
+                    
+                    <code data-type="solution">
+                        # Create a list of numbers and print each using a while loop
+                        numbers = [10, 20, 30, 40, 50]
+                        i = 0
+                        while i < len(numbers):
+                            print(numbers[i])
+                            i += 1
+                        
+                        # Create a list of strings and print each using a while loop
+                        friends = ["Alice", "Bob", "Charlie", "Diana"]
+                        j = 0
+                        while j < len(friends):
+                            print(friends[j])
+                            j += 1
+                    </code>
+                    
+                    <code data-type="sct">
+                        # Check if numbers list exists
+                        test_object("numbers", 
+                            incorrect_msg="Create a list called 'numbers' with [10, 20, 30, 40, 50].")
+                        
+                        # Check if numbers list has correct values
+                        test_object("numbers", 
+                            incorrect_msg="Your numbers list should contain [10, 20, 30, 40, 50].")
+                        
+                        # Check if friends list exists
+                        test_object("friends", 
+                            incorrect_msg="Create a list called 'friends' with some names.")
+                        
+                        # Check if first number (10) was printed
+                        test_output_contains("10", 
+                            incorrect_msg="Your first loop should print 10, 20, 30, 40, 50.")
+                        
+                        # Check if last number (50) was printed
+                        test_output_contains("50", 
+                            incorrect_msg="Your first loop should print all numbers in the list.")
+                        
+                        # Check if first friend name was printed
+                        test_output_contains("Alice", 
+                            incorrect_msg="Your second loop should print the names in your friends list.")
+                        
+                        # Check if print was used
+                        test_function("print", 
+                            incorrect_msg="Use print() to display each item.")
+                        
+                        # Success message
+                        success_msg("🎉 Excellent! You combined while loops with lists successfully!")
+                    </code>
+                    
+                    <div data-type="hint">
+                        <strong>Stuck? Try this:</strong><br>
+                        1. Numbers list:<br>
+                        <code>numbers = [10, 20, 30, 40, 50]</code><br>
+                        <code>i = 0</code><br>
+                        <code>while i &lt; len(numbers):</code><br>
+                        <code>&nbsp;&nbsp;&nbsp;&nbsp;print(numbers[i])</code><br>
+                        <code>&nbsp;&nbsp;&nbsp;&nbsp;i += 1</code><br>
+                        <br>
+                        2. Friends list:<br>
+                        <code>friends = ["Alice", "Bob", "Charlie", "Diana"]</code><br>
+                        <code>j = 0</code><br>
+                        <code>while j &lt; len(friends):</code><br>
+                        <code>&nbsp;&nbsp;&nbsp;&nbsp;print(friends[j])</code><br>
+                        <code>&nbsp;&nbsp;&nbsp;&nbsp;j += 1</code>
+                    </div>
+                </div>
+            </div>   
+                          
+        <!-- Navigation Back -->
+        <div style="display: flex; justify-content: space-between; margin-top: 20px; padding-top: 20px; border-top: 1px solid #1a2433;">
+            <a href="/pycraft/practice.html" style="color: #2dce89;">← Back to Practice</a>
+            <a href="/pycraft/chapter-2.html" style="color: #2dce89;">Next Chapter →</a>
+        </div>
+    </div>
+
+    <!-- JavaScript for Exercise Navigation -->
+    <script>
+        let currentExercise = 1;
+        const totalExercises = 3;
+
+        function showExercise(num) {
+            // Hide all exercises
+            const exercises = document.querySelectorAll('.exercise');
+            exercises.forEach((ex, index) => {
+                ex.style.display = 'none';
+            });
+            
+            // Show the selected exercise
+            const target = document.querySelector(`.exercise[data-exercise="${num}"]`);
+            if (target) {
+                target.style.display = 'block';
+            }
+            
+            // Update counter
+            document.getElementById('exerciseCounter').textContent = `✅ Exercise ${num} of ${totalExercises}`;
+            
+            // Update button states
+            document.getElementById('prevBtn').style.opacity = num === 1 ? '0.4' : '1';
+            document.getElementById('prevBtn').style.cursor = num === 1 ? 'default' : 'pointer';
+            document.getElementById('nextBtn').style.opacity = num === totalExercises ? '0.4' : '1';
+            document.getElementById('nextBtn').style.cursor = num === totalExercises ? 'default' : 'pointer';
+            
+            currentExercise = num;
+            
+            // Scroll to top of exercise
+            document.querySelector('.container').scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+
+        function nextExercise() {
+            if (currentExercise < totalExercises) {
+                showExercise(currentExercise + 1);
+            }
+        }
+
+        function prevExercise() {
+            if (currentExercise > 1) {
+                showExercise(currentExercise - 1);
+            }
+        }
+
+        // Initialize on page load
+        document.addEventListener('DOMContentLoaded', function() {
+            showExercise(1);
+        });
+    </script>
+
+    <script src="/pycraft/js/nav.js"></script>
+</body>
+</html>
